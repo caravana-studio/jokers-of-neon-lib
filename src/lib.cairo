@@ -1,5 +1,6 @@
 mod constants;
 mod interfaces {
+    mod base;
     mod current_hand;
     mod discards;
     mod game;
