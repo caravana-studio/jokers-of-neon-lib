@@ -9,6 +9,7 @@ mod interfaces {
     mod post_calculate_hand;
     mod power_up;
     mod pre_calculate_hand;
+    mod registrator;
     mod round;
     mod round_state;
     mod shop;
