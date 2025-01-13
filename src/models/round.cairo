@@ -1,10 +1,11 @@
 #[derive(Copy, Drop, Serde)]
-struct Round {
+#[dojo::model]
+pub struct Round {
     #[key]
-    game_id: u32,
-    player_score: u32,
-    level_score: u32,
-    hands: u8,
-    discard: u8
+    pub game_id: u32,
+    pub player_score: u32,
+    pub level_score: u32,
+    pub hands: u8,
+    pub discard: u8
 }
 
