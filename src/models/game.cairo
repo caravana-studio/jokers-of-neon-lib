@@ -9,6 +9,7 @@ pub enum GameState {
 }
 
 #[derive(Copy, Drop, Serde)]
+#[dojo::model]
 pub struct Game {
     #[key]
     pub id: u32,
