@@ -1,4 +1,4 @@
-use jokers_of_neon_lib::models::game::Game;
+use jokers_of_neon_lib::models::status::game::game::Game;
 
 #[starknet::interface]
 trait ISpecialGameTypeSpecificType<T> {

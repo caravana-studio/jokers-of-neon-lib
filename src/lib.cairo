@@ -18,12 +18,31 @@ mod interfaces {
 }
 
 mod models {
-    mod card;
-    mod discount_section;
-    mod game;
     mod play_info;
-    mod poker_hand;
-    mod power_up;
-    mod round;
     mod special_type;
+    mod data {
+        mod blister_pack;
+        mod card;
+        mod effect_card;
+        mod game_deck;
+        mod game_mod;
+        mod game_point_event;
+        mod poker_hand;
+        mod power_up;
+        mod special_data;
+    }
+    mod status {
+        mod game {
+            mod game;
+            mod player;
+            mod rage;
+        }
+        mod round {
+            mod current_hand_card;
+            mod round;
+        }
+        mod shop {
+            mod shop;
+        }
+    }
 }

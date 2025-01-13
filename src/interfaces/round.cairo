@@ -1,5 +1,5 @@
-use jokers_of_neon_lib::models::round::Round;
 use jokers_of_neon_lib::models::special_type::SpecialType;
+use jokers_of_neon_lib::models::status::round::round::Round;
 
 #[starknet::interface]
 trait ISpecialRoundType<T> {

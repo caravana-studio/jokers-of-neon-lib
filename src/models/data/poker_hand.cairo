@@ -15,7 +15,7 @@ trait Enumerable<T> {
     fn all() -> Span<T>;
 }
 
-#[derive(Serde, Copy, Drop, Introspect, PartialEq)]
+#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
 enum PokerHand {
     None,
     RoyalFlush,
@@ -51,7 +51,7 @@ impl PokerHandImpl of Enumerable<PokerHand> {
     }
 }
 
-#[derive(Copy, Drop, Serde, starknet::Event)]
+#[derive(Copy, Drop, IntrospectPacked, Serde, starknet::Event)]
 struct LevelPokerHand {
     #[key]
     poker_hand: PokerHand,

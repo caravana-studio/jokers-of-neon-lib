@@ -1,6 +1,6 @@
-use jokers_of_neon_lib::models::card::Card;
-use jokers_of_neon_lib::models::game::Game;
+use jokers_of_neon_lib::models::data::card::Card;
 use jokers_of_neon_lib::models::special_type::SpecialType;
+use jokers_of_neon_lib::models::status::game::game::Game;
 
 #[starknet::interface]
 trait ISpecialWinType<T> {

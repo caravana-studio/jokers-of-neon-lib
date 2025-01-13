@@ -1,5 +1,5 @@
-use jokers_of_neon_lib::models::discount_section::DiscountSection;
 use jokers_of_neon_lib::models::special_type::SpecialType;
+use jokers_of_neon_lib::models::status::shop::shop::DiscountSection;
 
 #[starknet::interface]
 trait ISpecialShopType<T> {

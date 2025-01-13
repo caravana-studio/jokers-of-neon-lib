@@ -1,6 +1,6 @@
-use jokers::models::config::game_config::GameConfig;
-use jokers::models::config::round_rewards_config::RoundConfig;
-use jokers::models::config::shop_config::ShopConfig;
+use jokers_of_neon_lib::models::config::game_config::GameConfig;
+use jokers_of_neon_lib::models::config::round_rewards_config::RoundConfig;
+use jokers_of_neon_lib::models::config::shop_config::ShopConfig;
 
 #[starknet::interface]
 trait IConfigurator<T> {

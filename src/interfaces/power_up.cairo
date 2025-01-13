@@ -1,4 +1,4 @@
-use jokers_of_neon_lib::models::power_up::PowerUp;
+use jokers_of_neon_lib::models::data::power_up::PowerUp;
 use jokers_of_neon_lib::models::special_type::SpecialType;
 
 #[starknet::interface]

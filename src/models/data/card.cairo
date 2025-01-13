@@ -4,7 +4,7 @@ trait Enumerable<T> {
     fn all() -> Span<T>;
 }
 
-#[derive(Copy, Drop, Serde)]
+#[derive(Copy, Drop, IntrospectPacked, Serde)]
 struct Card {
     id: u32,
     suit: Suit,
@@ -37,7 +37,7 @@ impl CardImpl of CardTrait {
     }
 }
 
-#[derive(Serde, Copy, Drop, Introspect, PartialEq)]
+#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
 enum Suit {
     None,
     Clubs, // Tréboles
@@ -84,7 +84,7 @@ impl SuitIntoFelt252 of Into<Suit, felt252> {
     }
 }
 
-#[derive(Serde, Copy, Drop, Introspect, PartialEq)]
+#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
 enum Value {
     None,
     Two,

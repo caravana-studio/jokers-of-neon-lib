@@ -1,4 +1,4 @@
-use jokers_of_neon_lib::models::card::Card;
+use jokers_of_neon_lib::models::data::card::Card;
 use jokers_of_neon_lib::models::special_type::SpecialType;
 
 #[starknet::interface]
