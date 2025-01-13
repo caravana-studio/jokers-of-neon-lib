@@ -13,7 +13,5 @@ max-line-length = 120
 [dependencies]
 dojo = { git = "https://github.com/dojoengine/dojo", tag = "v1.0.10" }
 
-[[target.starknet-contract]]
-build-external-contracts = ["dojo::world::world_contract::world"]
 
 [lib]

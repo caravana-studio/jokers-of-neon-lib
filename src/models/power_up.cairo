@@ -1,4 +1,4 @@
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Serde)]
 pub struct PowerUp {
     pub id: u32,
     pub points: u32,

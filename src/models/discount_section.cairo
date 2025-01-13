@@ -1,4 +1,4 @@
-#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
+#[derive(Serde, Copy, Drop, PartialEq)]
 enum DiscountSection {
     Traditionals,
     Modifiers,

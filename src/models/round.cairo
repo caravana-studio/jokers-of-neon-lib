@@ -1,4 +1,4 @@
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Serde)]
 struct Round {
     #[key]
     game_id: u32,
