@@ -1,6 +1,6 @@
 use starknet::ContractAddress;
 
-#[derive(Serde, Copy, Drop, PartialEq)]
+#[derive(Serde, Copy, Drop, Introspect, PartialEq)]
 pub enum GameState {
     IN_GAME,
     AT_SHOP,

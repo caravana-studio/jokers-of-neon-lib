@@ -1,4 +1,4 @@
-#[derive(Serde, Copy, Drop, PartialEq)]
+#[derive(Serde, Copy, Drop, Introspect, PartialEq)]
 enum SpecialType {
     PreCalculateHand, // play HECHO
     PostCalculateHand, // play NO IMPORTA

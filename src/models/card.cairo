@@ -37,7 +37,7 @@ impl CardImpl of CardTrait {
     }
 }
 
-#[derive(Serde, Copy, Drop, PartialEq)]
+#[derive(Serde, Copy, Drop, Introspect, PartialEq)]
 enum Suit {
     None,
     Clubs, // Tréboles
@@ -84,7 +84,7 @@ impl SuitIntoFelt252 of Into<Suit, felt252> {
     }
 }
 
-#[derive(Serde, Copy, Drop, PartialEq)]
+#[derive(Serde, Copy, Drop, Introspect, PartialEq)]
 enum Value {
     None,
     Two,

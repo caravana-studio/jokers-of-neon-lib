@@ -15,7 +15,7 @@ trait Enumerable<T> {
     fn all() -> Span<T>;
 }
 
-#[derive(Serde, Copy, Drop, PartialEq)]
+#[derive(Serde, Copy, Drop, Introspect, PartialEq)]
 enum PokerHand {
     None,
     RoyalFlush,
