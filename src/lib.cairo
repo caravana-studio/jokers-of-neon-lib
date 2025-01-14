@@ -6,7 +6,8 @@ mod constants {
 
 mod interfaces {
     mod base;
-    mod configurator;
+    mod loot_boxes_info;
+    mod specials_info;
     mod current_hand;
     mod discards;
     mod game;
