@@ -13,6 +13,7 @@ pub enum GameState {
 pub struct Game {
     #[key]
     pub id: u32,
+    pub mod_id: u32,
     pub owner: ContractAddress,
     pub player_name: felt252,
     pub max_hands: u8,
@@ -46,6 +47,7 @@ impl DefaultGame of Default<Game> {
     fn default() -> Game {
         Game {
             id: 1,
+            mod_id: 0,
             owner: Zeroable::zero(),
             player_name: Zeroable::zero(),
             max_hands: 5,
