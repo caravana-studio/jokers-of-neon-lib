@@ -36,6 +36,7 @@ mod models {
         mod game_deck;
         mod game_mod;
         mod game_point_event;
+        mod mod_tracker;
         mod poker_hand;
         mod power_up;
         mod special_data;
