@@ -1,6 +1,7 @@
 mod constants;
 mod interfaces {
     mod base;
+    mod configurator;
     mod current_hand;
     mod discards;
     mod game;
