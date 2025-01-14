@@ -7,4 +7,5 @@ pub struct GameMod {
     pub id: u32,
     pub name: felt252,
     pub owner: ContractAddress,
+    pub total_games: u32,
 }

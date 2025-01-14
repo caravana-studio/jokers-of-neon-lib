@@ -7,12 +7,20 @@ struct Shop {
     game_id: u32,
     reroll_cost: u32,
     reroll_executed: bool,
-    len_item_common_cards: u32,
-    len_item_modifier_cards: u32,
-    len_item_special_cards: u32,
-    len_item_poker_hands: u32,
-    len_item_blister_pack: u32,
-    len_item_power_ups: u32,
+}
+
+#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[dojo::model]
+pub struct ShopConfig {
+    #[key]
+    pub game_id: u32,
+    pub initial_reroll_cost: u32,
+    pub len_item_common_cards: u32,
+    pub len_item_modifier_cards: u32,
+    pub len_item_special_cards: u32,
+    pub len_item_poker_hands: u32,
+    pub len_item_blister_pack: u32,
+    pub len_item_power_ups: u32,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
@@ -167,16 +175,6 @@ enum DiscountSection {
 
 impl DefaultShop of Default<Shop> {
     fn default() -> Shop {
-        Shop {
-            game_id: 1,
-            reroll_cost: 100,
-            reroll_executed: false,
-            len_item_common_cards: 5,
-            len_item_modifier_cards: 3,
-            len_item_special_cards: 3,
-            len_item_poker_hands: 3,
-            len_item_blister_pack: 2,
-            len_item_power_ups: 2,
-        }
+        Shop { game_id: 1, reroll_cost: 100, reroll_executed: false, }
     }
 }
