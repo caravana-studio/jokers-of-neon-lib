@@ -15,10 +15,18 @@ mod interfaces {
     mod round_state;
     mod shop;
     mod win;
+    mod rage {
+        mod base;
+        mod debuff;
+        mod game;
+        mod round;
+        mod silence;
+    }
 }
 
 mod models {
     mod play_info;
+    mod rage_type;
     mod special_type;
     mod data {
         mod blister_pack;
