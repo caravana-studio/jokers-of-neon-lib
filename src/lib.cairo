@@ -1,4 +1,9 @@
-mod constants;
+mod utils;
+mod constants {
+    mod card;
+    mod modifiers;
+}
+
 mod interfaces {
     mod base;
     mod configurator;
