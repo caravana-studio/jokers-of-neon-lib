@@ -30,7 +30,7 @@ mod models {
     mod rage_type;
     mod special_type;
     mod data {
-        mod blister_pack;
+        mod loot_box;
         mod card;
         mod effect_card;
         mod game_deck;

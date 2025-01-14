@@ -1,5 +1,5 @@
 #[derive(Copy, Drop, Serde)]
-struct BlisterPack {
+struct LootBox {
     #[key]
     id: u32,
     cost: u32,
