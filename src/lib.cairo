@@ -10,7 +10,6 @@ mod interfaces {
     mod discards;
     mod game;
     mod individual;
-    mod loot_boxes_info;
     mod play_levels;
     mod plays_rules;
     mod post_calculate_hand;
@@ -20,7 +19,6 @@ mod interfaces {
     mod round;
     mod round_state;
     mod shop;
-    mod specials_info;
     mod win;
     mod rage {
         mod base;
@@ -28,6 +26,12 @@ mod interfaces {
         mod game;
         mod round;
         mod silence;
+    }
+    mod info {
+        mod card_info;
+        mod loot_boxes_info;
+        mod rages_info;
+        mod specials_info;
     }
 }
 

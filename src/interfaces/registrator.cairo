@@ -5,8 +5,10 @@ trait IRegistrator<T> {
     fn register_game_mod(
         ref self: T,
         mod_name: felt252,
-        loot_boxes_info_system_address: ContractAddress,
-        specials_info_system_address: ContractAddress
+        card_info_address: ContractAddress,
+        specials_info_address: ContractAddress,
+        rages_info_address: ContractAddress,
+        loot_boxes_info_address: ContractAddress
     ) -> u32;
     fn register_special(ref self: T, mod_id: u32, special_id: u32, contract_address: ContractAddress);
     fn register_specials(ref self: T, mod_id: u32, special_ids: Span<u32>, contract_addresses: Span<ContractAddress>);
