@@ -6,12 +6,11 @@ mod constants {
 
 mod interfaces {
     mod base;
-    mod loot_boxes_info;
-    mod specials_info;
     mod current_hand;
     mod discards;
     mod game;
     mod individual;
+    mod loot_boxes_info;
     mod play_levels;
     mod plays_rules;
     mod post_calculate_hand;
@@ -21,6 +20,7 @@ mod interfaces {
     mod round;
     mod round_state;
     mod shop;
+    mod specials_info;
     mod win;
     mod rage {
         mod base;
@@ -36,15 +36,16 @@ mod models {
     mod rage_type;
     mod special_type;
     mod data {
-        mod loot_box;
         mod card;
         mod effect_card;
         mod game_deck;
         mod game_mod;
         mod game_point_event;
+        mod loot_box;
         mod mod_tracker;
         mod poker_hand;
         mod power_up;
+        mod rage_data;
         mod special_data;
     }
     mod status {
