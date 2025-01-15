@@ -31,6 +31,10 @@ mod interfaces {
     }
 }
 
+mod events {
+    mod card_play_event;
+}
+
 mod models {
     mod play_info;
     mod rage_type;
@@ -40,7 +44,6 @@ mod models {
         mod effect_card;
         mod game_deck;
         mod game_mod;
-        mod game_point_event;
         mod loot_box;
         mod mod_tracker;
         mod poker_hand;
