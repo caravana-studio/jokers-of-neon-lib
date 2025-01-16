@@ -5,7 +5,7 @@ struct Round {
     game_id: u32,
     player_score: u32,
     level_score: u32,
-    hands: u8,
-    discard: u8
+    current_plays: u16,
+    current_discard: u16
 }
 
