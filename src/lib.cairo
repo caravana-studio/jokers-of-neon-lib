@@ -12,11 +12,6 @@ mod configs {
 }
 
 mod interfaces {
-    mod configs{
-        mod game;
-        mod shop;
-        mod play_rules;
-    }
     mod base;
     mod current_hand;
     mod discards;
@@ -32,6 +27,11 @@ mod interfaces {
     mod round_state;
     mod shop;
     mod win;
+    mod configs {
+        mod game;
+        mod play_rules;
+        mod shop;
+    }
     mod rage {
         mod base;
         mod debuff;
