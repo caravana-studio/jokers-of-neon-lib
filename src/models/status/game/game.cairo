@@ -23,6 +23,7 @@ pub struct Game {
     pub plays: u32,
     pub discards: u32,
     pub current_specials_len: u32,
+    pub special_slots: u32,
     pub cash: u32
 }
 
