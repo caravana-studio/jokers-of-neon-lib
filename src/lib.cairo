@@ -4,7 +4,7 @@ mod constants {
     mod modifiers;
 }
 
-mod configs { 
+mod configs {
     mod game;
     mod play_rules;
     mod round_rewards;
@@ -59,8 +59,6 @@ mod models {
         mod mod_tracker;
         mod poker_hand;
         mod power_up;
-        mod rage_data;
-        mod special_data;
     }
     mod status {
         mod game {
