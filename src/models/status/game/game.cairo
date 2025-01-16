@@ -18,7 +18,7 @@ pub struct Game {
     pub owner: ContractAddress,
     pub player_name: felt252,
     pub player_score: u32,
-    pub round: u32,
+    pub level: u32,
     pub hand_len: u32,
     pub plays: u32,
     pub discards: u32,
