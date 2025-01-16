@@ -14,13 +14,15 @@ pub struct Game {
     #[key]
     pub id: u32,
     pub mod_id: u32,
+    pub state: GameState,
     pub owner: ContractAddress,
     pub player_name: felt252,
     pub player_score: u32,
     pub round: u32,
-    pub current_hand_len: u32,
+    pub hand_len: u32,
+    pub plays: u32,
+    pub discards: u32,
     pub current_specials_len: u32,
-    pub state: GameState,
     pub cash: u32
 }
 
