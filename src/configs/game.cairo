@@ -2,10 +2,6 @@ use starknet::ContractAddress;
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 pub struct GameConfig {
-    #[key]
-    pub id: u32,
-    pub mod_id: u32,
-    pub owner: ContractAddress,
     pub plays: u16,
     pub discards: u16,
     pub specials_slots: u16,

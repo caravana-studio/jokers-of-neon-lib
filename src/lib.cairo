@@ -12,6 +12,10 @@ mod configs {
 }
 
 mod interfaces {
+    mod configs{
+        mod game;
+        mod shop;
+    }
     mod base;
     mod current_hand;
     mod discards;
