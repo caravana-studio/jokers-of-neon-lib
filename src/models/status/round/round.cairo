@@ -6,6 +6,6 @@ struct Round {
     player_score: u32,
     level_score: u32,
     current_plays: u16,
-    current_discard: u16
+    current_discards: u16
 }
 
