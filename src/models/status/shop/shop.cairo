@@ -2,26 +2,17 @@ use jokers_of_neon_lib::models::data::poker_hand::PokerHand;
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct Shop {
+struct PurchaseTracker {
     #[key]
     game_id: u32,
-    reroll_cost: u32,
-    reroll_executed: bool,
-    len_item_common_cards: u32,
-    len_item_modifier_cards: u32,
-    len_item_special_cards: u32,
-    len_item_poker_hands: u32,
-    len_item_blister_pack: u32,
-    len_item_power_ups: u32,
-}
-
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
-#[dojo::model]
-struct ShopTracker {
-    #[key]
-    game_id: u32,
-    count_reroll: u32,
-    count_burn: u32,
+    traditonal_cards_count: u32,
+    modifier_cards_count: u32,
+    special_cards_count: u32,
+    loot_boxes_count: u32,
+    power_up_count: u32,
+    level_poker_hands_count: u32,
+    burn_count: u32,
+    reroll_count: u32,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
@@ -141,6 +132,16 @@ struct BurnItem {
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
+struct ReRollItem {
+    #[key]
+    game_id: u32,
+    cost: u32,
+    discount_cost: u32,
+    purchased: bool,
+}
+
+#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[dojo::model]
 struct PowerUpItem {
     #[key]
     game_id: u32,
@@ -163,20 +164,4 @@ enum DiscountSection {
     SpecialSlots,
     PowerUps,
     None
-}
-
-impl DefaultShop of Default<Shop> {
-    fn default() -> Shop {
-        Shop {
-            game_id: 1,
-            reroll_cost: 100,
-            reroll_executed: false,
-            len_item_common_cards: 5,
-            len_item_modifier_cards: 3,
-            len_item_special_cards: 3,
-            len_item_poker_hands: 3,
-            len_item_blister_pack: 2,
-            len_item_power_ups: 2,
-        }
-    }
 }

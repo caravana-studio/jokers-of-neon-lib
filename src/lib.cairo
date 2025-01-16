@@ -4,6 +4,13 @@ mod constants {
     mod modifiers;
 }
 
+mod configs { 
+    mod game;
+    mod play_rules;
+    mod round_rewards;
+    mod shop;
+}
+
 mod interfaces {
     mod base;
     mod current_hand;
