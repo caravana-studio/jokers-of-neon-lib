@@ -15,6 +15,7 @@ mod interfaces {
     mod configs{
         mod game;
         mod shop;
+        mod play_rules;
     }
     mod base;
     mod current_hand;
