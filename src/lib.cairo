@@ -59,7 +59,6 @@ mod models {
         mod card;
         mod effect_card;
         mod game_deck;
-        mod game_mod;
         mod loot_box;
         mod mod_tracker;
         mod poker_hand;
