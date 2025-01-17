@@ -19,6 +19,7 @@ mod interfaces {
     mod individual;
     mod play_levels;
     mod plays_rules;
+    mod poker_hand;
     mod post_calculate_hand;
     mod power_up;
     mod pre_calculate_hand;
