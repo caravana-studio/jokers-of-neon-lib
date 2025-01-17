@@ -14,6 +14,7 @@ enum SpecialType {
     Shop,
     LevelUpPlay,
     PlayRules,
+    PokerHand,
 }
 
 impl SpecialTypeIntoFelt252 of Into<SpecialType, felt252> {
@@ -33,6 +34,7 @@ impl SpecialTypeIntoFelt252 of Into<SpecialType, felt252> {
             SpecialType::Shop => 12,
             SpecialType::LevelUpPlay => 13,
             SpecialType::PlayRules => 14,
+            SpecialType::PokerHand => 15,
         }
     }
 }
