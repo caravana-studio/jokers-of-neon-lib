@@ -13,7 +13,7 @@ pub enum GameState {
 pub struct Game {
     #[key]
     pub id: u32,
-    pub mod_id: u32,
+    pub mod_id: felt252,
     pub state: GameState,
     pub owner: ContractAddress,
     pub player_name: felt252,
