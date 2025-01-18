@@ -18,7 +18,7 @@ pub struct CardPlayEvent {
     #[key]
     pub player: ContractAddress,
     pub game_id: u32,
-    pub mod_id: u32,
+    pub mod_id: felt252,
     pub event_type: EventType,
     pub special: Span<(u32, i32)>, // index, quantity
     pub hand: Span<(u32, i32)>, // index, quantity
