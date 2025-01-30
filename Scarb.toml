@@ -11,6 +11,6 @@ sort-module-level-items = true
 max-line-length = 120
 
 [dependencies]
-dojo = { git = "https://github.com/dojoengine/dojo", tag = "v1.1.1" }
+dojo = { git = "https://github.com/dojoengine/dojo", tag = "v1.1.2" }
 
 [lib]
