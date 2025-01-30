@@ -36,5 +36,6 @@ pub struct CurrentSpecialCards {
     pub idx: u32,
     pub effect_card_id: u32,
     pub is_temporary: bool,
-    pub remaining: u32
+    pub remaining: u32,
+    pub selling_price: u32
 }
