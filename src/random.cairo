@@ -14,6 +14,10 @@ impl RandomImpl of RandomTrait {
         Random { seed: seed(get_contract_address()), nonce: 0 }
     }
 
+    fn new_salt(nonce: u32) -> Random {
+        Random { seed: seed(get_contract_address()), nonce }
+    }
+
     fn next_seed(ref self: Random) -> felt252 {
         self.nonce += 1;
         self.seed = pedersen::pedersen(self.seed, self.nonce.into());
