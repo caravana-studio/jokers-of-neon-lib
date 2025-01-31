@@ -1,5 +1,5 @@
 [package]
-cairo-version = "=2.8.4"
+cairo-version = "=2.9.2"
 name = "jokers_of_neon_lib"
 version = "0.0.1"
 
@@ -11,6 +11,6 @@ sort-module-level-items = true
 max-line-length = 120
 
 [dependencies]
-dojo = { git = "https://github.com/dojoengine/dojo", tag = "v1.0.10" }
+dojo = { git = "https://github.com/dojoengine/dojo", tag = "v1.1.2" }
 
 [lib]
