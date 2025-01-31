@@ -7,5 +7,5 @@ enum RageType {
     // Change round configs (i.e hands remainings)
     Round,
     // Change some game rules (i.e max hands, hand len play)
-    Game
+    Game,
 }

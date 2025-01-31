@@ -487,7 +487,7 @@ fn traditional_cards_all() -> Array<u32> {
         JACK_SPADES_ID,
         QUEEN_SPADES_ID,
         KING_SPADES_ID,
-        ACE_SPADES_ID
+        ACE_SPADES_ID,
     ]
 }
 
@@ -544,7 +544,7 @@ fn neon_cards_all() -> Array<u32> {
         NEON_JACK_SPADES_ID,
         NEON_QUEEN_SPADES_ID,
         NEON_KING_SPADES_ID,
-        NEON_ACE_SPADES_ID
+        NEON_ACE_SPADES_ID,
     ]
 }
 
@@ -653,7 +653,7 @@ fn all_cards() -> Array<u32> {
         NEON_JACK_SPADES_ID,
         NEON_QUEEN_SPADES_ID,
         NEON_KING_SPADES_ID,
-        NEON_ACE_SPADES_ID
+        NEON_ACE_SPADES_ID,
     ]
 }
 

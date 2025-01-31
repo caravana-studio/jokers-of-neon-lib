@@ -10,7 +10,7 @@ struct Card {
     suit: Suit,
     value: Value,
     points: u32,
-    multi_add: u32
+    multi_add: u32,
 }
 
 trait CardTrait {
@@ -45,7 +45,7 @@ enum Suit {
     Hearts, // Corazones
     Spades, // Espadas
     Joker,
-    Wild
+    Wild,
 }
 
 impl SuitEnumerableImpl of Enumerable<Suit> {
@@ -65,7 +65,7 @@ impl SuitIntou8 of Into<Suit, u8> {
             Suit::Hearts => 3,
             Suit::Spades => 4,
             Suit::Joker => 5,
-            Suit::Wild => 6
+            Suit::Wild => 6,
         }
     }
 }
@@ -79,7 +79,7 @@ impl SuitIntoFelt252 of Into<Suit, felt252> {
             Suit::Hearts => 3,
             Suit::Spades => 4,
             Suit::Joker => 5,
-            Suit::Wild => 6
+            Suit::Wild => 6,
         }
     }
 }
@@ -102,7 +102,7 @@ enum Value {
     Ace,
     Joker,
     NeonJoker,
-    Wild
+    Wild,
 }
 
 impl ValueEnumerableImpl of Enumerable<Value> {
@@ -146,7 +146,7 @@ impl ValueIntoFelt252 of Into<Value, felt252> {
             Value::Ace => 13,
             Value::Joker => 14,
             Value::NeonJoker => 15,
-            Value::Wild => 16
+            Value::Wild => 16,
         }
     }
 }
@@ -170,7 +170,7 @@ impl ValueIntou8 of Into<Value, u8> {
             Value::Ace => 13,
             Value::Joker => 14,
             Value::NeonJoker => 15,
-            Value::Wild => 16
+            Value::Wild => 16,
         }
     }
 }
@@ -206,7 +206,7 @@ impl PartialOrdFelt of PartialOrd<Card> {
 #[derive(Drop)]
 struct SilentCards {
     suits: Array<Suit>,
-    values: Array<Value>
+    values: Array<Value>,
 }
 
 #[generate_trait]

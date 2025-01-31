@@ -5,5 +5,5 @@ use jokers_of_neon_lib::models::data::poker_hand::PokerHand;
 struct PlayInfo {
     hand: PokerHand,
     cards: Span<(u32, bool, Card)>, // (index, hit, card)
-    is_neon: bool
+    is_neon: bool,
 }

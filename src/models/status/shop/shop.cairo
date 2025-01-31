@@ -27,14 +27,14 @@ struct CardItem {
     card_id: u32,
     cost: u32,
     discount_cost: u32,
-    purchased: bool
+    purchased: bool,
 }
 
 #[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
 enum CardItemType {
     None,
     Common,
-    Modifier
+    Modifier,
 }
 
 impl CardItemTypeIntou8 of Into<CardItemType, u8> {
@@ -42,7 +42,7 @@ impl CardItemTypeIntou8 of Into<CardItemType, u8> {
         match self {
             CardItemType::None => 0,
             CardItemType::Common => 1,
-            CardItemType::Modifier => 2
+            CardItemType::Modifier => 2,
         }
     }
 }
@@ -52,7 +52,7 @@ impl CardItemTypeIntofelt252 of Into<CardItemType, felt252> {
         match self {
             CardItemType::None => 0,
             CardItemType::Common => 1,
-            CardItemType::Modifier => 2
+            CardItemType::Modifier => 2,
         }
     }
 }
@@ -69,7 +69,7 @@ struct SpecialCardItem {
     discount_cost: u32,
     temporary_cost: u32,
     temporary_discount_cost: u32,
-    purchased: bool
+    purchased: bool,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
@@ -107,7 +107,7 @@ struct BlisterPackResult {
     #[key]
     game_id: u32,
     cards_picked: bool,
-    cards: Span<u32>
+    cards: Span<u32>,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
@@ -163,5 +163,5 @@ enum DiscountSection {
     Burns,
     SpecialSlots,
     PowerUps,
-    None
+    None,
 }
