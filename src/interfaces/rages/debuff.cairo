@@ -1,5 +1,4 @@
 use jokers_of_neon_lib::models::data::card::{Suit, Value};
-use jokers_of_neon_lib::models::rage_type::RageType;
 
 #[starknet::interface]
 trait IRageDebuff<T> {

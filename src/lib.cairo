@@ -13,7 +13,6 @@ mod configs {
 
 mod interfaces {
     mod base;
-    mod current_hand;
     mod discards;
     mod game;
     mod individual;
@@ -33,12 +32,15 @@ mod interfaces {
         mod play_rules;
         mod shop;
     }
-    mod rage {
-        mod base;
+    mod rages {
         mod debuff;
         mod game;
         mod round;
         mod silence;
+    }
+    mod specials {
+        mod equipable;
+        mod executable;
     }
     mod info {
         mod card_info;
@@ -53,8 +55,7 @@ mod events {
 }
 
 mod models {
-    mod rage_type;
-    mod special_type;
+    mod card_type;
     mod tracker;
     mod data {
         mod card;
