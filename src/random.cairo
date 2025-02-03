@@ -2,6 +2,14 @@ use starknet::ContractAddress;
 use starknet::get_contract_address;
 
 #[derive(Copy, Drop, Serde)]
+#[dojo::model]
+pub struct Nonce {
+    #[key]
+    pub key: felt252,
+    pub value: u32,
+}
+
+#[derive(Copy, Drop, Serde)]
 struct Random {
     seed: felt252,
     nonce: usize,
