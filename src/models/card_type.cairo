@@ -2,7 +2,9 @@
 enum CardType {
     PreCalculateHand,
     PostCalculateHand,
-    Individual,
+    Hit,
+    Miss,
+    Hand,
     CurrentHand,
     PowerUp,
     RoundState,
@@ -24,7 +26,7 @@ impl CardTypeIntoFelt252 of Into<CardType, felt252> {
         match self {
             CardType::PreCalculateHand => 1,
             CardType::PostCalculateHand => 2,
-            CardType::Individual => 3,
+            CardType::Hit => 3,
             CardType::CurrentHand => 4,
             CardType::PowerUp => 5,
             CardType::RoundState => 6,
@@ -39,6 +41,8 @@ impl CardTypeIntoFelt252 of Into<CardType, felt252> {
             CardType::PokerHand => 15,
             CardType::Debuff => 16,
             CardType::Silence => 17,
+            CardType::Miss => 18,
+            CardType::Hand => 19,
         }
     }
 }
