@@ -2,21 +2,6 @@ use jokers_of_neon_lib::models::data::poker_hand::PokerHand;
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct PurchaseTracker {
-    #[key]
-    game_id: u32,
-    traditonal_cards_count: u32,
-    modifier_cards_count: u32,
-    special_cards_count: u32,
-    loot_boxes_count: u32,
-    power_up_count: u32,
-    level_poker_hands_count: u32,
-    burn_count: u32,
-    reroll_count: u32,
-}
-
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
-#[dojo::model]
 struct CardItem {
     #[key]
     game_id: u32,
