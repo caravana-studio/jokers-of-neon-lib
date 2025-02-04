@@ -5,9 +5,9 @@ trait ISpecialCondition<T> {
     /// Evaluates whether a given card meets a specific condition.
     ///
     /// # Parameters
-    /// - `card`: The card to be evaluated.
+    /// - `raw_data`: Data that can be converted to Card, Power Up or other struct depending on the execution context.
     ///
     /// # Returns
     /// - `bool`: `true` if the condition of execution is met, `false` otherwise.
-    fn condition(self: @T, card: Card) -> bool;
+    fn condition(self: @T, raw_data: felt252) -> bool;
 }
