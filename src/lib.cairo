@@ -39,6 +39,8 @@ mod interfaces {
         mod silence;
     }
     mod specials {
+        mod condition;
+        mod converter;
         mod equipable;
         mod executable;
     }
