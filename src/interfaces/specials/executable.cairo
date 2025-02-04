@@ -5,7 +5,7 @@ trait ISpecialExecutable<T> {
     /// Executes a special action within the game context.
     ///
     /// # Parameters
-    /// - `game_context`: The current game state
+    /// - `context`: The current game state
     ///
     /// # Returns
     /// A tuple containing:
@@ -14,5 +14,5 @@ trait ISpecialExecutable<T> {
     /// - `cash` (i32): The cash value to be added to the global cash calculation.
     ///
     /// These values will be accumulated in a global element when the card is executed.
-    fn execute(ref self: T, game_context: GameContext) -> (i32, i32, i32);
+    fn execute(ref self: T, context: GameContext) -> (i32, i32, i32);
 }
