@@ -127,6 +127,7 @@ impl ValueEnumerableImpl of Enumerable<Value> {
     }
 }
 
+
 impl ValueIntoFelt252 of Into<Value, felt252> {
     fn into(self: Value) -> felt252 {
         match self {
@@ -148,6 +149,19 @@ impl ValueIntoFelt252 of Into<Value, felt252> {
             Value::NeonJoker => 15,
             Value::Wild => 16,
         }
+    }
+}
+
+// TODO: Implement
+impl CardIntoFelt252 of Into<Card, felt252> {
+    fn into(self: Card) -> felt252 {
+        1
+    }
+}
+// TODO: Implement
+impl Felt252IntoCard of Into<felt252, Card> {
+    fn into(self: felt252) -> Card {
+        Card { id: 0, suit: Suit::None, value: Value::None, points: 0, multi_add: 0 }
     }
 }
 
