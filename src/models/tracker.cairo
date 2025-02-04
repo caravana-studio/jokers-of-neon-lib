@@ -1,6 +1,6 @@
 use jokers_of_neon_lib::models::data::card::Card;
 use jokers_of_neon_lib::models::data::poker_hand::PokerHand;
-use jokers_of_neon_lib::models::status::game::game::Game;
+use jokers_of_neon_lib::models::status::game::game::{Game, GameState};
 use jokers_of_neon_lib::models::status::round::round::Round;
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
@@ -59,4 +59,47 @@ struct GameContext {
     power_ups: Span<u32>,
     purchase_tracker: PurchaseTracker,
     game_tracker: GameTracker,
+}
+
+impl GameContextDefault of Default<GameContext> {
+    fn default() -> GameContext {
+        GameContext {
+            game: Game {
+                id: 0,
+                mod_id: 0,
+                state: GameState::IN_GAME,
+                owner: Zeroable::zero(),
+                player_name: 0,
+                player_score: 0,
+                level: 0,
+                hand_len: 0,
+                plays: 0,
+                discards: 0,
+                current_specials_len: 0,
+                special_slots: 0,
+                cash: 0,
+            },
+            round: Round { game_id: 0, player_score: 0, level_score: 0, remaining_plays: 0, remaining_discards: 0 },
+            hand: PokerHand::None,
+            cards_played: array![].span(),
+            cards_in_hand: array![].span(),
+            cards_in_deck: array![].span(),
+            special_cards: array![].span(),
+            power_ups: array![].span(),
+            purchase_tracker: PurchaseTracker {
+                game_id: 0,
+                traditonal_cards_count: 0,
+                modifier_cards_count: 0,
+                special_cards_count: 0,
+                loot_boxes_count: 0,
+                power_up_count: 0,
+                level_poker_hands_count: 0,
+                burn_count: 0,
+                reroll_count: 0,
+            },
+            game_tracker: GameTracker {
+                game_id: 0, power_ups_used: 0, highest_hand: 0, rage_wins: 0, special_cards_removed: 0,
+            },
+        }
+    }
 }
