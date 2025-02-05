@@ -13,32 +13,20 @@ mod configs {
 
 mod interfaces {
     mod base;
-    mod current_hand;
-    mod discards;
-    mod game;
-    mod individual;
-    mod play_levels;
-    mod plays_rules;
-    mod poker_hand;
-    mod post_calculate_hand;
-    mod power_up;
-    mod pre_calculate_hand;
-    mod registrator;
-    mod round;
-    mod round_state;
-    mod shop;
-    mod win;
     mod configs {
         mod game;
         mod play_rules;
         mod shop;
     }
-    mod rage {
-        mod base;
+    mod rages {
         mod debuff;
-        mod game;
-        mod round;
         mod silence;
+    }
+    mod cards {
+        mod condition;
+        mod converter;
+        mod equipable;
+        mod executable;
     }
     mod info {
         mod card_info;
@@ -53,8 +41,7 @@ mod events {
 }
 
 mod models {
-    mod rage_type;
-    mod special_type;
+    mod card_type;
     mod tracker;
     mod data {
         mod card;
