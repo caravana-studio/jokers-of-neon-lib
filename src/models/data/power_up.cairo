@@ -13,15 +13,21 @@ pub struct GamePowerUp {
     pub power_ups: Span<u32>,
 }
 
-// TODO: Implement
+const TWO_POW_32: u256 = 0x100000000; // 2^32
+const TWO_POW_64: u256 = 0x10000000000000000; // 2^64
 impl PowerUpIntoFelt252 of Into<PowerUp, felt252> {
     fn into(self: PowerUp) -> felt252 {
-        1
+        (self.id.into() + self.points.into() * TWO_POW_32 + self.multi.into() * TWO_POW_64).try_into().unwrap()
     }
 }
-// TODO: Implement
-impl Felt252IntoCard of Into<felt252, PowerUp> {
+
+impl Felt252IntoPowerUp of Into<felt252, PowerUp> {
     fn into(self: felt252) -> PowerUp {
-        PowerUp { id: 0, points: 0, multi: 0 }
+        let packed = self.into();
+        let (packed, id) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
+        let (packed, points) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
+        let (_, multi) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
+
+        PowerUp { id: id.try_into().unwrap(), points: points.try_into().unwrap(), multi: multi.try_into().unwrap() }
     }
 }
