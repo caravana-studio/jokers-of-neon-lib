@@ -19,6 +19,7 @@ enum CardType {
     PokerHand,
     Debuff,
     Silence,
+    None,
 }
 
 impl CardTypeIntoFelt252 of Into<CardType, felt252> {

@@ -82,7 +82,7 @@ impl GameContextDefault of Default<GameContext> {
             },
             round: Round { game_id: 0, player_score: 0, level_score: 0, remaining_plays: 0, remaining_discards: 0 },
             hand: PokerHand::None,
-            card_type: CardType::CurrentHand,
+            card_type: CardType::None,
             cards_played: array![].span(),
             cards_in_hand: array![].span(),
             cards_in_deck: array![].span(),
