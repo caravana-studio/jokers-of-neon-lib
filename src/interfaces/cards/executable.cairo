@@ -1,7 +1,7 @@
 use jokers_of_neon_lib::models::tracker::GameContext;
 
 #[starknet::interface]
-trait ISpecialExecutable<T> {
+trait ICardExecutable<T> {
     /// Executes a special action within the game context.
     ///
     /// # Parameters

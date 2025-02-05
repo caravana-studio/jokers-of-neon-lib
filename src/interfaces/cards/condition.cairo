@@ -1,7 +1,7 @@
 use jokers_of_neon_lib::models::data::card::Card;
 
 #[starknet::interface]
-trait ISpecialCondition<T> {
+trait ICardCondition<T> {
     /// Evaluates whether a given card meets a specific condition.
     ///
     /// # Parameters

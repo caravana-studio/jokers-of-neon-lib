@@ -1,7 +1,7 @@
 use jokers_of_neon_lib::models::data::card::Card;
 
 #[starknet::interface]
-trait ISpecialConverter<T> {
+trait ICardConverter<T> {
     /// Applies a transformation to a set of cards.
     ///
     /// # Parameters
