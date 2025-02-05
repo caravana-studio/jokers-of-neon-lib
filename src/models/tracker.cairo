@@ -1,7 +1,7 @@
-use jokers_of_neon_lib::models::data::card::Card;
-use jokers_of_neon_lib::models::data::poker_hand::PokerHand;
-use jokers_of_neon_lib::models::status::game::game::{Game, GameState};
-use jokers_of_neon_lib::models::status::round::round::Round;
+use jokers_of_neon_lib::models::{
+    card_type::CardType, data::{card::Card, poker_hand::PokerHand},
+    status::{game::game::{Game, GameState}, round::round::Round},
+};
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
@@ -52,6 +52,7 @@ struct GameContext {
     game: Game,
     round: Round,
     hand: PokerHand,
+    card_type: CardType,
     cards_played: Span<(bool, u32, Card)>, // (hit, idx, Card)
     cards_in_hand: Span<(u32, Card)>, // (idx, Card)
     cards_in_deck: Span<u32>,
@@ -81,6 +82,7 @@ impl GameContextDefault of Default<GameContext> {
             },
             round: Round { game_id: 0, player_score: 0, level_score: 0, remaining_plays: 0, remaining_discards: 0 },
             hand: PokerHand::None,
+            card_type: CardType::CurrentHand,
             cards_played: array![].span(),
             cards_in_hand: array![].span(),
             cards_in_deck: array![].span(),

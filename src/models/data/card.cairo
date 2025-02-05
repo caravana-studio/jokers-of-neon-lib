@@ -390,3 +390,21 @@ fn contains_suit(suits: @Array<Suit>, suit: Suit) -> bool {
         idx += 1;
     }
 }
+
+#[cfg(test)]
+mod into_tests {
+    use super::{Card, Suit, Value};
+
+    #[test]
+    fn test_basic() {
+        let card = Card { id: 1, suit: Suit::Hearts, value: Value::Six, points: 100, multi_add: 5 };
+        let card_felt252: felt252 = card.into();
+        let card_af: Card = card_felt252.into();
+
+        assert(card.id == card_af.id, 'wrong id');
+        assert(card.suit == card_af.suit, 'wrong suit');
+        assert(card.value == card_af.value, 'wrong value');
+        assert(card.points == card_af.points, 'wrong points');
+        assert(card.multi_add == card_af.multi_add, 'wrong multi');
+    }
+}
