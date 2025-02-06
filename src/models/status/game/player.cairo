@@ -7,5 +7,5 @@ struct PlayerLevelPokerHand {
     game_id: u32,
     #[key]
     poker_hand: PokerHand,
-    level: u8
+    level: u8,
 }

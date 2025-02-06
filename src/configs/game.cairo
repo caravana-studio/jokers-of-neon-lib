@@ -10,5 +10,5 @@ pub struct GameConfig {
     pub max_power_up_slots: u32,
     pub hand_len: u32,
     pub start_cash: u32,
-    pub start_special_slots: u32
+    pub start_special_slots: u32,
 }
