@@ -1,5 +1,9 @@
-// SPDX-License-Identifier: MIT
-// Compatible with OpenZeppelin Contracts for Cairo ^0.20.0
+use starknet::ContractAddress;
+
+#[starknet::interface]
+pub trait IERC721Mint<TContractState> {
+    fn mint(ref self: TContractState, recipient: ContractAddress, token_id: u256);
+}
 
 #[starknet::contract]
 mod ERC721Token {
@@ -51,13 +55,11 @@ mod ERC721Token {
         self.erc721.initializer(name, symbol, base_uri);
     }
 
-    #[generate_trait]
-    #[abi(per_item)]
-    impl ERC721Mint of ERC721MintTrait {
-        #[external(v0)]
-        fn mint(ref self: ContractState, user: ContractAddress, token_id: u256) {
+    #[abi(embed_v0)]
+    impl ERC721Mint of super::IERC721Mint<ContractState> {
+        fn mint(ref self: ContractState, recipient: ContractAddress, token_id: u256) {
             assert!(self.ownable.owner() == starknet::get_caller_address(), "Not the owner");
-            self.erc721.mint(user, token_id);
+            self.erc721.mint(recipient, token_id);
         }
     }
 }
