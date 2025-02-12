@@ -1,8 +1,8 @@
 use starknet::ContractAddress;
 
 #[starknet::interface]
-pub trait IERC721Mint<TContractState> {
-    fn mint(ref self: TContractState, recipient: ContractAddress, token_id: u256);
+pub trait IERC721Mint<T> {
+    fn mint(ref self: T, recipient: ContractAddress, token_id: u256);
 }
 
 #[starknet::contract]
