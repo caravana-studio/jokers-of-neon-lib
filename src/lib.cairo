@@ -4,6 +4,10 @@ mod constants {
     mod modifiers;
 }
 
+pub mod externals {
+    mod erc721;
+}
+
 mod configs {
     mod game;
     mod play_rules;
