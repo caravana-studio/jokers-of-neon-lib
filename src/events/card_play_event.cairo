@@ -10,6 +10,7 @@ enum EventType {
     Neon,
     Spade,
     Heart,
+    None,
 }
 
 #[derive(Copy, Drop, Serde)]
