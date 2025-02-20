@@ -8,4 +8,6 @@ struct PlayerLevelPokerHand {
     #[key]
     poker_hand: PokerHand,
     level: u8,
+    multi: u32,
+    points: u32,
 }
