@@ -1,6 +1,6 @@
 use jokers_of_neon_lib::models::{
     card_type::CardType, data::{card::Card, poker_hand::PokerHand},
-    status::{game::game::{Game, GameState}, round::round::Round},
+    status::{game::game::{CurrentSpecialCards, Game, GameState}, round::round::Round},
 };
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
@@ -56,7 +56,7 @@ struct GameContext {
     cards_played: Span<(bool, u32, Card)>, // (hit, idx, Card)
     cards_in_hand: Span<(u32, Card)>, // (idx, Card)
     cards_in_deck: Span<u32>,
-    special_cards: Span<u32>,
+    special_cards: Span<CurrentSpecialCards>,
     power_ups: Span<u32>,
     purchase_tracker: PurchaseTracker,
     game_tracker: GameTracker,
