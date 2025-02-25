@@ -5,7 +5,7 @@ pub enum GameState {
     IN_GAME,
     AT_SHOP,
     FINISHED,
-    OPEN_BLISTER_PACK
+    OPEN_BLISTER_PACK,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
@@ -24,7 +24,7 @@ pub struct Game {
     pub discards: u32,
     pub current_specials_len: u32,
     pub special_slots: u32,
-    pub cash: u32
+    pub cash: u32,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
@@ -37,5 +37,5 @@ pub struct CurrentSpecialCards {
     pub effect_card_id: u32,
     pub is_temporary: bool,
     pub remaining: u32,
-    pub selling_price: u32
+    pub selling_price: u32,
 }

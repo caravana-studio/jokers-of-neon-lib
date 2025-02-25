@@ -1,7 +1,7 @@
-use jokers_of_neon_lib::models::special_type::SpecialType;
+use jokers_of_neon_lib::models::card_type::CardType;
 
 #[starknet::interface]
-trait ISpecialBase<T> {
-    fn get_id(ref self: T) -> u32;
-    fn get_type(ref self: T) -> SpecialType;
+trait ICardBase<T> {
+    fn get_id(self: @T) -> u32;
+    fn get_types(self: @T) -> Span<CardType>;
 }

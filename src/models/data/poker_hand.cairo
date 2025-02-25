@@ -58,7 +58,7 @@ struct LevelPokerHand {
     #[key]
     level: u8,
     multi: u32,
-    points: u32
+    points: u32,
 }
 
 impl PokerHandIntoFelt252 of Into<PokerHand, felt252> {

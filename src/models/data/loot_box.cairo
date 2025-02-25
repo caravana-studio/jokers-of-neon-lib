@@ -7,5 +7,5 @@ struct LootBox {
     probability: u32,
     size: u8,
     cards: Span<Span<u32>>, // cards: [content_1: [], content_2: [], ... ]
-    probs: Span<u32>, // probs [ prob_content_1, prob_content_2, ... ] the sum of the probabilities must be 100
+    probs: Span<u32> // probs [ prob_content_1, prob_content_2, ... ] the sum of the probabilities must be 100
 }
