@@ -1,3 +1,5 @@
+use starknet::ContractAddress;
+
 #[derive(Copy, Drop, Serde)]
 #[dojo::event]
 pub struct CardActivateEvent {

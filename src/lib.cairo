@@ -38,8 +38,8 @@ mod interfaces {
 }
 
 mod events {
-    mod card_play_event;
     mod card_activate_event;
+    mod card_play_event;
 }
 
 mod models {
