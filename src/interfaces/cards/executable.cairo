@@ -17,3 +17,15 @@ trait ICardExecutable<T> {
     /// These values will be accumulated in a global element when the card is executed.
     fn execute(ref self: T, context: GameContext, raw_data: felt252) -> (i32, i32, i32);
 }
+
+#[starknet::interface]
+trait IContextExecutable<T> {
+    /// Executes a special action within the game context.
+    ///
+    /// # Parameters
+    /// - `context`: The current game state
+    ///
+    /// # Returns
+    /// The updated GameContext after the execution.
+    fn execute(ref self: T, context: GameContext) -> GameContext;
+}
