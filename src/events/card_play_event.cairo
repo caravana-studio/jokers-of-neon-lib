@@ -9,7 +9,8 @@ enum EventType {
     Multi,
     Neon,
     Spade,
-    Heart
+    Heart,
+    None,
 }
 
 #[derive(Copy, Drop, Serde)]
@@ -20,6 +21,6 @@ pub struct CardPlayEvent {
     pub game_id: u32,
     pub mod_id: felt252,
     pub event_type: EventType,
-    pub special: Span<(u32, i32)>, // index, quantity
-    pub hand: Span<(u32, i32)>, // index, quantity
+    pub special: Span<(u32, i32)>,
+    pub hand: Span<(u32, i32)>,
 }

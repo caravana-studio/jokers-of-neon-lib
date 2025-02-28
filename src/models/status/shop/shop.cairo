@@ -2,21 +2,6 @@ use jokers_of_neon_lib::models::data::poker_hand::PokerHand;
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct PurchaseTracker {
-    #[key]
-    game_id: u32,
-    traditonal_cards_count: u32,
-    modifier_cards_count: u32,
-    special_cards_count: u32,
-    loot_boxes_count: u32,
-    power_up_count: u32,
-    level_poker_hands_count: u32,
-    burn_count: u32,
-    reroll_count: u32,
-}
-
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
-#[dojo::model]
 struct CardItem {
     #[key]
     game_id: u32,
@@ -27,14 +12,14 @@ struct CardItem {
     card_id: u32,
     cost: u32,
     discount_cost: u32,
-    purchased: bool
+    purchased: bool,
 }
 
 #[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
 enum CardItemType {
     None,
     Common,
-    Modifier
+    Modifier,
 }
 
 impl CardItemTypeIntou8 of Into<CardItemType, u8> {
@@ -42,7 +27,7 @@ impl CardItemTypeIntou8 of Into<CardItemType, u8> {
         match self {
             CardItemType::None => 0,
             CardItemType::Common => 1,
-            CardItemType::Modifier => 2
+            CardItemType::Modifier => 2,
         }
     }
 }
@@ -52,7 +37,7 @@ impl CardItemTypeIntofelt252 of Into<CardItemType, felt252> {
         match self {
             CardItemType::None => 0,
             CardItemType::Common => 1,
-            CardItemType::Modifier => 2
+            CardItemType::Modifier => 2,
         }
     }
 }
@@ -69,7 +54,7 @@ struct SpecialCardItem {
     discount_cost: u32,
     temporary_cost: u32,
     temporary_discount_cost: u32,
-    purchased: bool
+    purchased: bool,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
@@ -107,7 +92,7 @@ struct BlisterPackResult {
     #[key]
     game_id: u32,
     cards_picked: bool,
-    cards: Span<u32>
+    cards: Span<u32>,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
@@ -163,5 +148,5 @@ enum DiscountSection {
     Burns,
     SpecialSlots,
     PowerUps,
-    None
+    None,
 }

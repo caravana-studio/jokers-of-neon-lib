@@ -8,27 +8,27 @@ const NEON_MODIFIER_ID: u32 = 612;
 const WILD_CARD_MODIFIER_ID: u32 = 613;
 
 fn SUIT_CLUB_MODIFIER() -> EffectCard {
-    EffectCard { id: SUIT_CLUB_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: 0, }
+    EffectCard { id: SUIT_CLUB_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: 0 }
 }
 
 fn SUIT_DIAMONDS_MODIFIER() -> EffectCard {
-    EffectCard { id: SUIT_DIAMONDS_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: 0, }
+    EffectCard { id: SUIT_DIAMONDS_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: 0 }
 }
 
 fn SUIT_HEARTS_MODIFIER() -> EffectCard {
-    EffectCard { id: SUIT_HEARTS_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: 0, }
+    EffectCard { id: SUIT_HEARTS_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: 0 }
 }
 
 fn SUIT_SPADES_MODIFIER() -> EffectCard {
-    EffectCard { id: SUIT_SPADES_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: 0, }
+    EffectCard { id: SUIT_SPADES_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: 0 }
 }
 
 fn NEON_MODIFIER() -> EffectCard {
-    EffectCard { id: NEON_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: Zeroable::zero(), }
+    EffectCard { id: NEON_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: Zeroable::zero() }
 }
 
 fn WILD_CARD_MODIFIER() -> EffectCard {
-    EffectCard { id: WILD_CARD_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: Zeroable::zero(), }
+    EffectCard { id: WILD_CARD_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: Zeroable::zero() }
 }
 
 fn INVALID_EFFECT_CARD() -> EffectCard {
@@ -42,7 +42,7 @@ fn modifiers_ids_all() -> Array<u32> {
         SUIT_HEARTS_MODIFIER_ID,
         SUIT_SPADES_MODIFIER_ID,
         NEON_MODIFIER_ID,
-        WILD_CARD_MODIFIER_ID
+        WILD_CARD_MODIFIER_ID,
     ]
 }
 
@@ -52,7 +52,7 @@ fn modifiers_shop_info() -> (Span<Span<u32>>, Span<u32>, Span<u32>) {
     let B_MODIFIERS_PROBABILITY = 60;
     let B_MODIFIERS_COST = 300;
     let B_MODIFIERS = array![
-        SUIT_CLUB_MODIFIER_ID, SUIT_DIAMONDS_MODIFIER_ID, SUIT_HEARTS_MODIFIER_ID, SUIT_SPADES_MODIFIER_ID
+        SUIT_CLUB_MODIFIER_ID, SUIT_DIAMONDS_MODIFIER_ID, SUIT_HEARTS_MODIFIER_ID, SUIT_SPADES_MODIFIER_ID,
     ]
         .span();
 
@@ -70,6 +70,6 @@ fn modifiers_shop_info() -> (Span<Span<u32>>, Span<u32>, Span<u32>) {
     (
         array![B_MODIFIERS, A_MODIFIERS, S_MODIFIERS].span(),
         array![B_MODIFIERS_PROBABILITY, A_MODIFIERS_PROBABILITY, S_MODIFIERS_PROBABILITY].span(),
-        array![B_MODIFIERS_COST, A_MODIFIERS_COST, S_MODIFIERS_COST].span()
+        array![B_MODIFIERS_COST, A_MODIFIERS_COST, S_MODIFIERS_COST].span(),
     )
 }
