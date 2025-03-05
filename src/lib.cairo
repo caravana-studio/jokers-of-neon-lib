@@ -2,21 +2,18 @@ mod random;
 mod constants {
     mod card;
     mod modifiers;
+    mod two_pow;
 }
 
 mod configs {
     mod game;
     mod play_rules;
-    mod round_rewards;
-    mod shop;
 }
 
 mod interfaces {
     mod base;
     mod configs {
         mod game;
-        mod play_rules;
-        mod shop;
     }
     mod rages {
         mod debuff;
