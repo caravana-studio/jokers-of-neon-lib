@@ -1,4 +1,4 @@
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 struct GameDeck {
     #[key]
@@ -7,7 +7,7 @@ struct GameDeck {
     round_len: u32,
 }
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 struct DeckCard {
     #[key]

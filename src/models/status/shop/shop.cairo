@@ -1,6 +1,6 @@
 use jokers_of_neon_lib::models::data::poker_hand::PokerHand;
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 struct CardItem {
     #[key]
@@ -15,7 +15,7 @@ struct CardItem {
     purchased: bool,
 }
 
-#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
+#[derive(Serde, Copy, Drop, Introspect, PartialEq)]
 enum CardItemType {
     None,
     Common,
@@ -42,7 +42,7 @@ impl CardItemTypeIntofelt252 of Into<CardItemType, felt252> {
     }
 }
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 struct SpecialCardItem {
     #[key]
@@ -57,7 +57,7 @@ struct SpecialCardItem {
     purchased: bool,
 }
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 struct PokerHandItem {
     #[key]
@@ -73,7 +73,7 @@ struct PokerHandItem {
     purchased: bool,
 }
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 struct BlisterPackItem {
     #[key]
@@ -95,7 +95,7 @@ struct BlisterPackResult {
     cards: Span<u32>,
 }
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 struct SlotSpecialCardsItem {
     #[key]
@@ -105,7 +105,7 @@ struct SlotSpecialCardsItem {
     purchased: bool,
 }
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 struct BurnItem {
     #[key]
@@ -115,7 +115,7 @@ struct BurnItem {
     purchased: bool,
 }
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 struct ReRollItem {
     #[key]
@@ -125,7 +125,7 @@ struct ReRollItem {
     purchased: bool,
 }
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 struct PowerUpItem {
     #[key]
@@ -138,7 +138,7 @@ struct PowerUpItem {
     purchased: bool,
 }
 
-#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
+#[derive(Serde, Copy, Drop, Introspect, PartialEq)]
 enum DiscountSection {
     Traditionals,
     Modifiers,

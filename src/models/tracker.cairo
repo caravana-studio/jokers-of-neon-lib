@@ -3,7 +3,7 @@ use jokers_of_neon_lib::models::{
     status::{game::game::{Game, GameState}, round::round::Round},
 };
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 struct GameTracker {
     #[key]
@@ -14,7 +14,7 @@ struct GameTracker {
     special_cards_removed: u32,
 }
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 struct PurchaseTracker {
     #[key]
@@ -29,7 +29,7 @@ struct PurchaseTracker {
     reroll_count: u32,
 }
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 struct PokerHandTracker {
     #[key]

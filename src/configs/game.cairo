@@ -1,6 +1,6 @@
 use starknet::ContractAddress;
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 pub struct GameConfig {
     pub plays: u32,
     pub discards: u32,

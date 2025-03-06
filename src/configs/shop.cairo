@@ -1,6 +1,6 @@
 use starknet::ContractAddress;
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 pub struct ShopConfig {
     pub traditional_cards_quantity: u32,
     pub modifiers_cards_quantity: u32,

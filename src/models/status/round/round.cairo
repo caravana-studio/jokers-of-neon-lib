@@ -1,4 +1,4 @@
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 struct Round {
     #[key]

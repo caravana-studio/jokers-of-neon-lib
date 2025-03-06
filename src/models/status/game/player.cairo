@@ -1,6 +1,6 @@
 use jokers_of_neon_lib::models::data::poker_hand::PokerHand;
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 struct PlayerLevelPokerHand {
     #[key]

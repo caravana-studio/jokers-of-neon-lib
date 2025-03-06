@@ -1,6 +1,6 @@
 use starknet::ContractAddress;
 
-#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
+#[derive(Serde, Copy, Drop, Introspect, PartialEq)]
 pub enum GameState {
     IN_GAME,
     AT_SHOP,
@@ -8,7 +8,7 @@ pub enum GameState {
     OPEN_BLISTER_PACK,
 }
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 pub struct Game {
     #[key]
@@ -27,7 +27,7 @@ pub struct Game {
     pub cash: u32,
 }
 
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Introspect, Serde)]
 #[dojo::model]
 pub struct CurrentSpecialCards {
     #[key]

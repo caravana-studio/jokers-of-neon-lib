@@ -1,4 +1,4 @@
-#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
+#[derive(Serde, Copy, Drop, Introspect, PartialEq)]
 enum CardType {
     PreCalculateHand,
     PostCalculateHand,
