@@ -49,14 +49,6 @@ pub struct RageRoundConfig {
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
-pub struct EarningCashConfig {
-    pub base: u32,
-    pub round_reward: u32,
-    pub remaining_plays_reward: u32,
-    pub remaining_discards_reward: u32,
-}
-
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
 pub struct DiscountConfig {
     pub max_discounts_per_shop: u32,
     pub tries: u32,
