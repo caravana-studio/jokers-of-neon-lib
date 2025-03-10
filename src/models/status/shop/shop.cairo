@@ -150,3 +150,17 @@ enum DiscountSection {
     PowerUps,
     None,
 }
+
+#[derive(Copy, Drop, Serde)]
+struct ShopConfig {
+    #[key]
+    pub id: u32,
+    pub traditional_cards_quantity: u32,
+    pub modifiers_cards_quantity: u32,
+    pub specials_cards_quantity: u32,
+    pub loot_boxes_quantity: u32,
+    pub power_ups_quantity: u32,
+    pub poker_hands_quantity: u32,
+    pub reroll_quantity: u32,
+    pub burn_quantity: u32,
+}

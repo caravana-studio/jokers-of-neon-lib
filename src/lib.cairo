@@ -8,7 +8,6 @@ mod configs {
     mod game;
     mod play_rules;
     mod round_rewards;
-    mod shop;
 }
 
 mod interfaces {
@@ -16,7 +15,6 @@ mod interfaces {
     mod configs {
         mod game;
         mod play_rules;
-        mod shop;
     }
     mod rages {
         mod debuff;
