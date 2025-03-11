@@ -120,9 +120,7 @@ struct BurnItem {
 struct ReRollItem {
     #[key]
     game_id: u32,
-    cost: u32,
-    discount_cost: u32,
-    purchased: bool,
+    available_rerolls: u32,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]

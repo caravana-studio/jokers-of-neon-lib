@@ -12,5 +12,4 @@ trait IGameConfig<T> {
     fn calculate_level_score(self: @T, level: u32) -> u32;
     fn calculate_price_of_slot(self: @T, count_slots: u32) -> u32;
     fn calculate_price_of_burn(self: @T, count_burns: u32) -> u32;
-    fn calculate_price_of_reroll(self: @T, count_rerolls: u32) -> u32;
 }
