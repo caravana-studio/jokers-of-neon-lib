@@ -11,24 +11,14 @@ pub struct GameConfig {
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
-pub struct ShopConfig {
-    pub traditional_cards_quantity: u32,
-    pub modifiers_cards_quantity: u32,
-    pub specials_cards_quantity: u32,
-    pub loot_boxes_quantity: u32,
-    pub power_ups_quantity: u32,
-    pub poker_hands_quantity: u32,
-}
-
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
 pub struct ShopPricesConfig {
     pub initial_price_slot: u32,
     pub initial_price_of_burn: u32,
     pub initial_price_of_reroll: u32,
-    pub number_of_burns_per_store: u32,
-    pub number_of_rerolls_per_store: u32,
     pub price_of_traditional_cards: u32,
     pub price_of_modifier_cards: u32,
+    pub price_of_joker_card: u32,
+    pub price_of_neon_joker_card: u32,
 }
 
 #[derive(Copy, Drop, Serde)]
