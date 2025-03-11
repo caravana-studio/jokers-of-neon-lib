@@ -1,11 +1,10 @@
 use jokers_of_neon_lib::configs::game::{
-    DiscountConfig, GameConfig, RageRoundConfig, RoundRewardConfig, ShopConfig, ShopPricesConfig,
+    DiscountConfig, GameConfig, RageRoundConfig, RoundRewardConfig, ShopPricesConfig,
 };
 
 #[starknet::interface]
 trait IGameConfig<T> {
     fn get_game_config(self: @T) -> GameConfig;
-    fn get_shop_config(self: @T) -> ShopConfig;
     fn get_shop_prices_config(self: @T) -> ShopPricesConfig;
     fn get_round_reward_config(self: @T) -> RoundRewardConfig;
     fn get_rage_round_config(self: @T) -> RageRoundConfig;
