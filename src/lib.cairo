@@ -14,6 +14,7 @@ mod interfaces {
     mod base;
     mod configs {
         mod game;
+        mod shop;
     }
     mod rages {
         mod debuff;
