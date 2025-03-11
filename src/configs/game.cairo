@@ -16,7 +16,7 @@ pub struct ShopPricesConfig {
     pub initial_price_of_burn: u32,
     pub initial_price_of_reroll: u32,
     pub price_of_traditional_cards: u32,
-    pub price_of_neon_cards: u32,
+    pub price_of_neon_traditional_cards: u32,
     pub price_of_modifier_cards: u32,
     pub price_of_joker_card: u32,
     pub price_of_neon_joker_card: u32,
