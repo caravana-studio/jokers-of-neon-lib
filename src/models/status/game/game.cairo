@@ -38,4 +38,5 @@ pub struct CurrentSpecialCards {
     pub is_temporary: bool,
     pub remaining: u32,
     pub selling_price: u32,
+    pub is_blocked: bool,
 }
