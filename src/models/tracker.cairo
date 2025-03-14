@@ -79,6 +79,8 @@ impl GameContextDefault of Default<GameContext> {
                 current_specials_len: 0,
                 special_slots: 0,
                 cash: 0,
+                shop_config_id: 0,
+                available_rerolls: 0,
             },
             round: Round { game_id: 0, player_score: 0, level_score: 0, remaining_plays: 0, remaining_discards: 0 },
             hand: PokerHand::None,

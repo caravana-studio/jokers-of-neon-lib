@@ -117,16 +117,6 @@ struct BurnItem {
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct ReRollItem {
-    #[key]
-    game_id: u32,
-    cost: u32,
-    discount_cost: u32,
-    purchased: bool,
-}
-
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
-#[dojo::model]
 struct PowerUpItem {
     #[key]
     game_id: u32,
@@ -149,4 +139,17 @@ enum DiscountSection {
     SpecialSlots,
     PowerUps,
     None,
+}
+
+#[derive(Copy, Drop, Serde)]
+struct ShopConfig {
+    #[key]
+    pub id: u32,
+    pub traditional_cards_quantity: u32,
+    pub modifiers_cards_quantity: u32,
+    pub specials_cards_quantity: u32,
+    pub loot_boxes_quantity: u32,
+    pub power_ups_quantity: u32,
+    pub poker_hands_quantity: u32,
+    pub burn_quantity: u32,
 }
