@@ -151,6 +151,5 @@ struct ShopConfig {
     pub loot_boxes_quantity: u32,
     pub power_ups_quantity: u32,
     pub poker_hands_quantity: u32,
-    pub reroll_quantity: u32,
     pub burn_quantity: u32,
 }
