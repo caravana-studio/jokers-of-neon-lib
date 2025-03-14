@@ -117,14 +117,6 @@ struct BurnItem {
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct ReRollItem {
-    #[key]
-    game_id: u32,
-    available_rerolls: u32,
-}
-
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
-#[dojo::model]
 struct PowerUpItem {
     #[key]
     game_id: u32,

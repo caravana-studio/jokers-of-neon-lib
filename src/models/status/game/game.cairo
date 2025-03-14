@@ -26,6 +26,7 @@ pub struct Game {
     pub special_slots: u32,
     pub cash: u32,
     pub shop_config_id: u32,
+    pub available_rerolls: u32,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
