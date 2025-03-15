@@ -11,7 +11,7 @@ struct Node {
     id: u32,
     node_type: NodeType,
     subtype_id: u32,
-    neighbors: Span<u32>,
+    childs: Span<u32>,
 }
 
 #[derive(Copy, Drop, Serde, IntrospectPacked)]
