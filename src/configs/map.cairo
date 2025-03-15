@@ -11,5 +11,5 @@ pub struct LevelMapConfig {
     /// Increment in map length per additional level.
     pub map_stages_increment_per_level: u32,
     // Define stage nodes probabilities
-    pub stage_sequence: Span<(NodeType, u32)>
+    pub stage_probabilities: Span<(NodeType, u32)>
 }
