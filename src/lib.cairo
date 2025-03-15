@@ -7,6 +7,7 @@ mod constants {
 
 mod configs {
     mod game;
+    mod map;
     mod play_rules;
 }
 
