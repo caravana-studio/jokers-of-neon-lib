@@ -7,6 +7,9 @@ pub struct LevelMapConfig {
 
     /// Probability (1-100) that a node will generate children.
     pub children_probability: u32,
+    
+    /// Maximum number of nodes a stage can have.
+    pub max_nodes_per_stage: u32,
 
     /// Number of nodes in the first level of the map.
     pub initial_stages: u32,
