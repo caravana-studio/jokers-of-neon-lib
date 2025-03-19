@@ -10,8 +10,8 @@ struct Node {
     #[key]
     id: u32,
     node_type: NodeType,
-    subtype_id: u32,
     childs: Span<u32>,
+    data: felt252,
 }
 
 #[derive(Copy, Drop, Serde, IntrospectPacked)]
