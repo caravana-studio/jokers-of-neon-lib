@@ -31,5 +31,6 @@ struct LevelMap {
     #[key]
     level: u32,
     traveled_path: Span<u32>,
-    nodes: Span<u32>,
+    stages: Span<NodeType>,
+    level_nodes: Span<Span<u32>>,
 }
