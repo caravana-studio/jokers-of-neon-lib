@@ -14,7 +14,7 @@ struct Node {
     data: felt252,
 }
 
-#[derive(Copy, Drop, Serde, IntrospectPacked)]
+#[derive(Copy, Drop, Serde, PartialEq, IntrospectPacked)]
 enum NodeType {
     None,
     Round,
