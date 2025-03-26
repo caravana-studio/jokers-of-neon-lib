@@ -18,7 +18,7 @@ struct Node {
 struct NodeChilds {
     #[key]
     node_id: u32,
-    childs: Array<u32>,
+    childs: Span<u32>,
 }
 
 #[derive(Copy, Drop, Serde, PartialEq, IntrospectPacked)]
