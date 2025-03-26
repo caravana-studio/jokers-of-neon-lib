@@ -33,7 +33,7 @@ pub struct Game {
 #[dojo::model]
 pub struct CurrentSpecialCards {
     #[key]
-    pub game_id: u32,
+    pub game_id: u64,
     #[key]
     pub idx: u32,
     pub effect_card_id: u32,
