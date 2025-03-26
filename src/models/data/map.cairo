@@ -10,8 +10,15 @@ struct Node {
     #[key]
     id: u32,
     node_type: NodeType,
-    childs: Span<u32>,
     data: felt252,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::model]
+struct NodeChilds {
+    #[key]
+    node_id: u32,
+    childs: Array<u32>,
 }
 
 #[derive(Copy, Drop, Serde, PartialEq, IntrospectPacked)]
