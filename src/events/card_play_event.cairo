@@ -18,7 +18,7 @@ enum EventType {
 pub struct CardPlayEvent {
     #[key]
     pub player: ContractAddress,
-    pub game_id: u32,
+    pub game_id: u64,
     pub mod_id: felt252,
     pub event_type: EventType,
     pub special: Span<(u32, i32)>,

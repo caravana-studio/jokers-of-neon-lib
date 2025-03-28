@@ -7,7 +7,7 @@ use jokers_of_neon_lib::models::{
 #[dojo::model]
 struct GameTracker {
     #[key]
-    game_id: u32,
+    game_id: u64,
     power_ups_used: u32,
     highest_hand: u32,
     rage_wins: u32,
@@ -18,7 +18,7 @@ struct GameTracker {
 #[dojo::model]
 struct PurchaseTracker {
     #[key]
-    game_id: u32,
+    game_id: u64,
     traditonal_cards_count: u32,
     modifier_cards_count: u32,
     special_cards_count: u32,
@@ -33,7 +33,7 @@ struct PurchaseTracker {
 #[dojo::model]
 struct PokerHandTracker {
     #[key]
-    game_id: u32,
+    game_id: u64,
     royal_flush: u32,
     straight_flush: u32,
     five_of_a_kind: u32,

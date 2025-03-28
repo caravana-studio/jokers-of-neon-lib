@@ -12,7 +12,7 @@ pub enum GameState {
 #[dojo::model]
 pub struct Game {
     #[key]
-    pub id: u32,
+    pub id: u64,
     pub mod_id: felt252,
     pub state: GameState,
     pub owner: ContractAddress,
@@ -33,7 +33,7 @@ pub struct Game {
 #[dojo::model]
 pub struct CurrentSpecialCards {
     #[key]
-    pub game_id: u32,
+    pub game_id: u64,
     #[key]
     pub idx: u32,
     pub effect_card_id: u32,

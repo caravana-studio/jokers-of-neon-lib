@@ -5,7 +5,7 @@
 #[dojo::model]
 pub struct RageRound {
     #[key]
-    pub game_id: u32,
+    pub game_id: u64,
     pub is_active: bool,
     pub current_probability: u16,
     pub active_rage_ids: Span<u32>,
