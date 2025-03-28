@@ -7,7 +7,7 @@ trait ICardInfo<T> {
     ///
     /// # Returns
     /// - A `felt252` value representing the requested information.
-    fn info(ref self: T, key: Option<felt252>) -> felt252;
+    fn info(self: @T, key: Option<felt252>) -> felt252;
 
     /// Returns all available keys associated with this instance.
     ///
