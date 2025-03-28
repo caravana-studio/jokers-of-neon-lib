@@ -21,6 +21,7 @@ mod interfaces {
         mod silence;
     }
     mod cards {
+        mod info;
         mod condition;
         mod converter;
         mod equipable;
