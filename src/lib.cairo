@@ -21,11 +21,11 @@ mod interfaces {
         mod silence;
     }
     mod cards {
-        mod info;
         mod condition;
         mod converter;
         mod equipable;
         mod executable;
+        mod info;
     }
     mod info {
         mod card_info;

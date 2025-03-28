@@ -13,5 +13,5 @@ trait ICardInfo<T> {
     ///
     /// # Returns
     /// - A `Span<felt252>` containing all stored keys.
-    fn keys(ref self: @T) -> Span<felt252>;
+    fn keys(self: @T) -> Span<felt252>;
 }
