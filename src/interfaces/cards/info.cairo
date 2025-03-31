@@ -1,18 +1,14 @@
 #[starknet::interface]
 trait ICardInfo<T> {
-    /// Retrieves information associated with the given key for a specific game.
+    /// Retrieves game-related values, including points, multiplier, and cash.
     ///
     /// # Parameters
     /// - `game_id`: The identifier of the game.
-    /// - `key`: An optional `felt252` key to look up specific information.
     ///
     /// # Returns
-    /// - A `felt252` value representing the requested information.
-    fn info(self: @T, game_id: u32, key: Option<felt252>) -> felt252;
-
-    /// Returns all available keys associated with this instance.
-    ///
-    /// # Returns
-    /// - A `Span<felt252>` containing all stored keys.
-    fn keys(self: @T) -> Span<felt252>;
+    /// - A tuple `(points, multiplier, cash)`:
+    ///   - `points (i32)`: The number of points.
+    ///   - `multiplier (i32)`: The multiplier applied to the points.
+    ///   - `cash (i32)`: The amount of cash available.
+    fn values(self: @T, game_id: u32) -> (i32, i32, i32);
 }
