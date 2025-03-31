@@ -37,7 +37,16 @@ struct LevelMap {
     game_id: u32,
     #[key]
     level: u32,
-    traveled_path: Span<u32>,
     stages: Span<NodeType>,
     level_nodes: Span<Span<u32>>,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::model]
+struct TraveledNodes {
+    #[key]
+    game_id: u32,
+    #[key]
+    level: u32,
+    nodes: Span<u32>,
 }
