@@ -7,6 +7,7 @@ mod constants {
 
 mod configs {
     mod game;
+    mod map;
     mod play_rules;
 }
 
@@ -49,6 +50,7 @@ mod models {
         mod effect_card;
         mod game_deck;
         mod loot_box;
+        mod map;
         mod mod_tracker;
         mod poker_hand;
         mod power_up;
