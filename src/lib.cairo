@@ -25,6 +25,7 @@ mod interfaces {
         mod converter;
         mod equipable;
         mod executable;
+        mod info;
     }
     mod info {
         mod card_info;

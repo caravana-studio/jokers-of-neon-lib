@@ -19,6 +19,7 @@ enum CardType {
     PokerHand,
     Debuff,
     Silence,
+    Info,
     None,
 }
 
@@ -44,6 +45,7 @@ impl CardTypeIntoFelt252 of Into<CardType, felt252> {
             CardType::Silence => 17,
             CardType::Miss => 18,
             CardType::Hand => 19,
+            CardType::Info => 20,
             CardType::None => 9999,
         }
     }
