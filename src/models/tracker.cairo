@@ -51,7 +51,7 @@ struct PokerHandTracker {
 struct GameContext {
     game: Game,
     round: Round,
-    hand: PokerHand,
+    hand: (PokerHand, u32), // (Hand, Level)
     card_type: CardType,
     cards_played: Span<(bool, u32, Card)>, // (hit, idx, Card)
     cards_in_hand: Span<(u32, Card)>, // (idx, Card)
