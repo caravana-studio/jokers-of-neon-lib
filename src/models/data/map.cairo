@@ -34,7 +34,7 @@ enum NodeType {
 #[dojo::model]
 struct LevelMap {
     #[key]
-    game_id: u32,
+    game_id: u64,
     #[key]
     level: u32,
     stages: Span<NodeType>,
@@ -45,7 +45,7 @@ struct LevelMap {
 #[dojo::model]
 struct TraveledNodes {
     #[key]
-    game_id: u32,
+    game_id: u64,
     #[key]
     level: u32,
     nodes: Span<u32>,
