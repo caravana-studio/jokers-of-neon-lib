@@ -107,11 +107,11 @@ const NEON_QUEEN_SPADES_ID: u32 = 249;
 const NEON_KING_SPADES_ID: u32 = 250;
 const NEON_ACE_SPADES_ID: u32 = 251;
 
-const JOKER_CARD: u32 = 52;
-const NEON_JOKER_CARD: u32 = 252;
-const WILD_CARD: u32 = 53;
-const NEON_WILD_CARD: u32 = 253;
-const INVALID_CARD: u32 = 9999;
+const JOKER_CARD_ID: u32 = 52;
+const NEON_JOKER_CARD_ID: u32 = 252;
+const WILD_CARD_ID: u32 = 53;
+const NEON_WILD_CARD_ID: u32 = 253;
+const INVALID_CARD_ID: u32 = 9999;
 
 // TRADITIONALS
 fn TWO_CLUBS() -> Card {
@@ -432,6 +432,14 @@ fn NEON_KING_CLUBS() -> Card {
 }
 fn NEON_ACE_CLUBS() -> Card {
     Card { id: NEON_ACE_CLUBS_ID, suit: Suit::Clubs, value: Value::Ace, points: 22, multi_add: 1 }
+}
+
+fn WILD_CARD() -> Card {
+    Card { id: WILD_CARD_ID, suit: Suit::Wild, value: Value::Wild, points: 0, multi_add: 0 }
+}
+
+fn NEON_WILD_CARD() -> Card {
+    Card { id: NEON_WILD_CARD_ID, suit: Suit::Wild, value: Value::Wild, points: 0, multi_add: 1 }
 }
 
 fn traditional_cards_all() -> Array<u32> {
