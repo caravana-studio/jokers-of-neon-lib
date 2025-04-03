@@ -434,12 +434,24 @@ fn NEON_ACE_CLUBS() -> Card {
     Card { id: NEON_ACE_CLUBS_ID, suit: Suit::Clubs, value: Value::Ace, points: 22, multi_add: 1 }
 }
 
+fn JOKER_CARD() -> Card {
+    Card { id: JOKER_CARD_ID, suit: Suit::Joker, value: Value::Joker, points: 100, multi_add: 1 }
+}
+
+fn NEON_JOKER_CARD() -> Card {
+    Card { id: NEON_JOKER_CARD_ID, suit: Suit::Joker, value: Value::NeonJoker, points: 200, multi_add: 2 }
+}
+
 fn WILD_CARD() -> Card {
     Card { id: WILD_CARD_ID, suit: Suit::Wild, value: Value::Wild, points: 0, multi_add: 0 }
 }
 
 fn NEON_WILD_CARD() -> Card {
     Card { id: NEON_WILD_CARD_ID, suit: Suit::Wild, value: Value::Wild, points: 0, multi_add: 1 }
+}
+
+fn INVALID_CARD() -> Card {
+    Card { id: INVALID_CARD_ID, suit: Suit::None, value: Value::None, points: 0, multi_add: 0 }
 }
 
 fn traditional_cards_all() -> Array<u32> {
