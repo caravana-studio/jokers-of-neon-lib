@@ -10,6 +10,8 @@ enum EventType {
     Neon,
     Spade,
     Heart,
+    Joker,
+    Wild,
     None,
 }
 
