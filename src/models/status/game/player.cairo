@@ -4,7 +4,7 @@ use jokers_of_neon_lib::models::data::poker_hand::PokerHand;
 #[dojo::model]
 struct PlayerLevelPokerHand {
     #[key]
-    game_id: u32,
+    game_id: u64,
     #[key]
     poker_hand: PokerHand,
     level: u8,

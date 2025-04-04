@@ -2,20 +2,19 @@ mod random;
 mod constants {
     mod card;
     mod modifiers;
+    mod two_pow;
 }
 
 mod configs {
     mod game;
+    mod map;
     mod play_rules;
-    mod round_rewards;
-    mod shop;
 }
 
 mod interfaces {
     mod base;
     mod configs {
         mod game;
-        mod play_rules;
         mod shop;
     }
     mod rages {
@@ -27,6 +26,7 @@ mod interfaces {
         mod converter;
         mod equipable;
         mod executable;
+        mod info;
     }
     mod info {
         mod card_info;
@@ -38,6 +38,7 @@ mod interfaces {
 }
 
 mod events {
+    mod card_activate_event;
     mod card_play_event;
 }
 
@@ -49,6 +50,7 @@ mod models {
         mod effect_card;
         mod game_deck;
         mod loot_box;
+        mod map;
         mod mod_tracker;
         mod poker_hand;
         mod power_up;

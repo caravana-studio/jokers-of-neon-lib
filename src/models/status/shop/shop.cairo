@@ -4,7 +4,7 @@ use jokers_of_neon_lib::models::data::poker_hand::PokerHand;
 #[dojo::model]
 struct CardItem {
     #[key]
-    game_id: u32,
+    game_id: u64,
     #[key]
     idx: u32,
     #[key]
@@ -46,7 +46,7 @@ impl CardItemTypeIntofelt252 of Into<CardItemType, felt252> {
 #[dojo::model]
 struct SpecialCardItem {
     #[key]
-    game_id: u32,
+    game_id: u64,
     #[key]
     idx: u32,
     card_id: u32,
@@ -61,7 +61,7 @@ struct SpecialCardItem {
 #[dojo::model]
 struct PokerHandItem {
     #[key]
-    game_id: u32,
+    game_id: u64,
     #[key]
     idx: u32,
     poker_hand: PokerHand,
@@ -77,7 +77,7 @@ struct PokerHandItem {
 #[dojo::model]
 struct BlisterPackItem {
     #[key]
-    game_id: u32,
+    game_id: u64,
     #[key]
     idx: u32,
     blister_pack_id: u32,
@@ -90,7 +90,7 @@ struct BlisterPackItem {
 #[dojo::model]
 struct BlisterPackResult {
     #[key]
-    game_id: u32,
+    game_id: u64,
     cards_picked: bool,
     cards: Span<u32>,
 }
@@ -99,7 +99,7 @@ struct BlisterPackResult {
 #[dojo::model]
 struct SlotSpecialCardsItem {
     #[key]
-    game_id: u32,
+    game_id: u64,
     cost: u32,
     discount_cost: u32,
     purchased: bool,
@@ -109,17 +109,7 @@ struct SlotSpecialCardsItem {
 #[dojo::model]
 struct BurnItem {
     #[key]
-    game_id: u32,
-    cost: u32,
-    discount_cost: u32,
-    purchased: bool,
-}
-
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
-#[dojo::model]
-struct ReRollItem {
-    #[key]
-    game_id: u32,
+    game_id: u64,
     cost: u32,
     discount_cost: u32,
     purchased: bool,
@@ -129,7 +119,7 @@ struct ReRollItem {
 #[dojo::model]
 struct PowerUpItem {
     #[key]
-    game_id: u32,
+    game_id: u64,
     #[key]
     idx: u32,
     power_up_id: u32,
@@ -149,4 +139,17 @@ enum DiscountSection {
     SpecialSlots,
     PowerUps,
     None,
+}
+
+#[derive(Copy, Drop, Serde)]
+struct ShopConfig {
+    #[key]
+    pub id: u32,
+    pub traditional_cards_quantity: u32,
+    pub modifiers_cards_quantity: u32,
+    pub specials_cards_quantity: u32,
+    pub loot_boxes_quantity: u32,
+    pub power_ups_quantity: u32,
+    pub poker_hands_quantity: u32,
+    pub burn_quantity: u32,
 }

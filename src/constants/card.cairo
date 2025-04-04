@@ -107,11 +107,11 @@ const NEON_QUEEN_SPADES_ID: u32 = 249;
 const NEON_KING_SPADES_ID: u32 = 250;
 const NEON_ACE_SPADES_ID: u32 = 251;
 
-const JOKER_CARD: u32 = 52;
-const NEON_JOKER_CARD: u32 = 252;
-const WILD_CARD: u32 = 53;
-const NEON_WILD_CARD: u32 = 253;
-const INVALID_CARD: u32 = 9999;
+const JOKER_CARD_ID: u32 = 52;
+const NEON_JOKER_CARD_ID: u32 = 252;
+const WILD_CARD_ID: u32 = 53;
+const NEON_WILD_CARD_ID: u32 = 253;
+const INVALID_CARD_ID: u32 = 9999;
 
 // TRADITIONALS
 fn TWO_CLUBS() -> Card {
@@ -434,6 +434,26 @@ fn NEON_ACE_CLUBS() -> Card {
     Card { id: NEON_ACE_CLUBS_ID, suit: Suit::Clubs, value: Value::Ace, points: 22, multi_add: 1 }
 }
 
+fn JOKER_CARD() -> Card {
+    Card { id: JOKER_CARD_ID, suit: Suit::Joker, value: Value::Joker, points: 100, multi_add: 1 }
+}
+
+fn NEON_JOKER_CARD() -> Card {
+    Card { id: NEON_JOKER_CARD_ID, suit: Suit::Joker, value: Value::NeonJoker, points: 200, multi_add: 2 }
+}
+
+fn WILD_CARD() -> Card {
+    Card { id: WILD_CARD_ID, suit: Suit::Wild, value: Value::Wild, points: 0, multi_add: 0 }
+}
+
+fn NEON_WILD_CARD() -> Card {
+    Card { id: NEON_WILD_CARD_ID, suit: Suit::Wild, value: Value::Wild, points: 0, multi_add: 1 }
+}
+
+fn INVALID_CARD() -> Card {
+    Card { id: INVALID_CARD_ID, suit: Suit::None, value: Value::None, points: 0, multi_add: 0 }
+}
+
 fn traditional_cards_all() -> Array<u32> {
     array![
         TWO_CLUBS_ID,
@@ -704,4 +724,240 @@ fn all_hearts_cards() -> Array<u32> {
         NEON_KING_HEARTS_ID,
         NEON_ACE_HEARTS_ID,
     ]
+}
+
+fn get_card(id: u32) -> Card {
+    if id <= 51 {
+        get_traditional_card(id)
+    } else if id == JOKER_CARD_ID {
+        JOKER_CARD()
+    } else if id == NEON_JOKER_CARD_ID {
+        NEON_JOKER_CARD()
+    } else if id == WILD_CARD_ID {
+        WILD_CARD()
+    } else if id == NEON_WILD_CARD_ID {
+        NEON_WILD_CARD()
+    } else {
+        get_neon_card(id)
+    }
+}
+
+fn get_traditional_card(id: u32) -> Card {
+    if id == TWO_CLUBS_ID {
+        TWO_CLUBS()
+    } else if id == THREE_CLUBS_ID {
+        THREE_CLUBS()
+    } else if id == FOUR_CLUBS_ID {
+        FOUR_CLUBS()
+    } else if id == FIVE_CLUBS_ID {
+        FIVE_CLUBS()
+    } else if id == SIX_CLUBS_ID {
+        SIX_CLUBS()
+    } else if id == SEVEN_CLUBS_ID {
+        SEVEN_CLUBS()
+    } else if id == EIGHT_CLUBS_ID {
+        EIGHT_CLUBS()
+    } else if id == NINE_CLUBS_ID {
+        NINE_CLUBS()
+    } else if id == TEN_CLUBS_ID {
+        TEN_CLUBS()
+    } else if id == JACK_CLUBS_ID {
+        JACK_CLUBS()
+    } else if id == QUEEN_CLUBS_ID {
+        QUEEN_CLUBS()
+    } else if id == KING_CLUBS_ID {
+        KING_CLUBS()
+    } else if id == ACE_CLUBS_ID {
+        ACE_CLUBS()
+    } else if id == TWO_DIAMONDS_ID {
+        TWO_DIAMONDS()
+    } else if id == THREE_DIAMONDS_ID {
+        THREE_DIAMONDS()
+    } else if id == FOUR_DIAMONDS_ID {
+        FOUR_DIAMONDS()
+    } else if id == FIVE_DIAMONDS_ID {
+        FIVE_DIAMONDS()
+    } else if id == SIX_DIAMONDS_ID {
+        SIX_DIAMONDS()
+    } else if id == SEVEN_DIAMONDS_ID {
+        SEVEN_DIAMONDS()
+    } else if id == EIGHT_DIAMONDS_ID {
+        EIGHT_DIAMONDS()
+    } else if id == NINE_DIAMONDS_ID {
+        NINE_DIAMONDS()
+    } else if id == TEN_DIAMONDS_ID {
+        TEN_DIAMONDS()
+    } else if id == JACK_DIAMONDS_ID {
+        JACK_DIAMONDS()
+    } else if id == QUEEN_DIAMONDS_ID {
+        QUEEN_DIAMONDS()
+    } else if id == KING_DIAMONDS_ID {
+        KING_DIAMONDS()
+    } else if id == ACE_DIAMONDS_ID {
+        ACE_DIAMONDS()
+    } else if id == TWO_HEARTS_ID {
+        TWO_HEARTS()
+    } else if id == THREE_HEARTS_ID {
+        THREE_HEARTS()
+    } else if id == FOUR_HEARTS_ID {
+        FOUR_HEARTS()
+    } else if id == FIVE_HEARTS_ID {
+        FIVE_HEARTS()
+    } else if id == SIX_HEARTS_ID {
+        SIX_HEARTS()
+    } else if id == SEVEN_HEARTS_ID {
+        SEVEN_HEARTS()
+    } else if id == EIGHT_HEARTS_ID {
+        EIGHT_HEARTS()
+    } else if id == NINE_HEARTS_ID {
+        NINE_HEARTS()
+    } else if id == TEN_HEARTS_ID {
+        TEN_HEARTS()
+    } else if id == JACK_HEARTS_ID {
+        JACK_HEARTS()
+    } else if id == QUEEN_HEARTS_ID {
+        QUEEN_HEARTS()
+    } else if id == KING_HEARTS_ID {
+        KING_HEARTS()
+    } else if id == ACE_HEARTS_ID {
+        ACE_HEARTS()
+    } else if id == TWO_SPADES_ID {
+        TWO_SPADES()
+    } else if id == THREE_SPADES_ID {
+        THREE_SPADES()
+    } else if id == FOUR_SPADES_ID {
+        FOUR_SPADES()
+    } else if id == FIVE_SPADES_ID {
+        FIVE_SPADES()
+    } else if id == SIX_SPADES_ID {
+        SIX_SPADES()
+    } else if id == SEVEN_SPADES_ID {
+        SEVEN_SPADES()
+    } else if id == EIGHT_SPADES_ID {
+        EIGHT_SPADES()
+    } else if id == NINE_SPADES_ID {
+        NINE_SPADES()
+    } else if id == TEN_SPADES_ID {
+        TEN_SPADES()
+    } else if id == JACK_SPADES_ID {
+        JACK_SPADES()
+    } else if id == QUEEN_SPADES_ID {
+        QUEEN_SPADES()
+    } else if id == KING_SPADES_ID {
+        KING_SPADES()
+    } else if id == ACE_SPADES_ID {
+        ACE_SPADES()
+    } else {
+        INVALID_CARD()
+    }
+}
+
+fn get_neon_card(id: u32) -> Card {
+    if id == NEON_TWO_CLUBS_ID {
+        NEON_TWO_CLUBS()
+    } else if id == NEON_THREE_CLUBS_ID {
+        NEON_THREE_CLUBS()
+    } else if id == NEON_FOUR_CLUBS_ID {
+        NEON_FOUR_CLUBS()
+    } else if id == NEON_FIVE_CLUBS_ID {
+        NEON_FIVE_CLUBS()
+    } else if id == NEON_SIX_CLUBS_ID {
+        NEON_SIX_CLUBS()
+    } else if id == NEON_SEVEN_CLUBS_ID {
+        NEON_SEVEN_CLUBS()
+    } else if id == NEON_EIGHT_CLUBS_ID {
+        NEON_EIGHT_CLUBS()
+    } else if id == NEON_NINE_CLUBS_ID {
+        NEON_NINE_CLUBS()
+    } else if id == NEON_TEN_CLUBS_ID {
+        NEON_TEN_CLUBS()
+    } else if id == NEON_JACK_CLUBS_ID {
+        NEON_JACK_CLUBS()
+    } else if id == NEON_QUEEN_CLUBS_ID {
+        NEON_QUEEN_CLUBS()
+    } else if id == NEON_KING_CLUBS_ID {
+        NEON_KING_CLUBS()
+    } else if id == NEON_ACE_CLUBS_ID {
+        NEON_ACE_CLUBS()
+    } else if id == NEON_TWO_DIAMONDS_ID {
+        NEON_TWO_DIAMONDS()
+    } else if id == NEON_THREE_DIAMONDS_ID {
+        NEON_THREE_DIAMONDS()
+    } else if id == NEON_FOUR_DIAMONDS_ID {
+        NEON_FOUR_DIAMONDS()
+    } else if id == NEON_FIVE_DIAMONDS_ID {
+        NEON_FIVE_DIAMONDS()
+    } else if id == NEON_SIX_DIAMONDS_ID {
+        NEON_SIX_DIAMONDS()
+    } else if id == NEON_SEVEN_DIAMONDS_ID {
+        NEON_SEVEN_DIAMONDS()
+    } else if id == NEON_EIGHT_DIAMONDS_ID {
+        NEON_EIGHT_DIAMONDS()
+    } else if id == NEON_NINE_DIAMONDS_ID {
+        NEON_NINE_DIAMONDS()
+    } else if id == NEON_TEN_DIAMONDS_ID {
+        NEON_TEN_DIAMONDS()
+    } else if id == NEON_JACK_DIAMONDS_ID {
+        NEON_JACK_DIAMONDS()
+    } else if id == NEON_QUEEN_DIAMONDS_ID {
+        NEON_QUEEN_DIAMONDS()
+    } else if id == NEON_KING_DIAMONDS_ID {
+        NEON_KING_DIAMONDS()
+    } else if id == NEON_ACE_DIAMONDS_ID {
+        NEON_ACE_DIAMONDS()
+    } else if id == NEON_TWO_HEARTS_ID {
+        NEON_TWO_HEARTS()
+    } else if id == NEON_THREE_HEARTS_ID {
+        NEON_THREE_HEARTS()
+    } else if id == NEON_FOUR_HEARTS_ID {
+        NEON_FOUR_HEARTS()
+    } else if id == NEON_FIVE_HEARTS_ID {
+        NEON_FIVE_HEARTS()
+    } else if id == NEON_SIX_HEARTS_ID {
+        NEON_SIX_HEARTS()
+    } else if id == NEON_SEVEN_HEARTS_ID {
+        NEON_SEVEN_HEARTS()
+    } else if id == NEON_EIGHT_HEARTS_ID {
+        NEON_EIGHT_HEARTS()
+    } else if id == NEON_NINE_HEARTS_ID {
+        NEON_NINE_HEARTS()
+    } else if id == NEON_TEN_HEARTS_ID {
+        NEON_TEN_HEARTS()
+    } else if id == NEON_JACK_HEARTS_ID {
+        NEON_JACK_HEARTS()
+    } else if id == NEON_QUEEN_HEARTS_ID {
+        NEON_QUEEN_HEARTS()
+    } else if id == NEON_KING_HEARTS_ID {
+        NEON_KING_HEARTS()
+    } else if id == NEON_ACE_HEARTS_ID {
+        NEON_ACE_HEARTS()
+    } else if id == NEON_TWO_SPADES_ID {
+        NEON_TWO_SPADES()
+    } else if id == NEON_THREE_SPADES_ID {
+        NEON_THREE_SPADES()
+    } else if id == NEON_FOUR_SPADES_ID {
+        NEON_FOUR_SPADES()
+    } else if id == NEON_FIVE_SPADES_ID {
+        NEON_FIVE_SPADES()
+    } else if id == NEON_SIX_SPADES_ID {
+        NEON_SIX_SPADES()
+    } else if id == NEON_SEVEN_SPADES_ID {
+        NEON_SEVEN_SPADES()
+    } else if id == NEON_EIGHT_SPADES_ID {
+        NEON_EIGHT_SPADES()
+    } else if id == NEON_NINE_SPADES_ID {
+        NEON_NINE_SPADES()
+    } else if id == NEON_TEN_SPADES_ID {
+        NEON_TEN_SPADES()
+    } else if id == NEON_JACK_SPADES_ID {
+        NEON_JACK_SPADES()
+    } else if id == NEON_QUEEN_SPADES_ID {
+        NEON_QUEEN_SPADES()
+    } else if id == NEON_KING_SPADES_ID {
+        NEON_KING_SPADES()
+    } else if id == NEON_ACE_SPADES_ID {
+        NEON_ACE_SPADES()
+    } else {
+        INVALID_CARD()
+    }
 }

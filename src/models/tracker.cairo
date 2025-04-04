@@ -1,13 +1,13 @@
 use jokers_of_neon_lib::models::{
     card_type::CardType, data::{card::Card, poker_hand::PokerHand},
-    status::{game::game::{Game, GameState}, round::round::Round},
+    status::{game::game::{CurrentSpecialCards, Game, GameState}, round::round::Round},
 };
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
 struct GameTracker {
     #[key]
-    game_id: u32,
+    game_id: u64,
     power_ups_used: u32,
     highest_hand: u32,
     rage_wins: u32,
@@ -18,7 +18,7 @@ struct GameTracker {
 #[dojo::model]
 struct PurchaseTracker {
     #[key]
-    game_id: u32,
+    game_id: u64,
     traditonal_cards_count: u32,
     modifier_cards_count: u32,
     special_cards_count: u32,
@@ -33,7 +33,7 @@ struct PurchaseTracker {
 #[dojo::model]
 struct PokerHandTracker {
     #[key]
-    game_id: u32,
+    game_id: u64,
     royal_flush: u32,
     straight_flush: u32,
     five_of_a_kind: u32,
@@ -51,12 +51,12 @@ struct PokerHandTracker {
 struct GameContext {
     game: Game,
     round: Round,
-    hand: PokerHand,
+    hand: (PokerHand, u32), // (Hand, Level)
     card_type: CardType,
     cards_played: Span<(bool, u32, Card)>, // (hit, idx, Card)
     cards_in_hand: Span<(u32, Card)>, // (idx, Card)
     cards_in_deck: Span<u32>,
-    special_cards: Span<u32>,
+    special_cards: Span<CurrentSpecialCards>,
     power_ups: Span<u32>,
     purchase_tracker: PurchaseTracker,
     game_tracker: GameTracker,
@@ -79,9 +79,13 @@ impl GameContextDefault of Default<GameContext> {
                 current_specials_len: 0,
                 special_slots: 0,
                 cash: 0,
+                shop_config_id: 0,
+                available_rerolls: 0,
+                current_node_id: 0,
+                last_node_id: 0,
             },
             round: Round { game_id: 0, player_score: 0, level_score: 0, remaining_plays: 0, remaining_discards: 0 },
-            hand: PokerHand::None,
+            hand: (PokerHand::None, 0),
             card_type: CardType::None,
             cards_played: array![].span(),
             cards_in_hand: array![].span(),
