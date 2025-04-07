@@ -102,7 +102,6 @@ struct SlotSpecialCardsItem {
     game_id: u64,
     cost: u32,
     discount_cost: u32,
-    purchased: bool,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
