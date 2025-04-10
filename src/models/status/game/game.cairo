@@ -3,6 +3,7 @@ use starknet::ContractAddress;
 #[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
 pub enum GameState {
     IN_GAME,
+    LEVEL_MAP,
     AT_SHOP,
     FINISHED,
     OPEN_BLISTER_PACK,
