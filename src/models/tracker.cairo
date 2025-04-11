@@ -68,7 +68,7 @@ impl GameContextDefault of Default<GameContext> {
             game: Game {
                 id: 0,
                 mod_id: 0,
-                state: GameState::Game,
+                state: GameState::Round,
                 owner: Zeroable::zero(),
                 player_name: 0,
                 player_score: 0,

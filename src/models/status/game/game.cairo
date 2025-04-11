@@ -2,7 +2,10 @@ use starknet::ContractAddress;
 
 #[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
 pub enum GameState {
-    Game,
+    Round,
+    Rage,
+    Reward,
+    Challenge,
     Map,
     Store,
     Lootbox,
