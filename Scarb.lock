@@ -24,7 +24,7 @@ source = "git+https://github.com/dojoengine/dojo?tag=v1.2.1#3d4b1a3e662f70679813
 
 [[package]]
 name = "jokers_of_neon_lib"
-version = "0.0.1"
+version = "0.18.0"
 dependencies = [
  "dojo",
  "dojo_cairo_test",

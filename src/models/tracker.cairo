@@ -68,7 +68,7 @@ impl GameContextDefault of Default<GameContext> {
             game: Game {
                 id: 0,
                 mod_id: 0,
-                state: GameState::IN_GAME,
+                state: GameState::Game,
                 owner: Zeroable::zero(),
                 player_name: 0,
                 player_score: 0,
@@ -85,11 +85,11 @@ impl GameContextDefault of Default<GameContext> {
             },
             round: Round {
                 game_id: 0,
-                player_score: 0,
+                current_score: 0,
                 target_score: 0,
                 remaining_plays: 0,
                 remaining_discards: 0,
-                rage: Option::None,
+                rages: array![].span(),
             },
             hand: (PokerHand::None, 0),
             card_type: CardType::None,

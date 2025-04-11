@@ -1,14 +1,12 @@
-use jokers_of_neon_lib::models::status::game::rage::RageRound;
-
-#[derive(Copy, Drop, IntrospectPacked, Serde)]
+#[derive(Copy, Drop, Serde)]
 #[dojo::model]
 struct Round {
     #[key]
-    game_id: u64,
-    player_score: u32,
-    target_score: u32,
-    remaining_plays: u16,
-    remaining_discards: u16,
-    rages: Span<u32>
+    pub game_id: u64,
+    pub current_score: u32,
+    pub target_score: u32,
+    pub remaining_plays: u16,
+    pub remaining_discards: u16,
+    pub rages: Span<u32>,
 }
 
