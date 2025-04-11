@@ -9,6 +9,6 @@ struct Round {
     target_score: u32,
     remaining_plays: u16,
     remaining_discards: u16,
-    rage: Option<RageRound>,
+    rages: Span<u32>
 }
 
