@@ -12,6 +12,22 @@ pub enum GameState {
     GameOver,
 }
 
+
+impl GameStateIntoByteArray of Into<GameState, ByteArray> {
+    fn into(self: GameState) -> ByteArray {
+        match self {
+            GameState::Round => { "Round" },
+            GameState::Rage => { "Rage" },
+            GameState::Reward => { "Reward" },
+            GameState::Challenge => { "Challenge" },
+            GameState::Map => { "Map" },
+            GameState::Store => { "Store" },
+            GameState::Lootbox => { "Lootbox" },
+            GameState::GameOver => { "GameOver" },
+        }
+    }
+}
+
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
 pub struct Game {
