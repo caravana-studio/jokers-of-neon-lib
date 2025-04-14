@@ -32,12 +32,12 @@ enum NodeType {
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
-struct GameMapTracker {
+struct GameStageMap {
     #[key]
     game_id: u64,
-    store_nodes: u32,
-    round_nodes: u32,
-    rage_nodes: u32,
+    store_stages: u32,
+    round_stages: u32,
+    rage_stages: u32,
     total_nodes: u32,
 }
 
