@@ -11,7 +11,7 @@ struct GameTracker {
     power_ups_used: u32,
     highest_hand: u32,
     rage_wins: u32,
-    special_cards_removed: u32,
+    special_cards_sold: u32,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
@@ -104,7 +104,7 @@ impl GameContextDefault of Default<GameContext> {
                 reroll_count: 0,
             },
             game_tracker: GameTracker {
-                game_id: 0, power_ups_used: 0, highest_hand: 0, rage_wins: 0, special_cards_removed: 0,
+                game_id: 0, power_ups_used: 0, highest_hand: 0, rage_wins: 0, special_cards_sold: 0,
             },
         }
     }
