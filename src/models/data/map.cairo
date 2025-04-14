@@ -32,6 +32,17 @@ enum NodeType {
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
+struct GameMapTracker {
+    #[key]
+    game_id: u64,
+    store_nodes: u32,
+    round_nodes: u32,
+    rage_nodes: u32,
+    total_nodes: u32,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::model]
 struct LevelMap {
     #[key]
     game_id: u64,
@@ -50,3 +61,4 @@ struct TraveledNodes {
     level: u32,
     nodes: Span<u32>,
 }
+
