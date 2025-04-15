@@ -43,7 +43,7 @@ const TWO_POW_32: u256 = 0x100000000;
 const TWO_POW_64: u256 = 0x10000000000000000;
 impl RageNodeDataIntoFelt252 of Into<RageNodeData, felt252> {
     fn into(self: RageNodeData) -> felt252 {
-        (self.rage_power.into() + self.round.into() * TWO_POW_32).try_into().unwrap()
+        (self.power.into() + self.round.into() * TWO_POW_32).try_into().unwrap()
     }
 }
 
@@ -51,10 +51,10 @@ impl RageNodeDataIntoFelt252 of Into<RageNodeData, felt252> {
 impl Felt252IntoCard of Into<felt252, RageNodeData> {
     fn into(self: felt252) -> RageNodeData {
         let packed = self.into();
-        let (packed, rage_power) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
+        let (packed, power) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
         let (_, round) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
 
-        RageNodeData { rage_power: rage_power.try_into().unwrap(), round: round.try_into().unwrap() }
+        RageNodeData { power: power.try_into().unwrap(), round: round.try_into().unwrap() }
     }
 }
 
