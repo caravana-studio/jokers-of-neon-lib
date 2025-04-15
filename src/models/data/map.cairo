@@ -39,43 +39,24 @@ struct RageNodeData {
     round: u32,
 }
 
-// impl CardIntoFelt252 of Into<Card, felt252> {
-//     fn into(self: Card) -> felt252 {
-//         let value_u8: u8 = self.value.into();
-//         let suit_u8: u8 = self.suit.into();
-
-//         (self.id.into()
-//             + suit_u8.into() * TWO_POW_32
-//             + value_u8.into() * TWO_POW_40
-//             + self.points.into() * TWO_POW_48
-//             + self.multi_add.into() * TWO_POW_80)
-//             .try_into()
-//             .unwrap()
-//     }
-// }
+const TWO_POW_32: u256 = 0x100000000;
+const TWO_POW_64: u256 = 0x10000000000000000;
+impl RageNodeDataIntoFelt252 of Into<RageNodeData, felt252> {
+    fn into(self: RageNodeData) -> felt252 {
+        (self.rage_power.into() + self.round.into() * TWO_POW_32).try_into().unwrap()
+    }
+}
 
 // const TWO_POW_8: u256 = 0x100; // 2^8
-// impl Felt252IntoCard of Into<felt252, Card> {
-//     fn into(self: felt252) -> Card {
-//         let packed = self.into();
-//         let (packed, id) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
-//         let (packed, suit) = integer::U256DivRem::div_rem(packed, TWO_POW_8.try_into().expect('0 bits'));
-//         let (packed, value) = integer::U256DivRem::div_rem(packed, TWO_POW_8.try_into().expect('0 bits'));
-//         let (packed, points) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
-//         let (_, multi) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
+impl Felt252IntoCard of Into<felt252, RageNodeData> {
+    fn into(self: felt252) -> RageNodeData {
+        let packed = self.into();
+        let (packed, rage_power) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
+        let (_, round) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
 
-//         let suit_u8: u8 = suit.try_into().unwrap();
-//         let value_u8: u8 = value.try_into().unwrap();
-
-//         Card {
-//             id: id.try_into().unwrap(),
-//             suit: suit_u8.into(),
-//             value: value_u8.into(),
-//             points: points.try_into().unwrap(),
-//             multi_add: multi.try_into().unwrap(),
-//         }
-//     }
-// }
+        RageNodeData { rage_power: rage_power.try_into().unwrap(), round: round.try_into().unwrap() }
+    }
+}
 
 // [ Map models ]
 
