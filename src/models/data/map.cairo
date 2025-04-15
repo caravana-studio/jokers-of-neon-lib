@@ -113,8 +113,6 @@ struct TraveledNodes {
 
 #[derive(Copy, Drop, Serde)]
 struct ParsedLevelMap {
-    game_id: u64,
-    level: u32,
     level_nodes: Span<Span<(Node, NodeChilds)>>,
     traveled_nodes: Span<u32>,
 }
