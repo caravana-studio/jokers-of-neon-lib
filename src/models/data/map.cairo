@@ -35,7 +35,7 @@ enum NodeType {
 
 #[derive(Copy, Drop, Serde, PartialEq, IntrospectPacked)]
 struct RageNodeData {
-    rage_power: u32,
+    power: u32,
     round: u32,
 }
 
