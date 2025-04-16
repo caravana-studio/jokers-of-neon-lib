@@ -47,8 +47,7 @@ impl RageNodeDataIntoFelt252 of Into<RageNodeData, felt252> {
     }
 }
 
-// const TWO_POW_8: u256 = 0x100; // 2^8
-impl Felt252IntoCard of Into<felt252, RageNodeData> {
+impl Felt252IntoRageNodeData of Into<felt252, RageNodeData> {
     fn into(self: felt252) -> RageNodeData {
         let packed = self.into();
         let (packed, power) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
