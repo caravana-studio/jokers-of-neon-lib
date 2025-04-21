@@ -9,7 +9,7 @@
 #[dojo::model]
 struct Node {
     #[key]
-    game_id: u32,
+    game_id: u64,
     #[key]
     id: u32,
     node_type: NodeType,
@@ -20,7 +20,7 @@ struct Node {
 #[dojo::model]
 struct NodeChilds {
     #[key]
-    game_id: u32,
+    game_id: u64,
     #[key]
     node_id: u32,
     childs: Span<u32>,
