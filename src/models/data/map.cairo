@@ -9,6 +9,8 @@
 #[dojo::model]
 struct Node {
     #[key]
+    game_id: u32,
+    #[key]
     id: u32,
     node_type: NodeType,
     data: felt252,
@@ -17,6 +19,8 @@ struct Node {
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
 struct NodeChilds {
+    #[key]
+    game_id: u32,
     #[key]
     node_id: u32,
     childs: Span<u32>,
