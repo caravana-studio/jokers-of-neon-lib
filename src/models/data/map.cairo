@@ -72,6 +72,7 @@ struct LevelMap {
     level: u32,
     stages: Span<NodeType>,
     level_nodes: Span<Span<u32>>,
+    latest_level_node_id: u32,
 }
 
 #[derive(Copy, Drop, Serde)]
