@@ -12,5 +12,5 @@ trait ICardConverter<T> {
     ///
     /// # Returns
     /// - `Card`: The transformed card after applying the operation.
-    fn apply(ref self: T, context: GameContext, card: Card) -> Card;
+    fn apply(ref self: T, context: GameContext, cards: Span<Card>) -> Span<Card>;
 }
