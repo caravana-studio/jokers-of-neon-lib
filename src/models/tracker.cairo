@@ -81,7 +81,7 @@ impl GameContextDefault of Default<GameContext> {
                 cash: 0,
                 available_rerolls: 0,
                 current_node_id: 0,
-                seed: Option::None,
+                seed: 0,
             },
             round: Round {
                 game_id: 0,
