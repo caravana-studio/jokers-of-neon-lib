@@ -2,10 +2,29 @@ use starknet::ContractAddress;
 
 #[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
 pub enum GameState {
-    IN_GAME,
-    AT_SHOP,
-    FINISHED,
-    OPEN_BLISTER_PACK,
+    Round,
+    Rage,
+    Reward,
+    Challenge,
+    Map,
+    Store,
+    Lootbox,
+    GameOver,
+}
+
+impl GameStateIntoByteArray of Into<GameState, ByteArray> {
+    fn into(self: GameState) -> ByteArray {
+        match self {
+            GameState::Round => { "Round" },
+            GameState::Rage => { "Rage" },
+            GameState::Reward => { "Reward" },
+            GameState::Challenge => { "Challenge" },
+            GameState::Map => { "Map" },
+            GameState::Store => { "Store" },
+            GameState::Lootbox => { "Lootbox" },
+            GameState::GameOver => { "GameOver" },
+        }
+    }
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
@@ -26,9 +45,8 @@ pub struct Game {
     pub current_specials_len: u32,
     pub special_slots: u32,
     pub cash: u32,
-    pub shop_config_id: u32,
     pub available_rerolls: u32,
-    pub last_node_id: u32,
+    pub seed: felt252,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
