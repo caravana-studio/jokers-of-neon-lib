@@ -46,7 +46,7 @@ pub struct Game {
     pub special_slots: u32,
     pub cash: u32,
     pub available_rerolls: u32,
-    pub seed: felt252,
+    pub seed: u128,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
