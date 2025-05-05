@@ -22,6 +22,7 @@ pub struct Nonce {
 }
 
 #[derive(Copy, Drop, Serde)]
+#[dojo::model]
 struct Random {
     #[key]
     pub key: felt252,
