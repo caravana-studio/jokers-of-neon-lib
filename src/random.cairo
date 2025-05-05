@@ -41,7 +41,7 @@ impl RandomImpl of RandomTrait {
         Random { key, seed }
     }
 
-    fn get_random_number_zero_indexed(ref self: Random, range: u8) -> u8 {
+    fn get_random_number_zero_indexed(ref self: Random, range: u32) -> u32 {
         if range == 0 {
             return 0;
         }
@@ -50,7 +50,7 @@ impl RandomImpl of RandomTrait {
         result
     }
 
-    fn get_random_number(ref self: Random, range: u8) -> u8 {
+    fn get_random_number(ref self: Random, range: u32) -> u32 {
         if range == 0 {
             return 0;
         }
@@ -58,6 +58,42 @@ impl RandomImpl of RandomTrait {
         let result = (self.seed % range.into() + 1).try_into().unwrap();
         self.seed = LCG(self.seed);
         result
+    }
+
+    fn between(ref self: Random, min: i32, max: i32) -> i32 {
+        if min >= max {
+            panic!("Random: min must be less than max");
+        };
+
+        if min == max {
+            return min;
+        }
+
+        let seed: u256 = self.seed.into();
+        
+        self.seed = LCG(self.seed);
+
+        if min >= 0 && max >= 0 {
+            let range: u128 = (max - min + 1).try_into().unwrap();
+            let rand = (seed.low % range) + min.try_into().unwrap();
+            rand.try_into().unwrap()
+        } else if min < 0 && max < 0 {
+            let min_pos = -min;
+            let max_pos = -max;
+            let range: u128 = (min_pos - max_pos + 1).try_into().unwrap();
+            let offset = seed.low % range;
+            (max + offset.try_into().unwrap())
+        } else {
+            let min_pos = -min;
+            let range: u128 = (min_pos + max + 1).try_into().unwrap();
+            let pre_rand = seed.low % range;
+
+            if pre_rand <= (min_pos).try_into().unwrap() {
+                -pre_rand.try_into().unwrap()
+            } else {
+                (pre_rand - min_pos.try_into().unwrap()).try_into().unwrap()
+            }
+        }
     }
 }
 
