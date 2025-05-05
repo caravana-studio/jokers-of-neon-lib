@@ -13,6 +13,7 @@ mod configs {
 
 mod interfaces {
     mod base;
+    mod cartridge;
     mod configs {
         mod game;
         mod shop;
