@@ -3,8 +3,7 @@ use jokers_of_neon_lib::interfaces::cartridge::vrf::{IVrfProviderDispatcher, IVr
 
 use starknet::{ContractAddress, contract_address_const, get_block_timestamp, get_caller_address, get_tx_info};
 
-const MAINNET_CHAIN_ID: felt252 = 0x534e5f4d41494e;
-const SEPOLIA_CHAIN_ID: felt252 = 0x534e5f5345504f4c4941;
+const KATANA_CHAIN_ID: felt252 = 0x4b4154414e41;
 const U128_MAX: u128 = 340282366920938463463374607431768211455;
 const LCG_PRIME: u128 = 281474976710656;
 
@@ -100,7 +99,7 @@ impl RandomImpl of RandomTrait {
 fn get_random_hash() -> felt252 {
     let chain_id = get_tx_info().unbox().chain_id;
 
-    if chain_id == MAINNET_CHAIN_ID || chain_id == SEPOLIA_CHAIN_ID {
+    if chain_id != KATANA_CHAIN_ID {
         let vrf_provider = IVrfProviderDispatcher { contract_address: get_vrf_address() };
         vrf_provider.consume_random(Source::Nonce(get_caller_address()))
     } else {
