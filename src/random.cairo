@@ -69,7 +69,7 @@ impl RandomImpl of RandomTrait {
         }
 
         let seed: u256 = self.seed.into();
-        
+
         self.seed = LCG(self.seed);
 
         if min >= 0 && max >= 0 {
