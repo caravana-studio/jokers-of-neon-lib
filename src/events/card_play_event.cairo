@@ -12,6 +12,9 @@ enum EventType {
     Heart,
     Joker,
     Wild,
+    AcumCash,
+    AcumPoint,
+    AcumMulti,
     None,
 }
 
