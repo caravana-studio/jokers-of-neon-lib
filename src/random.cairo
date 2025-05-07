@@ -30,13 +30,13 @@ struct Random {
 
 #[generate_trait]
 impl RandomImpl of RandomTrait {
-    fn new(key: felt252) -> Random {
+    fn create_random_instance(key: felt252) -> Random {
         let random_hash = get_random_hash();
         let seed = get_entropy(random_hash);
         Random { key, seed }
     }
 
-    fn new_with_seed(key: felt252, seed: u128) -> Random {
+    fn initialize_random(key: felt252, seed: u128) -> Random {
         Random { key, seed }
     }
 
