@@ -33,7 +33,6 @@ impl RandomImpl of RandomTrait {
     fn create_random_instance(key: felt252) -> Random {
         let random_hash = get_random_hash();
         let seed = get_entropy(random_hash);
-        println!("[create_random_instance] - key {}, seed {}", key, seed);
         Random { key, seed }
     }
 
@@ -47,7 +46,6 @@ impl RandomImpl of RandomTrait {
         }
         let result = (self.seed % range.into()).try_into().unwrap();
         self.seed = LCG(self.seed);
-        println!("[get_random_number_zero_indexed] - seed {}, result {}", self.seed, result);
         result
     }
 
@@ -74,18 +72,15 @@ impl RandomImpl of RandomTrait {
 
         self.seed = LCG(self.seed);
 
-        println!("[between] - seed {}", self.seed);
         if min >= 0 && max >= 0 {
             let range: u128 = (max - min + 1).try_into().unwrap();
             let rand = (seed.low % range) + min.try_into().unwrap();
-            println!("[between] - return {}", rand);
             rand.try_into().unwrap()
         } else if min < 0 && max < 0 {
             let min_pos = -min;
             let max_pos = -max;
             let range: u128 = (min_pos - max_pos + 1).try_into().unwrap();
             let offset = seed.low % range;
-            println!("[between] - return {}", max + offset.try_into().unwrap());
             (max + offset.try_into().unwrap())
         } else {
             let min_pos = -min;
@@ -93,13 +88,9 @@ impl RandomImpl of RandomTrait {
             let pre_rand = seed.low % range;
 
             if pre_rand <= (min_pos).try_into().unwrap() {
-                let value = -pre_rand.try_into().unwrap();
-                println!("[between] - return {}", value);
-                value
+                -pre_rand.try_into().unwrap()
             } else {
-                let value = (pre_rand - min_pos.try_into().unwrap()).try_into().unwrap();
-                println!("[between] - return {}", value);
-                value
+                (pre_rand - min_pos.try_into().unwrap()).try_into().unwrap()
             }
         }
     }
