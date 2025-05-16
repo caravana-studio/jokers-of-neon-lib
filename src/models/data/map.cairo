@@ -61,6 +61,20 @@ impl Felt252IntoRageNodeData of Into<felt252, RageNodeData> {
     }
 }
 
+pub impl NodeTypeDisplay of core::fmt::Display<NodeType> {
+    fn fmt(self: @NodeType, ref f: core::fmt::Formatter) -> Result<(), core::fmt::Error> {
+        let s = match self {
+            NodeType::None => "None",
+            NodeType::Round => "Round",
+            NodeType::Rage => "Rage",
+            NodeType::Reward => "Reward",
+            NodeType::Store => "Store",
+        };
+        f.buffer.append(@s);
+        Result::Ok(())
+    }
+}
+
 // [ Map models ]
 
 #[derive(Copy, Drop, Serde)]
