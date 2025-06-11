@@ -11,7 +11,6 @@ fn get_vrf_address() -> ContractAddress {
     contract_address_const::<0x051fea4450da9d6aee758bdeba88b2f665bcbf549d2c61421aa724e9ac0ced8f>()
 }
 
-
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
 pub struct Nonce {
@@ -33,7 +32,6 @@ impl RandomImpl of RandomTrait {
     fn create_random_instance(key: felt252) -> Random {
         let random_hash = get_random_hash();
         let seed = get_entropy(random_hash);
-        // println!("[create_random_instance] - seed: {}, random_hash: {}", seed, random_hash);
         Random { key, seed }
     }
 
@@ -99,17 +97,11 @@ impl RandomImpl of RandomTrait {
 
 fn get_random_hash() -> felt252 {
     let chain_id = get_tx_info().unbox().chain_id;
-    // println!("[get_random_hash] - chain_id: {}", chain_id);
-
     if chain_id != KATANA_CHAIN_ID {
-        // println!("[get_random_hash] - IS NOT KATANA");
         let vrf_provider = IVrfProviderDispatcher { contract_address: get_vrf_address() };
         let random = vrf_provider.consume_random(Source::Nonce(get_caller_address()));
-        // println!("[get_random_hash] - returning {}", random);
         random
     } else {
-        // println!("[get_random_hash] - KATANA_CHAIN_ID");
-        // println!("[get_random_hash] - returning {}", get_block_timestamp());
         get_block_timestamp().into()
     }
 }
