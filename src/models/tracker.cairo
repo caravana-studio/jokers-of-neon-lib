@@ -113,6 +113,20 @@ impl GameContextDefault of Default<GameContext> {
             game_tracker: GameTracker {
                 game_id: 0, power_ups_used: 0, highest_hand: 0, rage_wins: 0, special_cards_sold: 0,
             },
+            poker_hand_tracker: PokerHandTracker {
+                game_id: 0,
+                royal_flush: 0,
+                straight_flush: 0,
+                five_of_a_kind: 0,
+                four_of_a_kind: 0,
+                full_house: 0,
+                straight: 0,
+                flush: 0,
+                three_of_a_kind: 0,
+                two_pair: 0,
+                one_pair: 0,
+                high_card: 0,
+            },
         }
     }
 }
