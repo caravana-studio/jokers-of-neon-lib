@@ -44,7 +44,7 @@ pub struct Game {
     pub discards: u32,
     pub current_specials_len: u32,
     pub special_slots: u32,
-    pub cash: u32,
+    pub cash: i32,
     pub available_rerolls: u32,
     pub seed: u128,
 }
