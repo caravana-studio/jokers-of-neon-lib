@@ -60,6 +60,7 @@ struct GameContext {
     power_ups: Span<u32>,
     purchase_tracker: PurchaseTracker,
     game_tracker: GameTracker,
+    poker_hand_tracker: PokerHandTracker,
 }
 
 impl GameContextDefault of Default<GameContext> {
