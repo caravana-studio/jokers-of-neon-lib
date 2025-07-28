@@ -14,6 +14,7 @@ struct GameTracker {
     cards_played_count: u32,
     cards_discarded_count: u32,
     rage_wins: u32,
+    special_cards_sold: u32,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
