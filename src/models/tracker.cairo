@@ -123,6 +123,7 @@ impl GameContextDefault of Default<GameContext> {
                 cards_played_count: 0,
                 cards_discarded_count: 0,
                 rage_wins: 0,
+                special_cards_sold: 0,
             },
             poker_hand_tracker: PokerHandTracker {
                 game_id: 0,
@@ -264,4 +265,16 @@ struct BuyBlisterPackResultEvent {
     pub level: u32,
     pub round: u32,
     pub cards: Span<u32>,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::event]
+pub struct BuySlotSpecialCardEvent {
+    #[key]
+    pub game_id: u32,
+    #[key]
+    pub count_slots: u32,
+    pub level: u32,
+    pub round: u32,
+    pub slot_executed: bool,
 }
