@@ -149,7 +149,7 @@ impl GameContextDefault of Default<GameContext> {
 #[dojo::event]
 pub struct BuyTraditionalCardEvent {
     #[key]
-    pub game_id: u32,
+    pub game_id: u64,
     #[key]
     pub traditional_cards_count: u32,
     pub level: u32,
@@ -161,7 +161,7 @@ pub struct BuyTraditionalCardEvent {
 #[dojo::event]
 pub struct BuyModifierCardEvent {
     #[key]
-    pub game_id: u32,
+    pub game_id: u64,
     #[key]
     pub modifier_cards_count: u32,
     pub level: u32,
@@ -173,7 +173,7 @@ pub struct BuyModifierCardEvent {
 #[dojo::event]
 pub struct BuySpecialCardEvent {
     #[key]
-    pub game_id: u32,
+    pub game_id: u64,
     #[key]
     pub special_cards_count: u32,
     pub level: u32,
@@ -186,7 +186,7 @@ pub struct BuySpecialCardEvent {
 #[dojo::event]
 pub struct BuyBlisterPackEvent {
     #[key]
-    pub game_id: u32,
+    pub game_id: u64,
     #[key]
     pub loot_boxes_count: u32,
     pub level: u32,
@@ -198,7 +198,7 @@ pub struct BuyBlisterPackEvent {
 #[dojo::event]
 pub struct BuyPowerUpEvent {
     #[key]
-    pub game_id: u32,
+    pub game_id: u64,
     #[key]
     pub power_up_count: u32,
     pub level: u32,
@@ -210,7 +210,7 @@ pub struct BuyPowerUpEvent {
 #[dojo::event]
 pub struct BuyLevelUpPokerHandEvent {
     #[key]
-    pub game_id: u32,
+    pub game_id: u64,
     #[key]
     pub level_poker_hands_count: u32,
     pub level: u32,
@@ -223,7 +223,7 @@ pub struct BuyLevelUpPokerHandEvent {
 #[dojo::event]
 pub struct BuyBurnEvent {
     #[key]
-    pub game_id: u32,
+    pub game_id: u64,
     #[key]
     pub burn_count: u32,
     pub level: u32,
@@ -235,7 +235,7 @@ pub struct BuyBurnEvent {
 #[dojo::event]
 pub struct BuyRerollEvent {
     #[key]
-    pub game_id: u32,
+    pub game_id: u64,
     #[key]
     pub reroll_count: u32,
     pub level: u32,
@@ -247,7 +247,7 @@ pub struct BuyRerollEvent {
 #[dojo::event]
 pub struct BuySpecialCardsSoldEvent {
     #[key]
-    pub game_id: u32,
+    pub game_id: u64,
     #[key]
     pub special_cards_sold: u32,
     pub level: u32,
@@ -259,7 +259,7 @@ pub struct BuySpecialCardsSoldEvent {
 #[dojo::event]
 struct BuyBlisterPackResultEvent {
     #[key]
-    pub game_id: u32,
+    pub game_id: u64,
     #[key]
     pub loot_boxes_count: u32,
     pub level: u32,
@@ -271,7 +271,7 @@ struct BuyBlisterPackResultEvent {
 #[dojo::event]
 pub struct BuySlotSpecialCardEvent {
     #[key]
-    pub game_id: u32,
+    pub game_id: u64,
     #[key]
     pub count_slots: u32,
     pub level: u32,
