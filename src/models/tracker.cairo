@@ -150,8 +150,9 @@ pub struct BuyTraditionalCardEvent {
     pub game_id: u32,
     #[key]
     pub traditional_cards_count: u32,
-    pub card_id: u32,
+    pub level: u32,
     pub round: u32,
+    pub card_id: u32,
 }
 
 #[derive(Copy, Drop, Serde)]
@@ -161,8 +162,9 @@ pub struct BuyModifierCardEvent {
     pub game_id: u32,
     #[key]
     pub modifier_cards_count: u32,
-    pub card_id: u32,
+    pub level: u32,
     pub round: u32,
+    pub card_id: u32,
 }
 
 #[derive(Copy, Drop, Serde)]
@@ -172,33 +174,10 @@ pub struct BuySpecialCardEvent {
     pub game_id: u32,
     #[key]
     pub special_cards_count: u32,
+    pub level: u32,
+    pub round: u32,
     pub card_id: u32,
-    pub round: u32,
     pub is_temporary: bool,
-}
-
-#[derive(Copy, Drop, Serde)]
-#[dojo::event]
-pub struct BuyPokerHandEvent {
-    #[key]
-    pub game_id: u32,
-    #[key]
-    pub level_poker_hands_count: u32,
-    #[key]
-    pub round: u32,
-    pub poker_hand: PokerHand,
-    pub level_hand: u8,
-}
-
-#[derive(Copy, Drop, Serde)]
-#[dojo::event]
-pub struct BuyPowerUpEvent {
-    #[key]
-    pub game_id: u32,
-    #[key]
-    pub power_up_count: u32,
-    pub power_up_id: u32,
-    pub round: u32,
 }
 
 #[derive(Copy, Drop, Serde)]
@@ -208,19 +187,34 @@ pub struct BuyBlisterPackEvent {
     pub game_id: u32,
     #[key]
     pub loot_boxes_count: u32,
+    pub level: u32,
     pub round: u32,
     pub blister_pack_id: u32,
 }
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::event]
-pub struct BuyRerollEvent {
+pub struct BuyPowerUpEvent {
     #[key]
     pub game_id: u32,
     #[key]
-    pub reroll_count: u32,
+    pub power_up_count: u32,
+    pub level: u32,
     pub round: u32,
-    pub reroll_executed: bool,
+    pub power_up_id: u32,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::event]
+pub struct BuyLevelUpPokerHandEvent {
+    #[key]
+    pub game_id: u32,
+    #[key]
+    pub level_poker_hands_count: u32,
+    pub level: u32,
+    pub round: u32,
+    pub poker_hand: PokerHand,
+    pub level_hand: u8,
 }
 
 #[derive(Copy, Drop, Serde)]
@@ -230,6 +224,31 @@ pub struct BuyBurnEvent {
     pub game_id: u32,
     #[key]
     pub burn_count: u32,
+    pub level: u32,
+    pub round: u32,
+    pub card_id: u32,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::event]
+pub struct BuyRerollEvent {
+    #[key]
+    pub game_id: u32,
+    #[key]
+    pub reroll_count: u32,
+    pub level: u32,
+    pub round: u32,
+    pub reroll_executed: bool,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::event]
+pub struct BuySpecialCardsSoldEvent {
+    #[key]
+    pub game_id: u32,
+    #[key]
+    pub special_cards_sold: u32,
+    pub level: u32,
     pub round: u32,
     pub card_id: u32,
 }
@@ -241,17 +260,7 @@ struct BuyBlisterPackResultEvent {
     pub game_id: u32,
     #[key]
     pub loot_boxes_count: u32,
+    pub level: u32,
     pub round: u32,
     pub cards: Span<u32>,
-}
-
-#[derive(Copy, Drop, Serde)]
-#[dojo::event]
-pub struct BuySpecialCardsSoldEvent {
-    #[key]
-    pub game_id: u32,
-    #[key]
-    pub special_cards_sold: u32,
-    pub round: u32,
-    pub card_id: u32,
 }
