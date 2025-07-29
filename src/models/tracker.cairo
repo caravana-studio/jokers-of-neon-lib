@@ -16,6 +16,60 @@ struct GameTracker {
     rage_wins: u32,
 }
 
+#[generate_trait]
+impl GameTrackerImpl of GameTrackerTrait {
+    fn most_played_hand(ref self: GameTracker, poker_hand_tracker: PokerHandTracker) {
+        let mut max_count = 0;
+        let mut most_played = PokerHand::None;
+
+        if poker_hand_tracker.royal_flush > max_count {
+            max_count = poker_hand_tracker.royal_flush;
+            most_played = PokerHand::RoyalFlush;
+        }
+        if poker_hand_tracker.straight_flush > max_count {
+            max_count = poker_hand_tracker.straight_flush;
+            most_played = PokerHand::StraightFlush;
+        }
+        if poker_hand_tracker.five_of_a_kind > max_count {
+            max_count = poker_hand_tracker.five_of_a_kind;
+            most_played = PokerHand::FiveOfAKind;
+        }
+        if poker_hand_tracker.four_of_a_kind > max_count {
+            max_count = poker_hand_tracker.four_of_a_kind;
+            most_played = PokerHand::FourOfAKind;
+        }
+        if poker_hand_tracker.full_house > max_count {
+            max_count = poker_hand_tracker.full_house;
+            most_played = PokerHand::FullHouse;
+        }
+        if poker_hand_tracker.flush > max_count {
+            max_count = poker_hand_tracker.flush;
+            most_played = PokerHand::Flush;
+        }
+        if poker_hand_tracker.straight > max_count {
+            max_count = poker_hand_tracker.straight;
+            most_played = PokerHand::Straight;
+        }
+        if poker_hand_tracker.three_of_a_kind > max_count {
+            max_count = poker_hand_tracker.three_of_a_kind;
+            most_played = PokerHand::ThreeOfAKind;
+        }
+        if poker_hand_tracker.two_pair > max_count {
+            max_count = poker_hand_tracker.two_pair;
+            most_played = PokerHand::TwoPair;
+        }
+        if poker_hand_tracker.one_pair > max_count {
+            max_count = poker_hand_tracker.one_pair;
+            most_played = PokerHand::OnePair;
+        }
+        if poker_hand_tracker.high_card > max_count {
+            max_count = poker_hand_tracker.high_card;
+            most_played = PokerHand::HighCard;
+        }
+        self.most_played_hand = (most_played, max_count);
+    }
+}
+
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
 struct PurchaseTracker {
