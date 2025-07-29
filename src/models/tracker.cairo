@@ -153,7 +153,7 @@ pub struct BuyTraditionalCardEvent {
     #[key]
     pub traditional_cards_count: u32,
     pub level: u32,
-    pub round: u32,
+    pub current_node_id: u32,
     pub card_id: u32,
 }
 
@@ -165,7 +165,7 @@ pub struct BuyModifierCardEvent {
     #[key]
     pub modifier_cards_count: u32,
     pub level: u32,
-    pub round: u32,
+    pub current_node_id: u32,
     pub card_id: u32,
 }
 
@@ -177,7 +177,7 @@ pub struct BuySpecialCardEvent {
     #[key]
     pub special_cards_count: u32,
     pub level: u32,
-    pub round: u32,
+    pub current_node_id: u32,
     pub card_id: u32,
     pub is_temporary: bool,
 }
@@ -190,7 +190,7 @@ pub struct BuyBlisterPackEvent {
     #[key]
     pub loot_boxes_count: u32,
     pub level: u32,
-    pub round: u32,
+    pub current_node_id: u32,
     pub blister_pack_id: u32,
 }
 
@@ -202,7 +202,7 @@ pub struct BuyPowerUpEvent {
     #[key]
     pub power_up_count: u32,
     pub level: u32,
-    pub round: u32,
+    pub current_node_id: u32,
     pub power_up_id: u32,
 }
 
@@ -214,7 +214,7 @@ pub struct BuyLevelUpPokerHandEvent {
     #[key]
     pub level_poker_hands_count: u32,
     pub level: u32,
-    pub round: u32,
+    pub current_node_id: u32,
     pub poker_hand: PokerHand,
     pub level_hand: u8,
 }
@@ -227,7 +227,7 @@ pub struct BuyBurnEvent {
     #[key]
     pub burn_count: u32,
     pub level: u32,
-    pub round: u32,
+    pub current_node_id: u32,
     pub card_id: u32,
 }
 
@@ -239,7 +239,7 @@ pub struct BuyRerollEvent {
     #[key]
     pub reroll_count: u32,
     pub level: u32,
-    pub round: u32,
+    pub current_node_id: u32,
     pub reroll_executed: bool,
 }
 
@@ -251,7 +251,7 @@ pub struct BuySpecialCardsSoldEvent {
     #[key]
     pub special_cards_sold: u32,
     pub level: u32,
-    pub round: u32,
+    pub current_node_id: u32,
     pub card_id: u32,
 }
 
@@ -263,7 +263,7 @@ struct BuyBlisterPackResultEvent {
     #[key]
     pub loot_boxes_count: u32,
     pub level: u32,
-    pub round: u32,
+    pub current_node_id: u32,
     pub cards: Span<u32>,
 }
 
@@ -275,6 +275,6 @@ pub struct BuySlotSpecialCardEvent {
     #[key]
     pub count_slots: u32,
     pub level: u32,
-    pub round: u32,
+    pub current_node_id: u32,
     pub slot_executed: bool,
 }
