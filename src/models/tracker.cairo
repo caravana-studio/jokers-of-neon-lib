@@ -14,7 +14,6 @@ struct GameTracker {
     cards_played_count: u32,
     cards_discarded_count: u32,
     rage_wins: u32,
-    special_cards_sold: u32,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
@@ -123,7 +122,6 @@ impl GameContextDefault of Default<GameContext> {
                 cards_played_count: 0,
                 cards_discarded_count: 0,
                 rage_wins: 0,
-                special_cards_sold: 0,
             },
             poker_hand_tracker: PokerHandTracker {
                 game_id: 0,
