@@ -8,10 +8,66 @@ use jokers_of_neon_lib::models::{
 struct GameTracker {
     #[key]
     game_id: u64,
-    power_ups_used: u32,
     highest_hand: u32,
+    most_played_hand: (PokerHand, u32),
+    highest_cash: u32,
+    cards_played_count: u32,
+    cards_discarded_count: u32,
     rage_wins: u32,
-    special_cards_sold: u32,
+}
+
+#[generate_trait]
+impl GameTrackerImpl of GameTrackerTrait {
+    fn most_played_hand(ref self: GameTracker, poker_hand_tracker: PokerHandTracker) {
+        let mut max_count = 0;
+        let mut most_played = PokerHand::None;
+
+        if poker_hand_tracker.royal_flush > max_count {
+            max_count = poker_hand_tracker.royal_flush;
+            most_played = PokerHand::RoyalFlush;
+        }
+        if poker_hand_tracker.straight_flush > max_count {
+            max_count = poker_hand_tracker.straight_flush;
+            most_played = PokerHand::StraightFlush;
+        }
+        if poker_hand_tracker.five_of_a_kind > max_count {
+            max_count = poker_hand_tracker.five_of_a_kind;
+            most_played = PokerHand::FiveOfAKind;
+        }
+        if poker_hand_tracker.four_of_a_kind > max_count {
+            max_count = poker_hand_tracker.four_of_a_kind;
+            most_played = PokerHand::FourOfAKind;
+        }
+        if poker_hand_tracker.full_house > max_count {
+            max_count = poker_hand_tracker.full_house;
+            most_played = PokerHand::FullHouse;
+        }
+        if poker_hand_tracker.flush > max_count {
+            max_count = poker_hand_tracker.flush;
+            most_played = PokerHand::Flush;
+        }
+        if poker_hand_tracker.straight > max_count {
+            max_count = poker_hand_tracker.straight;
+            most_played = PokerHand::Straight;
+        }
+        if poker_hand_tracker.three_of_a_kind > max_count {
+            max_count = poker_hand_tracker.three_of_a_kind;
+            most_played = PokerHand::ThreeOfAKind;
+        }
+        if poker_hand_tracker.two_pair > max_count {
+            max_count = poker_hand_tracker.two_pair;
+            most_played = PokerHand::TwoPair;
+        }
+        if poker_hand_tracker.one_pair > max_count {
+            max_count = poker_hand_tracker.one_pair;
+            most_played = PokerHand::OnePair;
+        }
+        if poker_hand_tracker.high_card > max_count {
+            max_count = poker_hand_tracker.high_card;
+            most_played = PokerHand::HighCard;
+        }
+        self.most_played_hand = (most_played, max_count);
+    }
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
@@ -19,7 +75,7 @@ struct GameTracker {
 struct PurchaseTracker {
     #[key]
     game_id: u64,
-    traditonal_cards_count: u32,
+    traditional_cards_count: u32,
     modifier_cards_count: u32,
     special_cards_count: u32,
     loot_boxes_count: u32,
@@ -27,6 +83,7 @@ struct PurchaseTracker {
     level_poker_hands_count: u32,
     burn_count: u32,
     reroll_count: u32,
+    special_cards_sold: u32,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
@@ -101,7 +158,7 @@ impl GameContextDefault of Default<GameContext> {
             power_ups: array![].span(),
             purchase_tracker: PurchaseTracker {
                 game_id: 0,
-                traditonal_cards_count: 0,
+                traditional_cards_count: 0,
                 modifier_cards_count: 0,
                 special_cards_count: 0,
                 loot_boxes_count: 0,
@@ -109,9 +166,16 @@ impl GameContextDefault of Default<GameContext> {
                 level_poker_hands_count: 0,
                 burn_count: 0,
                 reroll_count: 0,
+                special_cards_sold: 0,
             },
             game_tracker: GameTracker {
-                game_id: 0, power_ups_used: 0, highest_hand: 0, rage_wins: 0, special_cards_sold: 0,
+                game_id: 0,
+                highest_hand: 0,
+                most_played_hand: (PokerHand::None, 0),
+                highest_cash: 0,
+                cards_played_count: 0,
+                cards_discarded_count: 0,
+                rage_wins: 0,
             },
             poker_hand_tracker: PokerHandTracker {
                 game_id: 0,
@@ -129,4 +193,140 @@ impl GameContextDefault of Default<GameContext> {
             },
         }
     }
+}
+
+// Events
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::event]
+pub struct BuyTraditionalCardEvent {
+    #[key]
+    pub game_id: u64,
+    #[key]
+    pub traditional_cards_count: u32,
+    pub level: u32,
+    pub current_node_id: u32,
+    pub card_id: u32,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::event]
+pub struct BuyModifierCardEvent {
+    #[key]
+    pub game_id: u64,
+    #[key]
+    pub modifier_cards_count: u32,
+    pub level: u32,
+    pub current_node_id: u32,
+    pub card_id: u32,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::event]
+pub struct BuySpecialCardEvent {
+    #[key]
+    pub game_id: u64,
+    #[key]
+    pub special_cards_count: u32,
+    pub level: u32,
+    pub current_node_id: u32,
+    pub card_id: u32,
+    pub is_temporary: bool,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::event]
+pub struct BuyBlisterPackEvent {
+    #[key]
+    pub game_id: u64,
+    #[key]
+    pub loot_boxes_count: u32,
+    pub level: u32,
+    pub current_node_id: u32,
+    pub blister_pack_id: u32,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::event]
+pub struct BuyPowerUpEvent {
+    #[key]
+    pub game_id: u64,
+    #[key]
+    pub power_up_count: u32,
+    pub level: u32,
+    pub current_node_id: u32,
+    pub power_up_id: u32,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::event]
+pub struct BuyLevelUpPokerHandEvent {
+    #[key]
+    pub game_id: u64,
+    #[key]
+    pub level_poker_hands_count: u32,
+    pub level: u32,
+    pub current_node_id: u32,
+    pub poker_hand: PokerHand,
+    pub level_hand: u8,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::event]
+pub struct BuyBurnEvent {
+    #[key]
+    pub game_id: u64,
+    #[key]
+    pub burn_count: u32,
+    pub level: u32,
+    pub current_node_id: u32,
+    pub card_id: u32,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::event]
+pub struct BuyRerollEvent {
+    #[key]
+    pub game_id: u64,
+    #[key]
+    pub reroll_count: u32,
+    pub level: u32,
+    pub current_node_id: u32,
+    pub reroll_executed: bool,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::event]
+pub struct BuySpecialCardsSoldEvent {
+    #[key]
+    pub game_id: u64,
+    #[key]
+    pub special_cards_sold: u32,
+    pub level: u32,
+    pub current_node_id: u32,
+    pub card_id: u32,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::event]
+struct BuyBlisterPackResultEvent {
+    #[key]
+    pub game_id: u64,
+    #[key]
+    pub loot_boxes_count: u32,
+    pub level: u32,
+    pub current_node_id: u32,
+    pub cards: Span<u32>,
+}
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::event]
+pub struct BuySlotSpecialCardEvent {
+    #[key]
+    pub game_id: u64,
+    #[key]
+    pub count_slots: u32,
+    pub level: u32,
+    pub current_node_id: u32,
+    pub slot_executed: bool,
 }
