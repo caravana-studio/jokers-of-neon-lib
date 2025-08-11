@@ -16,6 +16,20 @@ struct GameTracker {
     rage_wins: u32,
 }
 
+impl GameTrackerDefault of Default<GameTracker> {
+    fn default() -> GameTracker {
+        GameTracker {
+            game_id: 0,
+            highest_hand: 0,
+            most_played_hand: (PokerHand::None, 0),
+            highest_cash: 0,
+            cards_played_count: 0,
+            cards_discarded_count: 0,
+            rage_wins: 0,
+        }
+    }
+}
+
 #[generate_trait]
 impl GameTrackerImpl of GameTrackerTrait {
     fn most_played_hand(ref self: GameTracker, poker_hand_tracker: PokerHandTracker) {
@@ -86,6 +100,23 @@ struct PurchaseTracker {
     special_cards_sold: u32,
 }
 
+impl PurchaseTrackerDefault of Default<PurchaseTracker> {
+    fn default() -> PurchaseTracker {
+        PurchaseTracker {
+            game_id: 0,
+            traditional_cards_count: 0,
+            modifier_cards_count: 0,
+            special_cards_count: 0,
+            loot_boxes_count: 0,
+            power_up_count: 0,
+            level_poker_hands_count: 0,
+            burn_count: 0,
+            reroll_count: 0,
+            special_cards_sold: 0,
+        }
+    }
+}
+
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
 struct PokerHandTracker {
@@ -102,6 +133,25 @@ struct PokerHandTracker {
     two_pair: u32,
     one_pair: u32,
     high_card: u32,
+}
+
+impl PokerHandTrackerDefault of Default<PokerHandTracker> {
+    fn default() -> PokerHandTracker {
+        PokerHandTracker {
+            game_id: 0,
+            royal_flush: 0,
+            straight_flush: 0,
+            five_of_a_kind: 0,
+            four_of_a_kind: 0,
+            full_house: 0,
+            straight: 0,
+            flush: 0,
+            three_of_a_kind: 0,
+            two_pair: 0,
+            one_pair: 0,
+            high_card: 0,
+        }
+    }
 }
 
 #[derive(Copy, Drop, Serde)]
@@ -156,41 +206,9 @@ impl GameContextDefault of Default<GameContext> {
             cards_in_deck: array![].span(),
             special_cards: array![].span(),
             power_ups: array![].span(),
-            purchase_tracker: PurchaseTracker {
-                game_id: 0,
-                traditional_cards_count: 0,
-                modifier_cards_count: 0,
-                special_cards_count: 0,
-                loot_boxes_count: 0,
-                power_up_count: 0,
-                level_poker_hands_count: 0,
-                burn_count: 0,
-                reroll_count: 0,
-                special_cards_sold: 0,
-            },
-            game_tracker: GameTracker {
-                game_id: 0,
-                highest_hand: 0,
-                most_played_hand: (PokerHand::None, 0),
-                highest_cash: 0,
-                cards_played_count: 0,
-                cards_discarded_count: 0,
-                rage_wins: 0,
-            },
-            poker_hand_tracker: PokerHandTracker {
-                game_id: 0,
-                royal_flush: 0,
-                straight_flush: 0,
-                five_of_a_kind: 0,
-                four_of_a_kind: 0,
-                full_house: 0,
-                straight: 0,
-                flush: 0,
-                three_of_a_kind: 0,
-                two_pair: 0,
-                one_pair: 0,
-                high_card: 0,
-            },
+            purchase_tracker: Default::default(),
+            game_tracker: Default::default(),
+            poker_hand_tracker: Default::default(),
         }
     }
 }
