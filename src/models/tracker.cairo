@@ -160,7 +160,7 @@ struct GameContext {
     round: Round,
     hand: (PokerHand, u32), // (Hand, Level)
     card_type: CardType,
-    cards_played: Span<(bool, u32, Card)>, // (hit, idx, Card)
+    cards_played: Span<(bool, u32, Card)>, // (hit, idx, Card)ca
     cards_in_hand: Span<(u32, Card)>, // (idx, Card)
     cards_in_deck: Span<u32>,
     special_cards: Span<CurrentSpecialCards>,
