@@ -100,12 +100,10 @@ impl RandomImpl of RandomTrait {
 fn get_random_hash() -> felt252 {
     let chain_id = get_tx_info().unbox().chain_id;
     if chain_id == SEPOLIA_CHAIN_ID || chain_id == MAINNET_CHAIN_ID {
-        println!("Using VRF");
         let vrf_provider = IVrfProviderDispatcher { contract_address: get_vrf_address() };
         let random = vrf_provider.consume_random(Source::Nonce(get_caller_address()));
         random
     } else {
-        println!("Using Block Timestamp");
         get_block_timestamp().into()
     }
 }
