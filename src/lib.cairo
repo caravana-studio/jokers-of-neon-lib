@@ -2,7 +2,9 @@ mod random;
 mod constants {
     mod card;
     mod modifiers;
+    mod poker_hand;
     mod two_pow;
+    mod utils;
 }
 
 mod configs {
