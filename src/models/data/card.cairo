@@ -1,54 +1,11 @@
-use starknet::ContractAddress;
-
-trait Enumerable<T> {
-    fn all() -> Span<T>;
-}
-
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 struct Card {
     id: u32,
     suit: Suit,
     value: Value,
     points: u32,
-    multi_add: u32,
+    multi: u32,
 }
-
-// impl PackPackable of StorePacking<PackableBeast, felt252> {
-//     fn pack(value: PackableBeast) -> felt252 {
-//         (value.id.into()
-//             + value.prefix.into() * pow::TWO_POW_7
-//             + value.suffix.into() * pow::TWO_POW_14
-//             + value.level.into() * pow::TWO_POW_19
-//             + value.health.into() * pow::TWO_POW_35)
-//             .try_into()
-//             .expect('pack beast')
-//     }
-//     fn unpack(value: felt252) -> PackableBeast {
-//         let packed = value.into();
-//         let (packed, id) = integer::U256DivRem::div_rem(
-//             packed, pow::TWO_POW_7.try_into().expect('0 bits')
-//         );
-//         let (packed, prefix) = integer::U256DivRem::div_rem(
-//             packed, pow::TWO_POW_7.try_into().expect('0 bits')
-//         );
-//         let (packed, suffix) = integer::U256DivRem::div_rem(
-//             packed, pow::TWO_POW_5.try_into().expect('0 bits')
-//         );
-//         let (packed, level) = integer::U256DivRem::div_rem(
-//             packed, pow::TWO_POW_16.try_into().expect('0 bits')
-//         );
-//         let (_, health) = integer::U256DivRem::div_rem(
-//             packed, pow::TWO_POW_16.try_into().expect('0 bits')
-//         );
-//         PackableBeast {
-//             id: id.try_into().expect('unpack id'),
-//             prefix: prefix.try_into().expect('unpack prefix'),
-//             suffix: suffix.try_into().expect('unpack suffix'),
-//             level: level.try_into().expect('unpack level'),
-//             health: health.try_into().expect('unpack health'),
-//         }
-//     }
-// }
 
 trait CardTrait {
     fn new(value: Value, suit: Suit, points: u32) -> Card;
@@ -60,7 +17,7 @@ impl CardImpl of CardTrait {
     fn new(value: Value, suit: Suit, points: u32) -> Card {
         let suit_u8: u8 = suit.into();
         let value_u8: u8 = value.into();
-        Card { id: ((13 * (suit_u8 - 1)) + (value_u8 - 1)).into(), suit, value, points, multi_add: 0 }
+        Card { id: ((13 * (suit_u8 - 1)) + (value_u8 - 1)).into(), suit, value, points, multi: 0 }
     }
 
     fn generate_id(value: Value, suit: Suit) -> u32 {
@@ -77,10 +34,10 @@ impl CardImpl of CardTrait {
 #[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
 enum Suit {
     None,
-    Clubs, // Tréboles
-    Diamonds, // Diamantes
-    Hearts, // Corazones
-    Spades, // Espadas
+    Clubs,
+    Diamonds,
+    Hearts,
+    Spades,
     Joker,
     Wild,
 }
@@ -164,6 +121,11 @@ enum Value {
     Wild,
 }
 
+
+trait Enumerable<T> {
+    fn all() -> Span<T>;
+}
+
 impl ValueEnumerableImpl of Enumerable<Value> {
     #[inline(always)]
     fn all() -> Span<Value> {
@@ -225,7 +187,7 @@ impl CardIntoFelt252 of Into<Card, felt252> {
             + suit_u8.into() * TWO_POW_32
             + value_u8.into() * TWO_POW_40
             + self.points.into() * TWO_POW_48
-            + self.multi_add.into() * TWO_POW_80)
+            + self.multi.into() * TWO_POW_80)
             .try_into()
             .unwrap()
     }
@@ -249,7 +211,7 @@ impl Felt252IntoCard of Into<felt252, Card> {
             suit: suit_u8.into(),
             value: value_u8.into(),
             points: points.try_into().unwrap(),
-            multi_add: multi.try_into().unwrap(),
+            multi: multi.try_into().unwrap(),
         }
     }
 }
@@ -315,7 +277,73 @@ impl U8IntoValue of Into<u8, Value> {
         } else if self == 16 {
             Value::Wild
         } else {
-            panic!("cannot parse u8 to card value")
+            panic!("[{}] cannot parse u8 to card value", self)
+        }
+    }
+}
+
+impl ValueIntoU32 of Into<Value, u32> {
+    fn into(self: Value) -> u32 {
+        match self {
+            Value::None => 0,
+            Value::Two => 1,
+            Value::Three => 2,
+            Value::Four => 3,
+            Value::Five => 4,
+            Value::Six => 5,
+            Value::Seven => 6,
+            Value::Eight => 7,
+            Value::Nine => 8,
+            Value::Ten => 9,
+            Value::Jack => 10,
+            Value::Queen => 11,
+            Value::King => 12,
+            Value::Ace => 13,
+            Value::Joker => 14,
+            Value::NeonJoker => 15,
+            Value::Wild => 16,
+        }
+    }
+}
+
+impl U32IntoValue of Into<u32, Value> {
+    fn into(self: u32) -> Value {
+        if self == 0 {
+            Value::None
+        } else if self == 1 {
+            Value::Two
+        } else if self == 2 {
+            Value::Three
+        } else if self == 3 {
+            Value::Four
+        } else if self == 4 {
+            Value::Five
+        } else if self == 5 {
+            Value::Six
+        } else if self == 6 {
+            Value::Seven
+        } else if self == 7 {
+            Value::Eight
+        } else if self == 8 {
+            Value::Nine
+        } else if self == 9 {
+            Value::Ten
+        } else if self == 10 {
+            Value::Jack
+        } else if self == 11 {
+            Value::Queen
+        } else if self == 12 {
+            Value::King
+        } else if self == 13 {
+            Value::Ace
+        } else if self == 14 {
+            Value::Joker
+        } else if self == 15 {
+            Value::NeonJoker
+        } else if self == 16 {
+            Value::Wild
+        } else {
+            panic!("[{}] cannot parse u32 to card value", self)
         }
     }
 }
@@ -397,7 +425,7 @@ mod into_tests {
 
     #[test]
     fn test_basic() {
-        let card = Card { id: 1, suit: Suit::Hearts, value: Value::Six, points: 100, multi_add: 5 };
+        let card = Card { id: 1, suit: Suit::Hearts, value: Value::Six, points: 100, multi: 5 };
         let card_felt252: felt252 = card.into();
         let card_af: Card = card_felt252.into();
 
@@ -405,6 +433,6 @@ mod into_tests {
         assert(card.suit == card_af.suit, 'wrong suit');
         assert(card.value == card_af.value, 'wrong value');
         assert(card.points == card_af.points, 'wrong points');
-        assert(card.multi_add == card_af.multi_add, 'wrong multi');
+        assert(card.multi == card_af.multi, 'wrong multi');
     }
 }

@@ -115,343 +115,343 @@ const INVALID_CARD_ID: u32 = 9999;
 
 // TRADITIONALS
 fn TWO_CLUBS() -> Card {
-    Card { id: TWO_CLUBS_ID, suit: Suit::Clubs, value: Value::Two, points: 2, multi_add: 0 }
+    Card { id: TWO_CLUBS_ID, suit: Suit::Clubs, value: Value::Two, points: 2, multi: 0 }
 }
 fn THREE_CLUBS() -> Card {
-    Card { id: THREE_CLUBS_ID, suit: Suit::Clubs, value: Value::Three, points: 3, multi_add: 0 }
+    Card { id: THREE_CLUBS_ID, suit: Suit::Clubs, value: Value::Three, points: 3, multi: 0 }
 }
 fn FOUR_CLUBS() -> Card {
-    Card { id: FOUR_CLUBS_ID, suit: Suit::Clubs, value: Value::Four, points: 4, multi_add: 0 }
+    Card { id: FOUR_CLUBS_ID, suit: Suit::Clubs, value: Value::Four, points: 4, multi: 0 }
 }
 fn FIVE_CLUBS() -> Card {
-    Card { id: FIVE_CLUBS_ID, suit: Suit::Clubs, value: Value::Five, points: 5, multi_add: 0 }
+    Card { id: FIVE_CLUBS_ID, suit: Suit::Clubs, value: Value::Five, points: 5, multi: 0 }
 }
 fn SIX_CLUBS() -> Card {
-    Card { id: SIX_CLUBS_ID, suit: Suit::Clubs, value: Value::Six, points: 6, multi_add: 0 }
+    Card { id: SIX_CLUBS_ID, suit: Suit::Clubs, value: Value::Six, points: 6, multi: 0 }
 }
 fn SEVEN_CLUBS() -> Card {
-    Card { id: SEVEN_CLUBS_ID, suit: Suit::Clubs, value: Value::Seven, points: 7, multi_add: 0 }
+    Card { id: SEVEN_CLUBS_ID, suit: Suit::Clubs, value: Value::Seven, points: 7, multi: 0 }
 }
 fn EIGHT_CLUBS() -> Card {
-    Card { id: EIGHT_CLUBS_ID, suit: Suit::Clubs, value: Value::Eight, points: 8, multi_add: 0 }
+    Card { id: EIGHT_CLUBS_ID, suit: Suit::Clubs, value: Value::Eight, points: 8, multi: 0 }
 }
 fn NINE_CLUBS() -> Card {
-    Card { id: NINE_CLUBS_ID, suit: Suit::Clubs, value: Value::Nine, points: 9, multi_add: 0 }
+    Card { id: NINE_CLUBS_ID, suit: Suit::Clubs, value: Value::Nine, points: 9, multi: 0 }
 }
 fn TEN_CLUBS() -> Card {
-    Card { id: TEN_CLUBS_ID, suit: Suit::Clubs, value: Value::Ten, points: 10, multi_add: 0 }
+    Card { id: TEN_CLUBS_ID, suit: Suit::Clubs, value: Value::Ten, points: 10, multi: 0 }
 }
 fn JACK_CLUBS() -> Card {
-    Card { id: JACK_CLUBS_ID, suit: Suit::Clubs, value: Value::Jack, points: 10, multi_add: 0 }
+    Card { id: JACK_CLUBS_ID, suit: Suit::Clubs, value: Value::Jack, points: 10, multi: 0 }
 }
 fn QUEEN_CLUBS() -> Card {
-    Card { id: QUEEN_CLUBS_ID, suit: Suit::Clubs, value: Value::Queen, points: 10, multi_add: 0 }
+    Card { id: QUEEN_CLUBS_ID, suit: Suit::Clubs, value: Value::Queen, points: 10, multi: 0 }
 }
 fn KING_CLUBS() -> Card {
-    Card { id: KING_CLUBS_ID, suit: Suit::Clubs, value: Value::King, points: 10, multi_add: 0 }
+    Card { id: KING_CLUBS_ID, suit: Suit::Clubs, value: Value::King, points: 10, multi: 0 }
 }
 fn ACE_CLUBS() -> Card {
-    Card { id: ACE_CLUBS_ID, suit: Suit::Clubs, value: Value::Ace, points: 11, multi_add: 0 }
+    Card { id: ACE_CLUBS_ID, suit: Suit::Clubs, value: Value::Ace, points: 11, multi: 0 }
 }
 
 fn TWO_DIAMONDS() -> Card {
-    Card { id: TWO_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Two, points: 2, multi_add: 0 }
+    Card { id: TWO_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Two, points: 2, multi: 0 }
 }
 fn THREE_DIAMONDS() -> Card {
-    Card { id: THREE_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Three, points: 3, multi_add: 0 }
+    Card { id: THREE_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Three, points: 3, multi: 0 }
 }
 fn FOUR_DIAMONDS() -> Card {
-    Card { id: FOUR_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Four, points: 4, multi_add: 0 }
+    Card { id: FOUR_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Four, points: 4, multi: 0 }
 }
 fn FIVE_DIAMONDS() -> Card {
-    Card { id: FIVE_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Five, points: 5, multi_add: 0 }
+    Card { id: FIVE_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Five, points: 5, multi: 0 }
 }
 fn SIX_DIAMONDS() -> Card {
-    Card { id: SIX_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Six, points: 6, multi_add: 0 }
+    Card { id: SIX_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Six, points: 6, multi: 0 }
 }
 fn SEVEN_DIAMONDS() -> Card {
-    Card { id: SEVEN_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Seven, points: 7, multi_add: 0 }
+    Card { id: SEVEN_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Seven, points: 7, multi: 0 }
 }
 fn EIGHT_DIAMONDS() -> Card {
-    Card { id: EIGHT_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Eight, points: 8, multi_add: 0 }
+    Card { id: EIGHT_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Eight, points: 8, multi: 0 }
 }
 fn NINE_DIAMONDS() -> Card {
-    Card { id: NINE_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Nine, points: 9, multi_add: 0 }
+    Card { id: NINE_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Nine, points: 9, multi: 0 }
 }
 fn TEN_DIAMONDS() -> Card {
-    Card { id: TEN_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Ten, points: 10, multi_add: 0 }
+    Card { id: TEN_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Ten, points: 10, multi: 0 }
 }
 fn JACK_DIAMONDS() -> Card {
-    Card { id: JACK_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Jack, points: 10, multi_add: 0 }
+    Card { id: JACK_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Jack, points: 10, multi: 0 }
 }
 fn QUEEN_DIAMONDS() -> Card {
-    Card { id: QUEEN_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Queen, points: 10, multi_add: 0 }
+    Card { id: QUEEN_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Queen, points: 10, multi: 0 }
 }
 fn KING_DIAMONDS() -> Card {
-    Card { id: KING_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::King, points: 10, multi_add: 0 }
+    Card { id: KING_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::King, points: 10, multi: 0 }
 }
 fn ACE_DIAMONDS() -> Card {
-    Card { id: ACE_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Ace, points: 11, multi_add: 0 }
+    Card { id: ACE_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Ace, points: 11, multi: 0 }
 }
 
 fn TWO_HEARTS() -> Card {
-    Card { id: TWO_HEARTS_ID, suit: Suit::Hearts, value: Value::Two, points: 2, multi_add: 0 }
+    Card { id: TWO_HEARTS_ID, suit: Suit::Hearts, value: Value::Two, points: 2, multi: 0 }
 }
 fn THREE_HEARTS() -> Card {
-    Card { id: THREE_HEARTS_ID, suit: Suit::Hearts, value: Value::Three, points: 3, multi_add: 0 }
+    Card { id: THREE_HEARTS_ID, suit: Suit::Hearts, value: Value::Three, points: 3, multi: 0 }
 }
 fn FOUR_HEARTS() -> Card {
-    Card { id: FOUR_HEARTS_ID, suit: Suit::Hearts, value: Value::Four, points: 4, multi_add: 0 }
+    Card { id: FOUR_HEARTS_ID, suit: Suit::Hearts, value: Value::Four, points: 4, multi: 0 }
 }
 fn FIVE_HEARTS() -> Card {
-    Card { id: FIVE_HEARTS_ID, suit: Suit::Hearts, value: Value::Five, points: 5, multi_add: 0 }
+    Card { id: FIVE_HEARTS_ID, suit: Suit::Hearts, value: Value::Five, points: 5, multi: 0 }
 }
 fn SIX_HEARTS() -> Card {
-    Card { id: SIX_HEARTS_ID, suit: Suit::Hearts, value: Value::Six, points: 6, multi_add: 0 }
+    Card { id: SIX_HEARTS_ID, suit: Suit::Hearts, value: Value::Six, points: 6, multi: 0 }
 }
 fn SEVEN_HEARTS() -> Card {
-    Card { id: SEVEN_HEARTS_ID, suit: Suit::Hearts, value: Value::Seven, points: 7, multi_add: 0 }
+    Card { id: SEVEN_HEARTS_ID, suit: Suit::Hearts, value: Value::Seven, points: 7, multi: 0 }
 }
 fn EIGHT_HEARTS() -> Card {
-    Card { id: EIGHT_HEARTS_ID, suit: Suit::Hearts, value: Value::Eight, points: 8, multi_add: 0 }
+    Card { id: EIGHT_HEARTS_ID, suit: Suit::Hearts, value: Value::Eight, points: 8, multi: 0 }
 }
 fn NINE_HEARTS() -> Card {
-    Card { id: NINE_HEARTS_ID, suit: Suit::Hearts, value: Value::Nine, points: 9, multi_add: 0 }
+    Card { id: NINE_HEARTS_ID, suit: Suit::Hearts, value: Value::Nine, points: 9, multi: 0 }
 }
 fn TEN_HEARTS() -> Card {
-    Card { id: TEN_HEARTS_ID, suit: Suit::Hearts, value: Value::Ten, points: 10, multi_add: 0 }
+    Card { id: TEN_HEARTS_ID, suit: Suit::Hearts, value: Value::Ten, points: 10, multi: 0 }
 }
 fn JACK_HEARTS() -> Card {
-    Card { id: JACK_HEARTS_ID, suit: Suit::Hearts, value: Value::Jack, points: 10, multi_add: 0 }
+    Card { id: JACK_HEARTS_ID, suit: Suit::Hearts, value: Value::Jack, points: 10, multi: 0 }
 }
 fn QUEEN_HEARTS() -> Card {
-    Card { id: QUEEN_HEARTS_ID, suit: Suit::Hearts, value: Value::Queen, points: 10, multi_add: 0 }
+    Card { id: QUEEN_HEARTS_ID, suit: Suit::Hearts, value: Value::Queen, points: 10, multi: 0 }
 }
 fn KING_HEARTS() -> Card {
-    Card { id: KING_HEARTS_ID, suit: Suit::Hearts, value: Value::King, points: 10, multi_add: 0 }
+    Card { id: KING_HEARTS_ID, suit: Suit::Hearts, value: Value::King, points: 10, multi: 0 }
 }
 fn ACE_HEARTS() -> Card {
-    Card { id: ACE_HEARTS_ID, suit: Suit::Hearts, value: Value::Ace, points: 11, multi_add: 0 }
+    Card { id: ACE_HEARTS_ID, suit: Suit::Hearts, value: Value::Ace, points: 11, multi: 0 }
 }
 
 fn TWO_SPADES() -> Card {
-    Card { id: TWO_SPADES_ID, suit: Suit::Spades, value: Value::Two, points: 2, multi_add: 0 }
+    Card { id: TWO_SPADES_ID, suit: Suit::Spades, value: Value::Two, points: 2, multi: 0 }
 }
 fn THREE_SPADES() -> Card {
-    Card { id: THREE_SPADES_ID, suit: Suit::Spades, value: Value::Three, points: 3, multi_add: 0 }
+    Card { id: THREE_SPADES_ID, suit: Suit::Spades, value: Value::Three, points: 3, multi: 0 }
 }
 fn FOUR_SPADES() -> Card {
-    Card { id: FOUR_SPADES_ID, suit: Suit::Spades, value: Value::Four, points: 4, multi_add: 0 }
+    Card { id: FOUR_SPADES_ID, suit: Suit::Spades, value: Value::Four, points: 4, multi: 0 }
 }
 fn FIVE_SPADES() -> Card {
-    Card { id: FIVE_SPADES_ID, suit: Suit::Spades, value: Value::Five, points: 5, multi_add: 0 }
+    Card { id: FIVE_SPADES_ID, suit: Suit::Spades, value: Value::Five, points: 5, multi: 0 }
 }
 fn SIX_SPADES() -> Card {
-    Card { id: SIX_SPADES_ID, suit: Suit::Spades, value: Value::Six, points: 6, multi_add: 0 }
+    Card { id: SIX_SPADES_ID, suit: Suit::Spades, value: Value::Six, points: 6, multi: 0 }
 }
 fn SEVEN_SPADES() -> Card {
-    Card { id: SEVEN_SPADES_ID, suit: Suit::Spades, value: Value::Seven, points: 7, multi_add: 0 }
+    Card { id: SEVEN_SPADES_ID, suit: Suit::Spades, value: Value::Seven, points: 7, multi: 0 }
 }
 fn EIGHT_SPADES() -> Card {
-    Card { id: EIGHT_SPADES_ID, suit: Suit::Spades, value: Value::Eight, points: 8, multi_add: 0 }
+    Card { id: EIGHT_SPADES_ID, suit: Suit::Spades, value: Value::Eight, points: 8, multi: 0 }
 }
 fn NINE_SPADES() -> Card {
-    Card { id: NINE_SPADES_ID, suit: Suit::Spades, value: Value::Nine, points: 9, multi_add: 0 }
+    Card { id: NINE_SPADES_ID, suit: Suit::Spades, value: Value::Nine, points: 9, multi: 0 }
 }
 fn TEN_SPADES() -> Card {
-    Card { id: TEN_SPADES_ID, suit: Suit::Spades, value: Value::Ten, points: 10, multi_add: 0 }
+    Card { id: TEN_SPADES_ID, suit: Suit::Spades, value: Value::Ten, points: 10, multi: 0 }
 }
 fn JACK_SPADES() -> Card {
-    Card { id: JACK_SPADES_ID, suit: Suit::Spades, value: Value::Jack, points: 10, multi_add: 0 }
+    Card { id: JACK_SPADES_ID, suit: Suit::Spades, value: Value::Jack, points: 10, multi: 0 }
 }
 fn QUEEN_SPADES() -> Card {
-    Card { id: QUEEN_SPADES_ID, suit: Suit::Spades, value: Value::Queen, points: 10, multi_add: 0 }
+    Card { id: QUEEN_SPADES_ID, suit: Suit::Spades, value: Value::Queen, points: 10, multi: 0 }
 }
 fn KING_SPADES() -> Card {
-    Card { id: KING_SPADES_ID, suit: Suit::Spades, value: Value::King, points: 10, multi_add: 0 }
+    Card { id: KING_SPADES_ID, suit: Suit::Spades, value: Value::King, points: 10, multi: 0 }
 }
 fn ACE_SPADES() -> Card {
-    Card { id: ACE_SPADES_ID, suit: Suit::Spades, value: Value::Ace, points: 11, multi_add: 0 }
+    Card { id: ACE_SPADES_ID, suit: Suit::Spades, value: Value::Ace, points: 11, multi: 0 }
 }
 
 // NEON
 fn NEON_TWO_HEARTS() -> Card {
-    Card { id: NEON_TWO_HEARTS_ID, suit: Suit::Hearts, value: Value::Two, points: 4, multi_add: 1 }
+    Card { id: NEON_TWO_HEARTS_ID, suit: Suit::Hearts, value: Value::Two, points: 4, multi: 1 }
 }
 fn NEON_THREE_HEARTS() -> Card {
-    Card { id: NEON_THREE_HEARTS_ID, suit: Suit::Hearts, value: Value::Three, points: 6, multi_add: 1 }
+    Card { id: NEON_THREE_HEARTS_ID, suit: Suit::Hearts, value: Value::Three, points: 6, multi: 1 }
 }
 fn NEON_FOUR_HEARTS() -> Card {
-    Card { id: NEON_FOUR_HEARTS_ID, suit: Suit::Hearts, value: Value::Four, points: 8, multi_add: 1 }
+    Card { id: NEON_FOUR_HEARTS_ID, suit: Suit::Hearts, value: Value::Four, points: 8, multi: 1 }
 }
 fn NEON_FIVE_HEARTS() -> Card {
-    Card { id: NEON_FIVE_HEARTS_ID, suit: Suit::Hearts, value: Value::Five, points: 10, multi_add: 1 }
+    Card { id: NEON_FIVE_HEARTS_ID, suit: Suit::Hearts, value: Value::Five, points: 10, multi: 1 }
 }
 fn NEON_SIX_HEARTS() -> Card {
-    Card { id: NEON_SIX_HEARTS_ID, suit: Suit::Hearts, value: Value::Six, points: 12, multi_add: 1 }
+    Card { id: NEON_SIX_HEARTS_ID, suit: Suit::Hearts, value: Value::Six, points: 12, multi: 1 }
 }
 fn NEON_SEVEN_HEARTS() -> Card {
-    Card { id: NEON_SEVEN_HEARTS_ID, suit: Suit::Hearts, value: Value::Seven, points: 14, multi_add: 1 }
+    Card { id: NEON_SEVEN_HEARTS_ID, suit: Suit::Hearts, value: Value::Seven, points: 14, multi: 1 }
 }
 fn NEON_EIGHT_HEARTS() -> Card {
-    Card { id: NEON_EIGHT_HEARTS_ID, suit: Suit::Hearts, value: Value::Eight, points: 16, multi_add: 1 }
+    Card { id: NEON_EIGHT_HEARTS_ID, suit: Suit::Hearts, value: Value::Eight, points: 16, multi: 1 }
 }
 fn NEON_NINE_HEARTS() -> Card {
-    Card { id: NEON_NINE_HEARTS_ID, suit: Suit::Hearts, value: Value::Nine, points: 18, multi_add: 1 }
+    Card { id: NEON_NINE_HEARTS_ID, suit: Suit::Hearts, value: Value::Nine, points: 18, multi: 1 }
 }
 fn NEON_TEN_HEARTS() -> Card {
-    Card { id: NEON_TEN_HEARTS_ID, suit: Suit::Hearts, value: Value::Ten, points: 20, multi_add: 1 }
+    Card { id: NEON_TEN_HEARTS_ID, suit: Suit::Hearts, value: Value::Ten, points: 20, multi: 1 }
 }
 fn NEON_JACK_HEARTS() -> Card {
-    Card { id: NEON_JACK_HEARTS_ID, suit: Suit::Hearts, value: Value::Jack, points: 20, multi_add: 1 }
+    Card { id: NEON_JACK_HEARTS_ID, suit: Suit::Hearts, value: Value::Jack, points: 20, multi: 1 }
 }
 fn NEON_QUEEN_HEARTS() -> Card {
-    Card { id: NEON_QUEEN_HEARTS_ID, suit: Suit::Hearts, value: Value::Queen, points: 20, multi_add: 1 }
+    Card { id: NEON_QUEEN_HEARTS_ID, suit: Suit::Hearts, value: Value::Queen, points: 20, multi: 1 }
 }
 fn NEON_KING_HEARTS() -> Card {
-    Card { id: NEON_KING_HEARTS_ID, suit: Suit::Hearts, value: Value::King, points: 20, multi_add: 1 }
+    Card { id: NEON_KING_HEARTS_ID, suit: Suit::Hearts, value: Value::King, points: 20, multi: 1 }
 }
 fn NEON_ACE_HEARTS() -> Card {
-    Card { id: NEON_ACE_HEARTS_ID, suit: Suit::Hearts, value: Value::Ace, points: 22, multi_add: 1 }
+    Card { id: NEON_ACE_HEARTS_ID, suit: Suit::Hearts, value: Value::Ace, points: 22, multi: 1 }
 }
 
 fn NEON_TWO_SPADES() -> Card {
-    Card { id: NEON_TWO_SPADES_ID, suit: Suit::Spades, value: Value::Two, points: 4, multi_add: 1 }
+    Card { id: NEON_TWO_SPADES_ID, suit: Suit::Spades, value: Value::Two, points: 4, multi: 1 }
 }
 fn NEON_THREE_SPADES() -> Card {
-    Card { id: NEON_THREE_SPADES_ID, suit: Suit::Spades, value: Value::Three, points: 6, multi_add: 1 }
+    Card { id: NEON_THREE_SPADES_ID, suit: Suit::Spades, value: Value::Three, points: 6, multi: 1 }
 }
 fn NEON_FOUR_SPADES() -> Card {
-    Card { id: NEON_FOUR_SPADES_ID, suit: Suit::Spades, value: Value::Four, points: 8, multi_add: 1 }
+    Card { id: NEON_FOUR_SPADES_ID, suit: Suit::Spades, value: Value::Four, points: 8, multi: 1 }
 }
 fn NEON_FIVE_SPADES() -> Card {
-    Card { id: NEON_FIVE_SPADES_ID, suit: Suit::Spades, value: Value::Five, points: 10, multi_add: 1 }
+    Card { id: NEON_FIVE_SPADES_ID, suit: Suit::Spades, value: Value::Five, points: 10, multi: 1 }
 }
 fn NEON_SIX_SPADES() -> Card {
-    Card { id: NEON_SIX_SPADES_ID, suit: Suit::Spades, value: Value::Six, points: 12, multi_add: 1 }
+    Card { id: NEON_SIX_SPADES_ID, suit: Suit::Spades, value: Value::Six, points: 12, multi: 1 }
 }
 fn NEON_SEVEN_SPADES() -> Card {
-    Card { id: NEON_SEVEN_SPADES_ID, suit: Suit::Spades, value: Value::Seven, points: 14, multi_add: 1 }
+    Card { id: NEON_SEVEN_SPADES_ID, suit: Suit::Spades, value: Value::Seven, points: 14, multi: 1 }
 }
 fn NEON_EIGHT_SPADES() -> Card {
-    Card { id: NEON_EIGHT_SPADES_ID, suit: Suit::Spades, value: Value::Eight, points: 16, multi_add: 1 }
+    Card { id: NEON_EIGHT_SPADES_ID, suit: Suit::Spades, value: Value::Eight, points: 16, multi: 1 }
 }
 fn NEON_NINE_SPADES() -> Card {
-    Card { id: NEON_NINE_SPADES_ID, suit: Suit::Spades, value: Value::Nine, points: 18, multi_add: 1 }
+    Card { id: NEON_NINE_SPADES_ID, suit: Suit::Spades, value: Value::Nine, points: 18, multi: 1 }
 }
 fn NEON_TEN_SPADES() -> Card {
-    Card { id: NEON_TEN_SPADES_ID, suit: Suit::Spades, value: Value::Ten, points: 20, multi_add: 1 }
+    Card { id: NEON_TEN_SPADES_ID, suit: Suit::Spades, value: Value::Ten, points: 20, multi: 1 }
 }
 fn NEON_JACK_SPADES() -> Card {
-    Card { id: NEON_JACK_SPADES_ID, suit: Suit::Spades, value: Value::Jack, points: 20, multi_add: 1 }
+    Card { id: NEON_JACK_SPADES_ID, suit: Suit::Spades, value: Value::Jack, points: 20, multi: 1 }
 }
 fn NEON_QUEEN_SPADES() -> Card {
-    Card { id: NEON_QUEEN_SPADES_ID, suit: Suit::Spades, value: Value::Queen, points: 20, multi_add: 1 }
+    Card { id: NEON_QUEEN_SPADES_ID, suit: Suit::Spades, value: Value::Queen, points: 20, multi: 1 }
 }
 fn NEON_KING_SPADES() -> Card {
-    Card { id: NEON_KING_SPADES_ID, suit: Suit::Spades, value: Value::King, points: 20, multi_add: 1 }
+    Card { id: NEON_KING_SPADES_ID, suit: Suit::Spades, value: Value::King, points: 20, multi: 1 }
 }
 fn NEON_ACE_SPADES() -> Card {
-    Card { id: NEON_ACE_SPADES_ID, suit: Suit::Spades, value: Value::Ace, points: 22, multi_add: 1 }
+    Card { id: NEON_ACE_SPADES_ID, suit: Suit::Spades, value: Value::Ace, points: 22, multi: 1 }
 }
 fn NEON_TWO_DIAMONDS() -> Card {
-    Card { id: NEON_TWO_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Two, points: 4, multi_add: 1 }
+    Card { id: NEON_TWO_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Two, points: 4, multi: 1 }
 }
 fn NEON_THREE_DIAMONDS() -> Card {
-    Card { id: NEON_THREE_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Three, points: 6, multi_add: 1 }
+    Card { id: NEON_THREE_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Three, points: 6, multi: 1 }
 }
 fn NEON_FOUR_DIAMONDS() -> Card {
-    Card { id: NEON_FOUR_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Four, points: 8, multi_add: 1 }
+    Card { id: NEON_FOUR_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Four, points: 8, multi: 1 }
 }
 fn NEON_FIVE_DIAMONDS() -> Card {
-    Card { id: NEON_FIVE_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Five, points: 10, multi_add: 1 }
+    Card { id: NEON_FIVE_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Five, points: 10, multi: 1 }
 }
 fn NEON_SIX_DIAMONDS() -> Card {
-    Card { id: NEON_SIX_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Six, points: 12, multi_add: 1 }
+    Card { id: NEON_SIX_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Six, points: 12, multi: 1 }
 }
 fn NEON_SEVEN_DIAMONDS() -> Card {
-    Card { id: NEON_SEVEN_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Seven, points: 14, multi_add: 1 }
+    Card { id: NEON_SEVEN_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Seven, points: 14, multi: 1 }
 }
 fn NEON_EIGHT_DIAMONDS() -> Card {
-    Card { id: NEON_EIGHT_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Eight, points: 16, multi_add: 1 }
+    Card { id: NEON_EIGHT_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Eight, points: 16, multi: 1 }
 }
 fn NEON_NINE_DIAMONDS() -> Card {
-    Card { id: NEON_NINE_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Nine, points: 18, multi_add: 1 }
+    Card { id: NEON_NINE_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Nine, points: 18, multi: 1 }
 }
 fn NEON_TEN_DIAMONDS() -> Card {
-    Card { id: NEON_TEN_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Ten, points: 20, multi_add: 1 }
+    Card { id: NEON_TEN_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Ten, points: 20, multi: 1 }
 }
 fn NEON_JACK_DIAMONDS() -> Card {
-    Card { id: NEON_JACK_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Jack, points: 20, multi_add: 1 }
+    Card { id: NEON_JACK_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Jack, points: 20, multi: 1 }
 }
 fn NEON_QUEEN_DIAMONDS() -> Card {
-    Card { id: NEON_QUEEN_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Queen, points: 20, multi_add: 1 }
+    Card { id: NEON_QUEEN_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Queen, points: 20, multi: 1 }
 }
 fn NEON_KING_DIAMONDS() -> Card {
-    Card { id: NEON_KING_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::King, points: 20, multi_add: 1 }
+    Card { id: NEON_KING_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::King, points: 20, multi: 1 }
 }
 fn NEON_ACE_DIAMONDS() -> Card {
-    Card { id: NEON_ACE_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Ace, points: 22, multi_add: 1 }
+    Card { id: NEON_ACE_DIAMONDS_ID, suit: Suit::Diamonds, value: Value::Ace, points: 22, multi: 1 }
 }
 
 fn NEON_TWO_CLUBS() -> Card {
-    Card { id: NEON_TWO_CLUBS_ID, suit: Suit::Clubs, value: Value::Two, points: 4, multi_add: 1 }
+    Card { id: NEON_TWO_CLUBS_ID, suit: Suit::Clubs, value: Value::Two, points: 4, multi: 1 }
 }
 fn NEON_THREE_CLUBS() -> Card {
-    Card { id: NEON_THREE_CLUBS_ID, suit: Suit::Clubs, value: Value::Three, points: 6, multi_add: 1 }
+    Card { id: NEON_THREE_CLUBS_ID, suit: Suit::Clubs, value: Value::Three, points: 6, multi: 1 }
 }
 fn NEON_FOUR_CLUBS() -> Card {
-    Card { id: NEON_FOUR_CLUBS_ID, suit: Suit::Clubs, value: Value::Four, points: 8, multi_add: 1 }
+    Card { id: NEON_FOUR_CLUBS_ID, suit: Suit::Clubs, value: Value::Four, points: 8, multi: 1 }
 }
 fn NEON_FIVE_CLUBS() -> Card {
-    Card { id: NEON_FIVE_CLUBS_ID, suit: Suit::Clubs, value: Value::Five, points: 10, multi_add: 1 }
+    Card { id: NEON_FIVE_CLUBS_ID, suit: Suit::Clubs, value: Value::Five, points: 10, multi: 1 }
 }
 fn NEON_SIX_CLUBS() -> Card {
-    Card { id: NEON_SIX_CLUBS_ID, suit: Suit::Clubs, value: Value::Six, points: 12, multi_add: 1 }
+    Card { id: NEON_SIX_CLUBS_ID, suit: Suit::Clubs, value: Value::Six, points: 12, multi: 1 }
 }
 fn NEON_SEVEN_CLUBS() -> Card {
-    Card { id: NEON_SEVEN_CLUBS_ID, suit: Suit::Clubs, value: Value::Seven, points: 14, multi_add: 1 }
+    Card { id: NEON_SEVEN_CLUBS_ID, suit: Suit::Clubs, value: Value::Seven, points: 14, multi: 1 }
 }
 fn NEON_EIGHT_CLUBS() -> Card {
-    Card { id: NEON_EIGHT_CLUBS_ID, suit: Suit::Clubs, value: Value::Eight, points: 16, multi_add: 1 }
+    Card { id: NEON_EIGHT_CLUBS_ID, suit: Suit::Clubs, value: Value::Eight, points: 16, multi: 1 }
 }
 fn NEON_NINE_CLUBS() -> Card {
-    Card { id: NEON_NINE_CLUBS_ID, suit: Suit::Clubs, value: Value::Nine, points: 18, multi_add: 1 }
+    Card { id: NEON_NINE_CLUBS_ID, suit: Suit::Clubs, value: Value::Nine, points: 18, multi: 1 }
 }
 fn NEON_TEN_CLUBS() -> Card {
-    Card { id: NEON_TEN_CLUBS_ID, suit: Suit::Clubs, value: Value::Ten, points: 20, multi_add: 1 }
+    Card { id: NEON_TEN_CLUBS_ID, suit: Suit::Clubs, value: Value::Ten, points: 20, multi: 1 }
 }
 fn NEON_JACK_CLUBS() -> Card {
-    Card { id: NEON_JACK_CLUBS_ID, suit: Suit::Clubs, value: Value::Jack, points: 20, multi_add: 1 }
+    Card { id: NEON_JACK_CLUBS_ID, suit: Suit::Clubs, value: Value::Jack, points: 20, multi: 1 }
 }
 fn NEON_QUEEN_CLUBS() -> Card {
-    Card { id: NEON_QUEEN_CLUBS_ID, suit: Suit::Clubs, value: Value::Queen, points: 20, multi_add: 1 }
+    Card { id: NEON_QUEEN_CLUBS_ID, suit: Suit::Clubs, value: Value::Queen, points: 20, multi: 1 }
 }
 fn NEON_KING_CLUBS() -> Card {
-    Card { id: NEON_KING_CLUBS_ID, suit: Suit::Clubs, value: Value::King, points: 20, multi_add: 1 }
+    Card { id: NEON_KING_CLUBS_ID, suit: Suit::Clubs, value: Value::King, points: 20, multi: 1 }
 }
 fn NEON_ACE_CLUBS() -> Card {
-    Card { id: NEON_ACE_CLUBS_ID, suit: Suit::Clubs, value: Value::Ace, points: 22, multi_add: 1 }
+    Card { id: NEON_ACE_CLUBS_ID, suit: Suit::Clubs, value: Value::Ace, points: 22, multi: 1 }
 }
 
 fn JOKER_CARD() -> Card {
-    Card { id: JOKER_CARD_ID, suit: Suit::Joker, value: Value::Joker, points: 100, multi_add: 1 }
+    Card { id: JOKER_CARD_ID, suit: Suit::Joker, value: Value::Joker, points: 100, multi: 1 }
 }
 
 fn NEON_JOKER_CARD() -> Card {
-    Card { id: NEON_JOKER_CARD_ID, suit: Suit::Joker, value: Value::NeonJoker, points: 200, multi_add: 2 }
+    Card { id: NEON_JOKER_CARD_ID, suit: Suit::Joker, value: Value::NeonJoker, points: 200, multi: 2 }
 }
 
 fn WILD_CARD() -> Card {
-    Card { id: WILD_CARD_ID, suit: Suit::Wild, value: Value::Wild, points: 0, multi_add: 0 }
+    Card { id: WILD_CARD_ID, suit: Suit::Wild, value: Value::Wild, points: 0, multi: 0 }
 }
 
 fn NEON_WILD_CARD() -> Card {
-    Card { id: NEON_WILD_CARD_ID, suit: Suit::Wild, value: Value::Wild, points: 0, multi_add: 1 }
+    Card { id: NEON_WILD_CARD_ID, suit: Suit::Wild, value: Value::Wild, points: 0, multi: 1 }
 }
 
 fn INVALID_CARD() -> Card {
-    Card { id: INVALID_CARD_ID, suit: Suit::None, value: Value::None, points: 0, multi_add: 0 }
+    Card { id: INVALID_CARD_ID, suit: Suit::None, value: Value::None, points: 0, multi: 0 }
 }
 
 fn traditional_cards_all() -> Array<u32> {
