@@ -47,7 +47,7 @@ pub struct PlayerStats {
     pub burn_purchased: u32,
 }
 
-impl PurchaseTrackerDefault of Default<PlayerStats> {
+impl PlayerStatsDefault of Default<PlayerStats> {
     fn default() -> PlayerStats {
         PlayerStats {
             address: Zeroable::zero(),
