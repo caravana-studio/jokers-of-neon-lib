@@ -46,3 +46,33 @@ pub struct PlayerStats {
     pub rerolls_purchased: u32,
     pub burn_purchased: u32,
 }
+
+impl PurchaseTrackerDefault of Default<PlayerStats> {
+    fn default() -> PlayerStats {
+        PlayerStats {
+            address: Zeroable::zero(),
+            games_played: 0,
+            games_won: 0,
+            high_card_played: 0,
+            pair_played: 0,
+            two_pair_played: 0,
+            three_of_a_kind_played: 0,
+            four_of_a_kind_played: 0,
+            five_of_a_kind_played: 0,
+            full_house_played: 0,
+            flush_played: 0,
+            straight_played: 0,
+            straight_flush_played: 0,
+            royal_flush_played: 0,
+            loot_boxes_purchased: 0,
+            cards_purchased: 0,
+            specials_purchased: 0,
+            specials_sold: 0,
+            power_ups_purchased: 0,
+            level_ups_purchased: 0,
+            modifiers_purchased: 0,
+            rerolls_purchased: 0,
+            burn_purchased: 0,
+        }
+    }
+}
