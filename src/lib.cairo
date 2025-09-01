@@ -58,6 +58,10 @@ mod models {
         mod poker_hand;
         mod power_up;
     }
+    mod external {
+        mod nft;
+        mod profile;
+    }
     mod status {
         mod game {
             mod game;
