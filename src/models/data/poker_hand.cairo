@@ -16,7 +16,7 @@ trait Enumerable<T> {
 }
 
 #[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, DojoStore, Default)]
-enum PokerHand {
+pub enum PokerHand {
     #[default]
     None,
     RoyalFlush,
@@ -45,13 +45,13 @@ impl PokerHandImpl of Enumerable<PokerHand> {
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde, starknet::Event)]
-struct LevelPokerHand {
+pub struct LevelPokerHand {
     #[key]
-    poker_hand: PokerHand,
+    pub poker_hand: PokerHand,
     #[key]
-    level: u8,
-    multi: u32,
-    points: u32,
+    pub level: u8,
+    pub multi: u32,
+    pub points: u32,
 }
 
 impl PokerHandIntoFelt252 of Into<PokerHand, felt252> {

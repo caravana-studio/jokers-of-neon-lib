@@ -1,6 +1,6 @@
 use core::integer::{U256DivRem, u256_try_as_non_zero};
 use jokers_of_neon_lib::interfaces::cartridge::vrf::{IVrfProviderDispatcher, IVrfProviderDispatcherTrait, Source};
-use starknet::{ContractAddress, contract_address_const, get_block_timestamp, get_caller_address, get_tx_info};
+use starknet::{ContractAddress, get_block_timestamp, get_caller_address, get_tx_info};
 
 const KATANA_CHAIN_ID: felt252 = 0x4b4154414e41;
 const SEPOLIA_CHAIN_ID: felt252 = 0x534e5f5345504f4c4941;
@@ -9,7 +9,7 @@ const U128_MAX: u128 = 340282366920938463463374607431768211455;
 const LCG_PRIME: u128 = 281474976710656;
 
 fn get_vrf_address() -> ContractAddress {
-    contract_address_const::<0x051fea4450da9d6aee758bdeba88b2f665bcbf549d2c61421aa724e9ac0ced8f>()
+    0x051fea4450da9d6aee758bdeba88b2f665bcbf549d2c61421aa724e9ac0ced8f.try_into().unwrap()
 }
 
 #[derive(Copy, Drop, Serde)]
@@ -22,7 +22,7 @@ pub struct Nonce {
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
-struct Random {
+pub struct Random {
     #[key]
     pub key: felt252,
     pub seed: u128,

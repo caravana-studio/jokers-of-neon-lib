@@ -1,10 +1,10 @@
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
-struct Card {
-    id: u32,
-    suit: Suit,
-    value: Value,
-    points: u32,
-    multi: u32,
+pub struct Card {
+    pub id: u32,
+    pub suit: Suit,
+    pub value: Value,
+    pub points: u32,
+    pub multi: u32,
 }
 
 trait CardTrait {
@@ -32,7 +32,7 @@ impl CardImpl of CardTrait {
 }
 
 #[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, Default)]
-enum Suit {
+pub enum Suit {
     #[default]
     None,
     Clubs,
@@ -102,7 +102,7 @@ impl SuitIntoFelt252 of Into<Suit, felt252> {
 }
 
 #[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, Default)]
-enum Value {
+pub enum Value {
     #[default]
     None,
     Two,

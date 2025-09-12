@@ -6,15 +6,15 @@ use jokers_of_neon_lib::models::status::round::round::Round;
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct GameTracker {
+pub struct GameTracker {
     #[key]
-    game_id: u64,
-    highest_hand: u32,
-    most_played_hand: (PokerHand, u32),
-    highest_cash: u32,
-    cards_played_count: u32,
-    cards_discarded_count: u32,
-    rage_wins: u32,
+    pub game_id: u64,
+    pub highest_hand: u32,
+    pub most_played_hand: (PokerHand, u32),
+    pub highest_cash: u32,
+    pub cards_played_count: u32,
+    pub cards_discarded_count: u32,
+    pub rage_wins: u32,
 }
 
 impl GameTrackerDefault of Default<GameTracker> {
@@ -87,18 +87,18 @@ impl GameTrackerImpl of GameTrackerTrait {
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct PurchaseTracker {
+pub struct PurchaseTracker {
     #[key]
-    game_id: u64,
-    traditional_cards_count: u32,
-    modifier_cards_count: u32,
-    special_cards_count: u32,
-    loot_boxes_count: u32,
-    power_up_count: u32,
-    level_poker_hands_count: u32,
-    burn_count: u32,
-    reroll_count: u32,
-    special_cards_sold: u32,
+    pub game_id: u64,
+    pub traditional_cards_count: u32,
+    pub modifier_cards_count: u32,
+    pub special_cards_count: u32,
+    pub loot_boxes_count: u32,
+    pub power_up_count: u32,
+    pub level_poker_hands_count: u32,
+    pub burn_count: u32,
+    pub reroll_count: u32,
+    pub special_cards_sold: u32,
 }
 
 impl PurchaseTrackerDefault of Default<PurchaseTracker> {
@@ -120,20 +120,20 @@ impl PurchaseTrackerDefault of Default<PurchaseTracker> {
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct PokerHandTracker {
+pub struct PokerHandTracker {
     #[key]
-    game_id: u64,
-    royal_flush: u32,
-    straight_flush: u32,
-    five_of_a_kind: u32,
-    four_of_a_kind: u32,
-    full_house: u32,
-    straight: u32,
-    flush: u32,
-    three_of_a_kind: u32,
-    two_pair: u32,
-    one_pair: u32,
-    high_card: u32,
+    pub game_id: u64,
+    pub royal_flush: u32,
+    pub straight_flush: u32,
+    pub five_of_a_kind: u32,
+    pub four_of_a_kind: u32,
+    pub full_house: u32,
+    pub straight: u32,
+    pub flush: u32,
+    pub three_of_a_kind: u32,
+    pub two_pair: u32,
+    pub one_pair: u32,
+    pub high_card: u32,
 }
 
 impl PokerHandTrackerDefault of Default<PokerHandTracker> {

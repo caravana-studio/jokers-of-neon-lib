@@ -7,27 +7,27 @@
 // Node type: Reward -> Subtype: Any reward type (for the future)
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
-struct Node {
+pub struct Node {
     #[key]
-    game_id: u64,
+    pub game_id: u64,
     #[key]
-    id: u32,
-    node_type: NodeType,
-    data: felt252,
+    pub id: u32,
+    pub node_type: NodeType,
+    pub data: felt252,
 }
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
-struct NodeChilds {
+pub struct NodeChilds {
     #[key]
-    game_id: u64,
+    pub game_id: u64,
     #[key]
-    node_id: u32,
-    childs: Span<u32>,
+    pub node_id: u32,
+    pub childs: Span<u32>,
 }
 
 #[derive(Copy, Drop, Serde, PartialEq, IntrospectPacked, DojoStore, Default)]
-enum NodeType {
+pub enum NodeType {
     #[default]
     None,
     Round,
@@ -80,35 +80,35 @@ pub impl NodeTypeDisplay of core::fmt::Display<NodeType> {
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
-struct LevelMap {
+pub struct LevelMap {
     #[key]
-    game_id: u64,
+    pub game_id: u64,
     #[key]
-    level: u32,
-    stages: Span<NodeType>,
-    level_nodes: Span<Span<u32>>,
-    latest_level_node_id: u32,
+    pub level: u32,
+    pub stages: Span<NodeType>,
+    pub level_nodes: Span<Span<u32>>,
+    pub latest_level_node_id: u32,
 }
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
-struct StageTracker {
+pub struct StageTracker {
     #[key]
-    game_id: u64,
-    store_stages: u32,
-    round_stages: u32,
-    rage_stages: u32,
-    total_nodes: u32,
+    pub game_id: u64,
+    pub store_stages: u32,
+    pub round_stages: u32,
+    pub rage_stages: u32,
+    pub total_nodes: u32,
 }
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
-struct TraveledNodes {
+pub struct TraveledNodes {
     #[key]
-    game_id: u64,
+    pub game_id: u64,
     #[key]
-    level: u32,
-    nodes: Span<u32>,
+    pub level: u32,
+    pub nodes: Span<u32>,
 }
 
 #[derive(Copy, Drop, Serde)]

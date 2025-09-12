@@ -2,21 +2,21 @@ use jokers_of_neon_lib::models::data::poker_hand::PokerHand;
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct CardItem {
+pub struct CardItem {
     #[key]
-    game_id: u64,
+    pub game_id: u64,
     #[key]
-    idx: u32,
+    pub idx: u32,
     #[key]
-    item_type: CardItemType,
-    card_id: u32,
-    cost: u32,
-    discount_cost: u32,
-    purchased: bool,
+    pub item_type: CardItemType,
+    pub card_id: u32,
+    pub cost: u32,
+    pub discount_cost: u32,
+    pub purchased: bool,
 }
 
 #[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, DojoStore, Default)]
-enum CardItemType {
+pub enum CardItemType {
     #[default]
     None,
     Common,
@@ -45,91 +45,91 @@ impl CardItemTypeIntofelt252 of Into<CardItemType, felt252> {
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct SpecialCardItem {
+pub struct SpecialCardItem {
     #[key]
-    game_id: u64,
+    pub game_id: u64,
     #[key]
-    idx: u32,
-    card_id: u32,
-    cost: u32,
-    discount_cost: u32,
-    temporary_cost: u32,
-    temporary_discount_cost: u32,
-    purchased: bool,
+    pub idx: u32,
+    pub card_id: u32,
+    pub cost: u32,
+    pub discount_cost: u32,
+    pub temporary_cost: u32,
+    pub temporary_discount_cost: u32,
+    pub purchased: bool,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct PokerHandItem {
+pub struct PokerHandItem {
     #[key]
-    game_id: u64,
+    pub game_id: u64,
     #[key]
-    idx: u32,
-    poker_hand: PokerHand,
-    level: u8,
-    multi: u32,
-    points: u32,
-    cost: u32,
-    discount_cost: u32,
-    purchased: bool,
+    pub idx: u32,
+    pub poker_hand: PokerHand,
+    pub level: u8,
+    pub multi: u32,
+    pub points: u32,
+    pub cost: u32,
+    pub discount_cost: u32,
+    pub purchased: bool,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct BlisterPackItem {
+pub struct BlisterPackItem {
     #[key]
-    game_id: u64,
+    pub game_id: u64,
     #[key]
-    idx: u32,
-    blister_pack_id: u32,
-    cost: u32,
-    discount_cost: u32,
-    purchased: bool,
+    pub idx: u32,
+    pub blister_pack_id: u32,
+    pub cost: u32,
+    pub discount_cost: u32,
+    pub purchased: bool,
 }
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
-struct BlisterPackResult {
+pub struct BlisterPackResult {
     #[key]
-    game_id: u64,
-    cards_picked: bool,
-    cards: Span<u32>,
+    pub game_id: u64,
+    pub cards_picked: bool,
+    pub cards: Span<u32>,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct SlotSpecialCardsItem {
+pub struct SlotSpecialCardsItem {
     #[key]
-    game_id: u64,
-    cost: u32,
-    discount_cost: u32,
+    pub game_id: u64,
+    pub cost: u32,
+    pub discount_cost: u32,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct BurnItem {
+pub struct BurnItem {
     #[key]
-    game_id: u64,
-    cost: u32,
-    discount_cost: u32,
-    purchased: bool,
+    pub game_id: u64,
+    pub cost: u32,
+    pub discount_cost: u32,
+    pub purchased: bool,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct PowerUpItem {
+pub struct PowerUpItem {
     #[key]
-    game_id: u64,
+    pub game_id: u64,
     #[key]
-    idx: u32,
-    power_up_id: u32,
-    cost: u32,
-    discount_cost: u32,
-    purchased: bool,
+    pub idx: u32,
+    pub power_up_id: u32,
+    pub cost: u32,
+    pub discount_cost: u32,
+    pub purchased: bool,
 }
 
 #[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, Default)]
-enum DiscountSection {
+pub enum DiscountSection {
     Traditionals,
     Modifiers,
     Specials,
@@ -143,7 +143,7 @@ enum DiscountSection {
 }
 
 #[derive(Copy, Drop, Serde)]
-struct ShopConfig {
+pub struct ShopConfig {
     #[key]
     pub id: u32,
     pub traditional_cards_quantity: u32,
