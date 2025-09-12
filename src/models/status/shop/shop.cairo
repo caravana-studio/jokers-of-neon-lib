@@ -15,8 +15,9 @@ struct CardItem {
     purchased: bool,
 }
 
-#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
+#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, DojoStore, Default)]
 enum CardItemType {
+    #[default]
     None,
     Common,
     Modifier,
@@ -127,7 +128,7 @@ struct PowerUpItem {
     purchased: bool,
 }
 
-#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
+#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, Default)]
 enum DiscountSection {
     Traditionals,
     Modifiers,
@@ -137,6 +138,7 @@ enum DiscountSection {
     Burns,
     SpecialSlots,
     PowerUps,
+    #[default]
     None,
 }
 

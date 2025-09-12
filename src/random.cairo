@@ -1,6 +1,5 @@
-use core::{integer::{U256DivRem, u256_try_as_non_zero}};
+use core::integer::{U256DivRem, u256_try_as_non_zero};
 use jokers_of_neon_lib::interfaces::cartridge::vrf::{IVrfProviderDispatcher, IVrfProviderDispatcherTrait, Source};
-
 use starknet::{ContractAddress, contract_address_const, get_block_timestamp, get_caller_address, get_tx_info};
 
 const KATANA_CHAIN_ID: felt252 = 0x4b4154414e41;
@@ -63,7 +62,7 @@ impl RandomImpl of RandomTrait {
     fn between(ref self: Random, min: i32, max: i32) -> i32 {
         if min >= max {
             panic!("Random: min must be less than max");
-        };
+        }
 
         if min == max {
             return min;

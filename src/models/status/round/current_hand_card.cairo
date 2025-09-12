@@ -1,4 +1,4 @@
-#[derive(Copy, Drop, Serde)]
+#[derive(Copy, Drop, Serde, DojoStore)]
 #[dojo::model]
 pub struct CurrentHand {
     #[key]

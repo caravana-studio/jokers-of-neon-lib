@@ -1,7 +1,9 @@
 use starknet::ContractAddress;
 
-#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
+#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, DojoStore, Default)]
 pub enum GameState {
+    #[default]
+    None,
     Round,
     Rage,
     Reward,
@@ -15,6 +17,7 @@ pub enum GameState {
 impl GameStateIntoByteArray of Into<GameState, ByteArray> {
     fn into(self: GameState) -> ByteArray {
         match self {
+            GameState::None => { "None" },
             GameState::Round => { "Round" },
             GameState::Rage => { "Rage" },
             GameState::Reward => { "Reward" },

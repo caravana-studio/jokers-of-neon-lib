@@ -26,8 +26,9 @@ struct NodeChilds {
     childs: Span<u32>,
 }
 
-#[derive(Copy, Drop, Serde, PartialEq, IntrospectPacked)]
+#[derive(Copy, Drop, Serde, PartialEq, IntrospectPacked, DojoStore, Default)]
 enum NodeType {
+    #[default]
     None,
     Round,
     Rage,

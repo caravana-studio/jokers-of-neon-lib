@@ -1,4 +1,4 @@
-#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
+#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, Default)]
 enum CardType {
     PreCalculateHand,
     PostCalculateHand,
@@ -19,6 +19,7 @@ enum CardType {
     Debuff,
     Silence,
     Info,
+    #[default]
     None,
 }
 

@@ -31,8 +31,9 @@ impl CardImpl of CardTrait {
     }
 }
 
-#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
+#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, Default)]
 enum Suit {
+    #[default]
     None,
     Clubs,
     Diamonds,
@@ -100,8 +101,9 @@ impl SuitIntoFelt252 of Into<Suit, felt252> {
     }
 }
 
-#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
+#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, Default)]
 enum Value {
+    #[default]
     None,
     Two,
     Three,
@@ -130,19 +132,8 @@ impl ValueEnumerableImpl of Enumerable<Value> {
     #[inline(always)]
     fn all() -> Span<Value> {
         let mut items = array![
-            Value::Two,
-            Value::Three,
-            Value::Four,
-            Value::Five,
-            Value::Six,
-            Value::Seven,
-            Value::Eight,
-            Value::Nine,
-            Value::Ten,
-            Value::Jack,
-            Value::Queen,
-            Value::King,
-            Value::Ace,
+            Value::Two, Value::Three, Value::Four, Value::Five, Value::Six, Value::Seven, Value::Eight, Value::Nine,
+            Value::Ten, Value::Jack, Value::Queen, Value::King, Value::Ace,
         ];
         items.span()
     }

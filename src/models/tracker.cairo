@@ -1,7 +1,8 @@
-use jokers_of_neon_lib::models::{
-    card_type::CardType, data::{card::Card, poker_hand::PokerHand},
-    status::{game::game::{CurrentSpecialCards, Game, GameState}, round::round::Round},
-};
+use jokers_of_neon_lib::models::card_type::CardType;
+use jokers_of_neon_lib::models::data::card::Card;
+use jokers_of_neon_lib::models::data::poker_hand::PokerHand;
+use jokers_of_neon_lib::models::status::game::game::{CurrentSpecialCards, Game, GameState};
+use jokers_of_neon_lib::models::status::round::round::Round;
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]

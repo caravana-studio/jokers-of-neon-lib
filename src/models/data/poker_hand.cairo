@@ -15,8 +15,9 @@ trait Enumerable<T> {
     fn all() -> Span<T>;
 }
 
-#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
+#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, DojoStore, Default)]
 enum PokerHand {
+    #[default]
     None,
     RoyalFlush,
     StraightFlush,
@@ -35,17 +36,9 @@ impl PokerHandImpl of Enumerable<PokerHand> {
     #[inline(always)]
     fn all() -> Span<PokerHand> {
         let mut items = array![
-            PokerHand::RoyalFlush,
-            PokerHand::StraightFlush,
-            PokerHand::FiveOfAKind,
-            PokerHand::FourOfAKind,
-            PokerHand::FullHouse,
-            PokerHand::Straight,
-            PokerHand::Flush,
-            PokerHand::ThreeOfAKind,
-            PokerHand::TwoPair,
-            PokerHand::OnePair,
-            PokerHand::HighCard,
+            PokerHand::RoyalFlush, PokerHand::StraightFlush, PokerHand::FiveOfAKind, PokerHand::FourOfAKind,
+            PokerHand::FullHouse, PokerHand::Straight, PokerHand::Flush, PokerHand::ThreeOfAKind, PokerHand::TwoPair,
+            PokerHand::OnePair, PokerHand::HighCard,
         ];
         items.span()
     }
