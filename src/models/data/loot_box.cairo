@@ -1,5 +1,5 @@
 #[derive(Copy, Drop, Serde)]
-struct LootBox {
+pub struct LootBox {
     #[key]
     id: u32,
     cost: u32,

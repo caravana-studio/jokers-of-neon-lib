@@ -1,5 +1,3 @@
-use jokers_of_neon_lib::models::data::poker_hand::{LevelPokerHand, PokerHand};
-
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 pub struct EffectCard {
     pub id: u32,

@@ -1,5 +1,5 @@
 #[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, Default)]
-enum CardType {
+pub enum CardType {
     PreCalculateHand,
     PostCalculateHand,
     Hit,

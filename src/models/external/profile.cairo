@@ -50,7 +50,7 @@ pub struct PlayerStats {
 impl PlayerStatsDefault of Default<PlayerStats> {
     fn default() -> PlayerStats {
         PlayerStats {
-            address: Zeroable::zero(),
+            address: 0.try_into().unwrap(),
             games_played: 0,
             games_won: 0,
             high_card_played: 0,

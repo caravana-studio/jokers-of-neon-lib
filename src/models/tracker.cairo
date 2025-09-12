@@ -156,7 +156,7 @@ impl PokerHandTrackerDefault of Default<PokerHandTracker> {
 }
 
 #[derive(Copy, Drop, Serde)]
-struct GameContext {
+pub struct GameContext {
     game: Game,
     round: Round,
     hand: (PokerHand, u32), // (Hand, Level)
@@ -178,7 +178,7 @@ impl GameContextDefault of Default<GameContext> {
                 id: 0,
                 mod_id: 0,
                 state: GameState::Round,
-                owner: Zeroable::zero(),
+                owner: 0.try_into().unwrap(),
                 player_name: 0,
                 player_score: 0,
                 level: 0,

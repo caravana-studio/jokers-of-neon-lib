@@ -57,7 +57,7 @@ pub struct LevelPokerHand {
 impl PokerHandIntoFelt252 of Into<PokerHand, felt252> {
     fn into(self: PokerHand) -> felt252 {
         match self {
-            PokerHand::None => Zeroable::zero(),
+            PokerHand::None => 0,
             PokerHand::RoyalFlush => POKER_HAND_ROYAL_FLUSH.into(),
             PokerHand::StraightFlush => POKER_HAND_STRAIGHT_FLUSH.into(),
             PokerHand::FiveOfAKind => POKER_HAND_FIVE_OF_A_KIND.into(),
@@ -76,7 +76,7 @@ impl PokerHandIntoFelt252 of Into<PokerHand, felt252> {
 impl PokerHandIntou8 of Into<PokerHand, u8> {
     fn into(self: PokerHand) -> u8 {
         match self {
-            PokerHand::None => Zeroable::zero(),
+            PokerHand::None => 0,
             PokerHand::RoyalFlush => POKER_HAND_ROYAL_FLUSH.try_into().unwrap(),
             PokerHand::StraightFlush => POKER_HAND_STRAIGHT_FLUSH.try_into().unwrap(),
             PokerHand::FiveOfAKind => POKER_HAND_FIVE_OF_A_KIND.try_into().unwrap(),
@@ -95,7 +95,7 @@ impl PokerHandIntou8 of Into<PokerHand, u8> {
 impl PokerHandIntou32 of Into<PokerHand, u32> {
     fn into(self: PokerHand) -> u32 {
         match self {
-            PokerHand::None => Zeroable::zero(),
+            PokerHand::None => 0,
             PokerHand::RoyalFlush => POKER_HAND_ROYAL_FLUSH,
             PokerHand::StraightFlush => POKER_HAND_STRAIGHT_FLUSH,
             PokerHand::FiveOfAKind => POKER_HAND_FIVE_OF_A_KIND,
@@ -114,7 +114,7 @@ impl PokerHandIntou32 of Into<PokerHand, u32> {
 impl PokerHandTryIntoU32 of TryInto<u32, PokerHand> {
     #[inline(always)]
     fn try_into(self: u32) -> Option<PokerHand> {
-        if self == Zeroable::zero() {
+        if self == 0 {
             Option::Some(PokerHand::None)
         } else if self == POKER_HAND_ROYAL_FLUSH {
             Option::Some(PokerHand::RoyalFlush)

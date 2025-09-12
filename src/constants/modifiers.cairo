@@ -24,15 +24,15 @@ fn SUIT_SPADES_MODIFIER() -> EffectCard {
 }
 
 fn NEON_MODIFIER() -> EffectCard {
-    EffectCard { id: NEON_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: Zeroable::zero() }
+    EffectCard { id: NEON_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: 0 }
 }
 
 fn WILD_CARD_MODIFIER() -> EffectCard {
-    EffectCard { id: WILD_CARD_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: Zeroable::zero() }
+    EffectCard { id: WILD_CARD_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: 0 }
 }
 
 fn INVALID_EFFECT_CARD() -> EffectCard {
-    EffectCard { id: Zeroable::zero(), type_effect_card: TypeEffectCard::Modifier, effect_id: Zeroable::zero() }
+    EffectCard { id: 0, type_effect_card: TypeEffectCard::Modifier, effect_id: 0 }
 }
 
 fn modifiers_ids_all() -> Array<u32> {

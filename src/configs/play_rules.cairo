@@ -1,5 +1,3 @@
-use starknet::ContractAddress;
-
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 pub struct PlayRulesConfig {
     pub card_play_quantity: u8,

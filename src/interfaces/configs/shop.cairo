@@ -1,4 +1,3 @@
-use jokers_of_neon_lib::configs::game::ShopPricesConfig;
 use jokers_of_neon_lib::models::status::shop::shop::ShopConfig;
 
 #[starknet::interface]
