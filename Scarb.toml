@@ -16,9 +16,6 @@ dojo = { git = "https://github.com/dojoengine/dojo", tag = "v1.7.0-alpha.3" }
 dojo_macros = { git = "https://github.com/dojoengine/dojo", tag = "v1.7.0-alpha.3" }
 starknet = "2.12.1"
 
-[[target.starknet-contract]]
-build-external-contracts = ["dojo::world::world_contract::world"]
-
 [lib]
 
 [dev-dependencies]
