@@ -32,6 +32,9 @@ jobs:
     if: github.event.pull_request.draft == false
     steps:
       - uses: actions/checkout@v4
+      - uses: software-mansion/setup-scarb@v1
+        with:
+          scarb-version: ${{ env.SCARB_VERSION }}
       - uses: asdf-vm/actions/setup@v4
       - run: |
           asdf plugin add sozo https://github.com/dojoengine/asdf-sozo.git
