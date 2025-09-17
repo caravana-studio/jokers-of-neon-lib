@@ -2,6 +2,7 @@ use core::{integer::{U256DivRem, u256_try_as_non_zero}};
 use jokers_of_neon_lib::interfaces::cartridge::vrf::{IVrfProviderDispatcher, IVrfProviderDispatcherTrait, Source};
 
 use starknet::{ContractAddress, contract_address_const, get_block_timestamp, get_caller_address, get_tx_info};
+use core::num::traits::{WrappingAdd, WrappingMul};
 
 const KATANA_CHAIN_ID: felt252 = 0x4b4154414e41;
 const SEPOLIA_CHAIN_ID: felt252 = 0x534e5f5345504f4c4941;
@@ -116,7 +117,6 @@ fn get_entropy(felt_to_split: felt252) -> u128 {
 fn LCG(seed: u128) -> u128 {
     let a = 25214903917;
     let c = 11;
-    let m = LCG_PRIME;
-
-    (a * seed + c) % m
+    let a_mul_seed = a.wrapping_mul(seed);
+    (a_mul_seed.wrapping_add(c)) % LCG_PRIME
 }
