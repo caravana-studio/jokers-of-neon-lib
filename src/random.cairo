@@ -1,8 +1,8 @@
+use core::num::traits::{WrappingAdd, WrappingMul};
 use core::{integer::{U256DivRem, u256_try_as_non_zero}};
 use jokers_of_neon_lib::interfaces::cartridge::vrf::{IVrfProviderDispatcher, IVrfProviderDispatcherTrait, Source};
 
 use starknet::{ContractAddress, contract_address_const, get_block_timestamp, get_caller_address, get_tx_info};
-use core::num::traits::{WrappingAdd, WrappingMul};
 
 const KATANA_CHAIN_ID: felt252 = 0x4b4154414e41;
 const SEPOLIA_CHAIN_ID: felt252 = 0x534e5f5345504f4c4941;
