@@ -15,10 +15,10 @@ fn get_vrf_address() -> ContractAddress {
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
-pub struct Nonce {
+pub struct Salt {
     #[key]
     pub key: felt252,
-    pub value: u32,
+    pub value: u128,
 }
 
 #[derive(Copy, Drop, Serde)]
