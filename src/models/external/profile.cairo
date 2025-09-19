@@ -6,6 +6,7 @@ pub struct Profile {
     #[key]
     pub address: ContractAddress,
     pub username: ByteArray,
+    pub total_xp: u256,
     pub xp: u256,
     pub level: u32,
     pub available_games: u8,
