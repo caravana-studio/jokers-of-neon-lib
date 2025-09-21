@@ -1,3 +1,4 @@
+use core::num::traits::{WrappingAdd, WrappingMul};
 use core::{integer::{U256DivRem, u256_try_as_non_zero}};
 use jokers_of_neon_lib::interfaces::cartridge::vrf::{IVrfProviderDispatcher, IVrfProviderDispatcherTrait, Source};
 
@@ -15,10 +16,10 @@ fn get_vrf_address() -> ContractAddress {
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
-pub struct Nonce {
+pub struct Salt {
     #[key]
     pub key: felt252,
-    pub value: u32,
+    pub value: u128,
 }
 
 #[derive(Copy, Drop, Serde)]
@@ -116,7 +117,6 @@ fn get_entropy(felt_to_split: felt252) -> u128 {
 fn LCG(seed: u128) -> u128 {
     let a = 25214903917;
     let c = 11;
-    let m = LCG_PRIME;
-
-    (a * seed + c) % m
+    let a_mul_seed = a.wrapping_mul(seed);
+    (a_mul_seed.wrapping_add(c)) % LCG_PRIME
 }
