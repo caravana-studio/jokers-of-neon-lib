@@ -77,3 +77,11 @@ impl PlayerStatsDefault of Default<PlayerStats> {
         }
     }
 }
+
+#[derive(Drop, Serde, Debug)]
+#[dojo::model]
+pub struct ProfileLevelConfig {
+    #[key]
+    pub level: u32,
+    pub required_xp: u256,
+}
