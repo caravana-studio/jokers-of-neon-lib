@@ -190,6 +190,7 @@ impl GameContextDefault of Default<GameContext> {
                 cash: 0,
                 available_rerolls: 0,
                 current_node_id: 0,
+                round: 0,
                 seed: 0,
             },
             round: Round {

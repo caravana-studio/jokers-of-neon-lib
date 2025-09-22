@@ -6,6 +6,7 @@ pub struct Profile {
     #[key]
     pub address: ContractAddress,
     pub username: ByteArray,
+    pub total_xp: u256,
     pub xp: u256,
     pub level: u32,
     pub available_games: u8,
@@ -13,6 +14,7 @@ pub struct Profile {
     pub daily_streak: u16,
     pub banned: bool,
     pub badges_ids: Span<u32>,
+    pub avatar_id: u16,
 }
 
 #[derive(Copy, Drop, Serde, Debug)]
@@ -75,4 +77,12 @@ impl PlayerStatsDefault of Default<PlayerStats> {
             burn_purchased: 0,
         }
     }
+}
+
+#[derive(Drop, Serde, Debug)]
+#[dojo::model]
+pub struct ProfileLevelConfig {
+    #[key]
+    pub level: u32,
+    pub required_xp: u256,
 }
