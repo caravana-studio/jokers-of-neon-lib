@@ -39,6 +39,7 @@ pub struct Game {
     pub player_score: u32,
     pub level: u32,
     pub current_node_id: u32,
+    pub round: u32,
     pub hand_len: u32,
     pub plays: u32,
     pub discards: u32,
