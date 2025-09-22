@@ -1,5 +1,4 @@
 use core::num::traits::{WrappingAdd, WrappingMul};
-use core::{integer::{U256DivRem, u256_try_as_non_zero}};
 use jokers_of_neon_lib::interfaces::cartridge::vrf::{IVrfProviderDispatcher, IVrfProviderDispatcherTrait, Source};
 use starknet::{ContractAddress, get_block_timestamp, get_caller_address, get_tx_info};
 
@@ -109,7 +108,9 @@ fn get_random_hash() -> felt252 {
 }
 
 fn get_entropy(felt_to_split: felt252) -> u128 {
-    let (_d, r) = U256DivRem::div_rem(felt_to_split.into(), u256_try_as_non_zero(U128_MAX.into()).unwrap());
+    let felt_to_split_u256: u256 = felt_to_split.into();
+    let U128_MAX_u256: u256 = U128_MAX.into();
+    let r = felt_to_split_u256 % U128_MAX_u256;
     r.try_into().unwrap() % LCG_PRIME
 }
 

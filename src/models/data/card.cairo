@@ -187,7 +187,6 @@ impl CardIntoFelt252 of Into<Card, felt252> {
 const TWO_POW_8: u256 = 0x100; // 2^8
 impl Felt252IntoCard of Into<felt252, Card> {
     fn into(self: felt252) -> Card {
-        let packed = self.into();
         let (packed, id) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
         let (packed, suit) = integer::U256DivRem::div_rem(packed, TWO_POW_8.try_into().expect('0 bits'));
         let (packed, value) = integer::U256DivRem::div_rem(packed, TWO_POW_8.try_into().expect('0 bits'));
