@@ -29,7 +29,7 @@ pub struct Random {
 }
 
 #[generate_trait]
-impl RandomImpl of RandomTrait {
+pub impl RandomImpl of RandomTrait {
     fn create_random_instance(key: felt252) -> Random {
         let random_hash = get_random_hash();
         let seed = get_entropy(random_hash);
