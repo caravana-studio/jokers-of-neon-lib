@@ -2,7 +2,7 @@ use jokers_of_neon_lib::models::data::card::Card;
 use jokers_of_neon_lib::models::tracker::GameContext;
 
 #[starknet::interface]
-trait ICardConverter<T> {
+pub trait ICardConverter<T> {
     /// Applies a transformation to a set of cards.
     ///
     /// # Parameters

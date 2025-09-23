@@ -1,4 +1,4 @@
-fn two_pow(n: u256) -> u256 {
+pub fn two_pow(n: u256) -> u256 {
     if n >= 128 {
         two_pow_in_range_128_255(n)
     } else {
@@ -6,7 +6,7 @@ fn two_pow(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_0_127(n: u256) -> u256 {
+pub fn two_pow_in_range_0_127(n: u256) -> u256 {
     if n >= 64 {
         two_pow_in_range_64_127(n)
     } else {
@@ -14,7 +14,7 @@ fn two_pow_in_range_0_127(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_128_255(n: u256) -> u256 {
+pub fn two_pow_in_range_128_255(n: u256) -> u256 {
     if n >= 192 {
         two_pow_in_range_192_255(n)
     } else {
@@ -22,7 +22,7 @@ fn two_pow_in_range_128_255(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_0_63(n: u256) -> u256 {
+pub fn two_pow_in_range_0_63(n: u256) -> u256 {
     if n >= 32 {
         two_pow_in_range_32_63(n)
     } else {
@@ -30,7 +30,7 @@ fn two_pow_in_range_0_63(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_64_127(n: u256) -> u256 {
+pub fn two_pow_in_range_64_127(n: u256) -> u256 {
     if n >= 96 {
         two_pow_in_range_96_127(n)
     } else {
@@ -38,7 +38,7 @@ fn two_pow_in_range_64_127(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_128_191(n: u256) -> u256 {
+pub fn two_pow_in_range_128_191(n: u256) -> u256 {
     if n >= 160 {
         two_pow_in_range_160_191(n)
     } else {
@@ -46,7 +46,7 @@ fn two_pow_in_range_128_191(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_192_255(n: u256) -> u256 {
+pub fn two_pow_in_range_192_255(n: u256) -> u256 {
     if n >= 224 {
         two_pow_in_range_224_255(n)
     } else {
@@ -54,7 +54,7 @@ fn two_pow_in_range_192_255(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_0_31(n: u256) -> u256 {
+pub fn two_pow_in_range_0_31(n: u256) -> u256 {
     if n >= 16 {
         two_pow_in_range_16_31(n)
     } else {
@@ -62,7 +62,7 @@ fn two_pow_in_range_0_31(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_32_63(n: u256) -> u256 {
+pub fn two_pow_in_range_32_63(n: u256) -> u256 {
     if n >= 48 {
         two_pow_in_range_48_63(n)
     } else {
@@ -70,7 +70,7 @@ fn two_pow_in_range_32_63(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_64_95(n: u256) -> u256 {
+pub fn two_pow_in_range_64_95(n: u256) -> u256 {
     if n >= 80 {
         two_pow_in_range_80_95(n)
     } else {
@@ -78,7 +78,7 @@ fn two_pow_in_range_64_95(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_96_127(n: u256) -> u256 {
+pub fn two_pow_in_range_96_127(n: u256) -> u256 {
     if n >= 112 {
         two_pow_in_range_112_127(n)
     } else {
@@ -86,7 +86,7 @@ fn two_pow_in_range_96_127(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_128_159(n: u256) -> u256 {
+pub fn two_pow_in_range_128_159(n: u256) -> u256 {
     if n >= 144 {
         two_pow_in_range_144_159(n)
     } else {
@@ -94,7 +94,7 @@ fn two_pow_in_range_128_159(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_160_191(n: u256) -> u256 {
+pub fn two_pow_in_range_160_191(n: u256) -> u256 {
     if n >= 176 {
         two_pow_in_range_176_191(n)
     } else {
@@ -102,7 +102,7 @@ fn two_pow_in_range_160_191(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_192_223(n: u256) -> u256 {
+pub fn two_pow_in_range_192_223(n: u256) -> u256 {
     if n >= 208 {
         two_pow_in_range_208_223(n)
     } else {
@@ -110,7 +110,7 @@ fn two_pow_in_range_192_223(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_224_255(n: u256) -> u256 {
+pub fn two_pow_in_range_224_255(n: u256) -> u256 {
     if n >= 240 {
         two_pow_in_range_240_255(n)
     } else {
@@ -118,7 +118,7 @@ fn two_pow_in_range_224_255(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_0_15(n: u256) -> u256 {
+pub fn two_pow_in_range_0_15(n: u256) -> u256 {
     if n == 0 {
         1
     } else if n == 1 {
@@ -154,7 +154,7 @@ fn two_pow_in_range_0_15(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_16_31(n: u256) -> u256 {
+pub fn two_pow_in_range_16_31(n: u256) -> u256 {
     if n == 16 {
         TWO_POW_16
     } else if n == 17 {
@@ -190,7 +190,7 @@ fn two_pow_in_range_16_31(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_32_47(n: u256) -> u256 {
+pub fn two_pow_in_range_32_47(n: u256) -> u256 {
     if n == 32 {
         TWO_POW_32
     } else if n == 33 {
@@ -226,7 +226,7 @@ fn two_pow_in_range_32_47(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_48_63(n: u256) -> u256 {
+pub fn two_pow_in_range_48_63(n: u256) -> u256 {
     if n == 48 {
         TWO_POW_48
     } else if n == 49 {
@@ -262,7 +262,7 @@ fn two_pow_in_range_48_63(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_64_79(n: u256) -> u256 {
+pub fn two_pow_in_range_64_79(n: u256) -> u256 {
     if n == 64 {
         TWO_POW_64
     } else if n == 65 {
@@ -298,7 +298,7 @@ fn two_pow_in_range_64_79(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_80_95(n: u256) -> u256 {
+pub fn two_pow_in_range_80_95(n: u256) -> u256 {
     if n == 80 {
         TWO_POW_80
     } else if n == 81 {
@@ -334,7 +334,7 @@ fn two_pow_in_range_80_95(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_96_111(n: u256) -> u256 {
+pub fn two_pow_in_range_96_111(n: u256) -> u256 {
     if n == 96 {
         TWO_POW_96
     } else if n == 97 {
@@ -370,7 +370,7 @@ fn two_pow_in_range_96_111(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_112_127(n: u256) -> u256 {
+pub fn two_pow_in_range_112_127(n: u256) -> u256 {
     if n == 112 {
         TWO_POW_112
     } else if n == 113 {
@@ -406,7 +406,7 @@ fn two_pow_in_range_112_127(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_128_143(n: u256) -> u256 {
+pub fn two_pow_in_range_128_143(n: u256) -> u256 {
     if n == 128 {
         TWO_POW_128
     } else if n == 129 {
@@ -442,7 +442,7 @@ fn two_pow_in_range_128_143(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_144_159(n: u256) -> u256 {
+pub fn two_pow_in_range_144_159(n: u256) -> u256 {
     if n == 144 {
         TWO_POW_144
     } else if n == 145 {
@@ -480,7 +480,7 @@ fn two_pow_in_range_144_159(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_160_175(n: u256) -> u256 {
+pub fn two_pow_in_range_160_175(n: u256) -> u256 {
     if n == 160 {
         TWO_POW_160
     } else if n == 161 {
@@ -516,7 +516,7 @@ fn two_pow_in_range_160_175(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_176_191(n: u256) -> u256 {
+pub fn two_pow_in_range_176_191(n: u256) -> u256 {
     if n == 176 {
         TWO_POW_176
     } else if n == 177 {
@@ -552,7 +552,7 @@ fn two_pow_in_range_176_191(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_192_207(n: u256) -> u256 {
+pub fn two_pow_in_range_192_207(n: u256) -> u256 {
     if n == 192 {
         TWO_POW_192
     } else if n == 193 {
@@ -588,7 +588,7 @@ fn two_pow_in_range_192_207(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_208_223(n: u256) -> u256 {
+pub fn two_pow_in_range_208_223(n: u256) -> u256 {
     if n == 208 {
         TWO_POW_208
     } else if n == 209 {
@@ -624,7 +624,7 @@ fn two_pow_in_range_208_223(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_224_239(n: u256) -> u256 {
+pub fn two_pow_in_range_224_239(n: u256) -> u256 {
     if n == 224 {
         TWO_POW_224
     } else if n == 225 {
@@ -660,7 +660,7 @@ fn two_pow_in_range_224_239(n: u256) -> u256 {
     }
 }
 
-fn two_pow_in_range_240_255(n: u256) -> u256 {
+pub fn two_pow_in_range_240_255(n: u256) -> u256 {
     if n == 240 {
         TWO_POW_240
     } else if n == 241 {
@@ -963,7 +963,7 @@ mod tests {
     };
 
     #[test]
-    fn test_pow() {
+    pub fn test_pow() {
         assert(two_pow(0) == 1, 'wrong 2 ** 0');
         assert(two_pow(1) == 2, 'wrong 2 ** 1');
         assert(two_pow(2) == 4, 'wrong 2 ** 2');

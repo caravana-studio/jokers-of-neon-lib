@@ -1,7 +1,7 @@
 use jokers_of_neon_lib::models::tracker::GameContext;
 
 #[starknet::interface]
-trait ICardEquipable<T> {
+pub trait ICardEquipable<T> {
     /// Equips a card, modifying the game context.
     ///
     /// # Parameters
