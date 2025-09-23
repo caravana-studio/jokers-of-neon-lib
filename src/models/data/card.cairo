@@ -184,27 +184,36 @@ impl CardIntoFelt252 of Into<Card, felt252> {
     }
 }
 
-// const TWO_POW_8: u256 = 0x100; // 2^8
-// impl Felt252IntoCard of Into<felt252, Card> {
-//     fn into(self: felt252) -> Card {
-//         let (packed, id) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
-//         let (packed, suit) = integer::U256DivRem::div_rem(packed, TWO_POW_8.try_into().expect('0 bits'));
-//         let (packed, value) = integer::U256DivRem::div_rem(packed, TWO_POW_8.try_into().expect('0 bits'));
-//         let (packed, points) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
-//         let (_, multi) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
+const TWO_POW_8: u256 = 0x100; // 2^8
+impl Felt252IntoCard of Into<felt252, Card> {
+    fn into(self: felt252) -> Card {
+        let packed = self.into();
+        let packed = packed / TWO_POW_32;
+        let id = packed % TWO_POW_32;
 
-//         let suit_u8: u8 = suit.try_into().unwrap();
-//         let value_u8: u8 = value.try_into().unwrap();
+        let packed = packed / TWO_POW_8;
+        let suit = packed % TWO_POW_8;
 
-//         Card {
-//             id: id.try_into().unwrap(),
-//             suit: suit_u8.into(),
-//             value: value_u8.into(),
-//             points: points.try_into().unwrap(),
-//             multi: multi.try_into().unwrap(),
-//         }
-//     }
-// }
+        let packed = packed / TWO_POW_8;
+        let value = packed % TWO_POW_8;
+
+        let packed = packed / TWO_POW_32;
+        let points = packed % TWO_POW_32;
+
+        let multi = packed % TWO_POW_32;
+
+        let suit_u8: u8 = suit.try_into().unwrap();
+        let value_u8: u8 = value.try_into().unwrap();
+
+        Card {
+            id: id.try_into().unwrap(),
+            suit: suit_u8.into(),
+            value: value_u8.into(),
+            points: points.try_into().unwrap(),
+            multi: multi.try_into().unwrap(),
+        }
+    }
+}
 
 impl ValueIntou8 of Into<Value, u8> {
     fn into(self: Value) -> u8 {
