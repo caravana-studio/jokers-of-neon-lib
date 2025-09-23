@@ -7,7 +7,7 @@ pub struct Card {
     pub multi: u32,
 }
 
-trait CardTrait {
+pub trait CardTrait {
     fn new(value: Value, suit: Suit, points: u32) -> Card;
     fn generate_id(value: Value, suit: Suit) -> u32;
     fn generate_neon_id(card_id: u32) -> u32;
