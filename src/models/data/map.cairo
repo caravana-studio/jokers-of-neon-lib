@@ -39,9 +39,9 @@ pub enum NodeType {
 // [ Node data]
 
 #[derive(Copy, Drop, Serde, PartialEq, IntrospectPacked)]
-struct RageNodeData {
-    power: u32,
-    round: u32,
+pub struct RageNodeData {
+    pub power: u32,
+    pub round: u32,
 }
 
 const TWO_POW_32: u256 = 0x100000000;
