@@ -329,7 +329,7 @@ pub struct BuySpecialCardsSoldEvent {
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::event]
-struct BuyBlisterPackResultEvent {
+pub struct BuyBlisterPackResultEvent {
     #[key]
     pub game_id: u64,
     #[key]

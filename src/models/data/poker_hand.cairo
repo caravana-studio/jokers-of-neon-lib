@@ -32,7 +32,7 @@ pub enum PokerHand {
     HighCard,
 }
 
-impl PokerHandImpl of Enumerable<PokerHand> {
+pub impl PokerHandImpl of Enumerable<PokerHand> {
     #[inline(always)]
     fn all() -> Span<PokerHand> {
         let mut items = array![
