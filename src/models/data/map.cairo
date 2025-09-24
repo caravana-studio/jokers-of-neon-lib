@@ -112,7 +112,7 @@ pub struct TraveledNodes {
 }
 
 #[derive(Copy, Drop, Serde)]
-struct ParsedLevelMap {
-    level_nodes: Span<Span<(Node, NodeChilds)>>,
-    traveled_nodes: Span<u32>,
+pub struct ParsedLevelMap {
+    pub level_nodes: Span<Span<(Node, NodeChilds)>>,
+    pub traveled_nodes: Span<u32>,
 }
