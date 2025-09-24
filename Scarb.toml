@@ -16,11 +16,8 @@ dojo = "1.7.0"
 dojo_cairo_macros = "1.7.0"
 starknet = "2.12.2"
 
-[lib]
-
-[[target.starknet-contract]]
-build-external-contracts = ["dojo::world::world_contract::world"]
-
 [dev-dependencies]
 cairo_test = "=2.12.2"
 dojo_cairo_test = "1.7.0"
+
+[lib]
