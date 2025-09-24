@@ -43,7 +43,7 @@ pub enum Suit {
     Wild,
 }
 
-impl SuitEnumerableImpl of Enumerable<Suit> {
+pub impl SuitEnumerableImpl of Enumerable<Suit> {
     #[inline(always)]
     fn all() -> Span<Suit> {
         let mut items = array![Suit::Clubs, Suit::Diamonds, Suit::Hearts, Suit::Spades];
@@ -128,7 +128,7 @@ trait Enumerable<T> {
     fn all() -> Span<T>;
 }
 
-impl ValueEnumerableImpl of Enumerable<Value> {
+pub impl ValueEnumerableImpl of Enumerable<Value> {
     #[inline(always)]
     fn all() -> Span<Value> {
         let mut items = array![
