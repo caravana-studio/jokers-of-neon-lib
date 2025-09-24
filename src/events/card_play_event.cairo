@@ -1,7 +1,7 @@
 use starknet::ContractAddress;
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
-enum EventType {
+pub enum EventType {
     Cash,
     Club,
     Diamond,
