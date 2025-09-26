@@ -32,7 +32,7 @@ impl GameTrackerDefault of Default<GameTracker> {
 }
 
 #[generate_trait]
-impl GameTrackerImpl of GameTrackerTrait {
+pub impl GameTrackerImpl of GameTrackerTrait {
     fn most_played_hand(ref self: GameTracker, poker_hand_tracker: PokerHandTracker) {
         let mut max_count = 0;
         let mut most_played = PokerHand::None;
