@@ -211,6 +211,11 @@ impl Felt252IntoCard of Into<felt252, Card> {
         let suit_u8: u8 = suit.try_into().unwrap();
         let value_u8: u8 = value.try_into().unwrap();
 
+        println!("post");
+
+        println!("suit_u8: {}", suit_u8);
+        println!("value_u8: {}", value_u8);
+
         Card {
             id: id.try_into().unwrap(),
             suit: suit_u8.into(),
