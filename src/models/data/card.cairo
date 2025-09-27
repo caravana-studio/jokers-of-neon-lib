@@ -202,6 +202,12 @@ impl Felt252IntoCard of Into<felt252, Card> {
 
         let multi = packed % TWO_POW_32;
 
+        println!("id: {}", id);
+        println!("suit: {}", suit);
+        println!("value: {}", value);
+        println!("points: {}", points);
+        println!("multi: {}", multi);
+
         let suit_u8: u8 = suit.try_into().unwrap();
         let value_u8: u8 = value.try_into().unwrap();
 
