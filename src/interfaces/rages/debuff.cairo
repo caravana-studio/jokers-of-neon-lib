@@ -1,7 +1,7 @@
 use jokers_of_neon_lib::models::data::card::{Suit, Value};
 
 #[starknet::interface]
-trait IRageDebuff<T> {
+pub trait IRageDebuff<T> {
     fn debuffed_suits(self: @T) -> Span<Suit>;
     fn debuffed_values(self: @T) -> Span<Value>;
     fn debuffed_ids(self: @T) -> Span<u32>;

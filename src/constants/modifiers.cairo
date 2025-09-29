@@ -1,53 +1,49 @@
 use jokers_of_neon_lib::models::data::effect_card::{EffectCard, TypeEffectCard};
 
-const SUIT_CLUB_MODIFIER_ID: u32 = 608;
-const SUIT_DIAMONDS_MODIFIER_ID: u32 = 609;
-const SUIT_HEARTS_MODIFIER_ID: u32 = 610;
-const SUIT_SPADES_MODIFIER_ID: u32 = 611;
-const NEON_MODIFIER_ID: u32 = 612;
-const WILD_CARD_MODIFIER_ID: u32 = 613;
+pub const SUIT_CLUB_MODIFIER_ID: u32 = 608;
+pub const SUIT_DIAMONDS_MODIFIER_ID: u32 = 609;
+pub const SUIT_HEARTS_MODIFIER_ID: u32 = 610;
+pub const SUIT_SPADES_MODIFIER_ID: u32 = 611;
+pub const NEON_MODIFIER_ID: u32 = 612;
+pub const WILD_CARD_MODIFIER_ID: u32 = 613;
 
-fn SUIT_CLUB_MODIFIER() -> EffectCard {
+pub fn SUIT_CLUB_MODIFIER() -> EffectCard {
     EffectCard { id: SUIT_CLUB_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: 0 }
 }
 
-fn SUIT_DIAMONDS_MODIFIER() -> EffectCard {
+pub fn SUIT_DIAMONDS_MODIFIER() -> EffectCard {
     EffectCard { id: SUIT_DIAMONDS_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: 0 }
 }
 
-fn SUIT_HEARTS_MODIFIER() -> EffectCard {
+pub fn SUIT_HEARTS_MODIFIER() -> EffectCard {
     EffectCard { id: SUIT_HEARTS_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: 0 }
 }
 
-fn SUIT_SPADES_MODIFIER() -> EffectCard {
+pub fn SUIT_SPADES_MODIFIER() -> EffectCard {
     EffectCard { id: SUIT_SPADES_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: 0 }
 }
 
-fn NEON_MODIFIER() -> EffectCard {
-    EffectCard { id: NEON_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: Zeroable::zero() }
+pub fn NEON_MODIFIER() -> EffectCard {
+    EffectCard { id: NEON_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: 0 }
 }
 
-fn WILD_CARD_MODIFIER() -> EffectCard {
-    EffectCard { id: WILD_CARD_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: Zeroable::zero() }
+pub fn WILD_CARD_MODIFIER() -> EffectCard {
+    EffectCard { id: WILD_CARD_MODIFIER_ID, type_effect_card: TypeEffectCard::Modifier, effect_id: 0 }
 }
 
-fn INVALID_EFFECT_CARD() -> EffectCard {
-    EffectCard { id: Zeroable::zero(), type_effect_card: TypeEffectCard::Modifier, effect_id: Zeroable::zero() }
+pub fn INVALID_EFFECT_CARD() -> EffectCard {
+    EffectCard { id: 0, type_effect_card: TypeEffectCard::Modifier, effect_id: 0 }
 }
 
-fn modifiers_ids_all() -> Array<u32> {
+pub fn modifiers_ids_all() -> Array<u32> {
     array![
-        SUIT_CLUB_MODIFIER_ID,
-        SUIT_DIAMONDS_MODIFIER_ID,
-        SUIT_HEARTS_MODIFIER_ID,
-        SUIT_SPADES_MODIFIER_ID,
-        NEON_MODIFIER_ID,
-        WILD_CARD_MODIFIER_ID,
+        SUIT_CLUB_MODIFIER_ID, SUIT_DIAMONDS_MODIFIER_ID, SUIT_HEARTS_MODIFIER_ID, SUIT_SPADES_MODIFIER_ID,
+        NEON_MODIFIER_ID, WILD_CARD_MODIFIER_ID,
     ]
 }
 
 // Return -> (Modifier Group, Probability Group, Group Cost)
-fn modifiers_shop_info() -> (Span<Span<u32>>, Span<u32>, Span<u32>) {
+pub fn modifiers_shop_info() -> (Span<Span<u32>>, Span<u32>, Span<u32>) {
     // B-Grade Group
     let B_MODIFIERS_PROBABILITY = 60;
     let B_MODIFIERS_COST = 300;

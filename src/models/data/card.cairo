@@ -1,13 +1,13 @@
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
-struct Card {
-    id: u32,
-    suit: Suit,
-    value: Value,
-    points: u32,
-    multi: u32,
+pub struct Card {
+    pub id: u32,
+    pub suit: Suit,
+    pub value: Value,
+    pub points: u32,
+    pub multi: u32,
 }
 
-trait CardTrait {
+pub trait CardTrait {
     fn new(value: Value, suit: Suit, points: u32) -> Card;
     fn generate_id(value: Value, suit: Suit) -> u32;
     fn generate_neon_id(card_id: u32) -> u32;
@@ -31,8 +31,9 @@ impl CardImpl of CardTrait {
     }
 }
 
-#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
-enum Suit {
+#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, Default)]
+pub enum Suit {
+    #[default]
     None,
     Clubs,
     Diamonds,
@@ -42,7 +43,7 @@ enum Suit {
     Wild,
 }
 
-impl SuitEnumerableImpl of Enumerable<Suit> {
+pub impl SuitEnumerableImpl of Enumerable<Suit> {
     #[inline(always)]
     fn all() -> Span<Suit> {
         let mut items = array![Suit::Clubs, Suit::Diamonds, Suit::Hearts, Suit::Spades];
@@ -100,8 +101,9 @@ impl SuitIntoFelt252 of Into<Suit, felt252> {
     }
 }
 
-#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
-enum Value {
+#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, Default)]
+pub enum Value {
+    #[default]
     None,
     Two,
     Three,
@@ -126,23 +128,12 @@ trait Enumerable<T> {
     fn all() -> Span<T>;
 }
 
-impl ValueEnumerableImpl of Enumerable<Value> {
+pub impl ValueEnumerableImpl of Enumerable<Value> {
     #[inline(always)]
     fn all() -> Span<Value> {
         let mut items = array![
-            Value::Two,
-            Value::Three,
-            Value::Four,
-            Value::Five,
-            Value::Six,
-            Value::Seven,
-            Value::Eight,
-            Value::Nine,
-            Value::Ten,
-            Value::Jack,
-            Value::Queen,
-            Value::King,
-            Value::Ace,
+            Value::Two, Value::Three, Value::Four, Value::Five, Value::Six, Value::Seven, Value::Eight, Value::Nine,
+            Value::Ten, Value::Jack, Value::Queen, Value::King, Value::Ace,
         ];
         items.span()
     }
@@ -197,11 +188,20 @@ const TWO_POW_8: u256 = 0x100; // 2^8
 impl Felt252IntoCard of Into<felt252, Card> {
     fn into(self: felt252) -> Card {
         let packed = self.into();
-        let (packed, id) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
-        let (packed, suit) = integer::U256DivRem::div_rem(packed, TWO_POW_8.try_into().expect('0 bits'));
-        let (packed, value) = integer::U256DivRem::div_rem(packed, TWO_POW_8.try_into().expect('0 bits'));
-        let (packed, points) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
-        let (_, multi) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
+
+        let id = packed % TWO_POW_32;
+        let packed = packed / TWO_POW_32;
+
+        let suit = packed % TWO_POW_8;
+        let packed = packed / TWO_POW_8;
+
+        let value = packed % TWO_POW_8;
+        let packed = packed / TWO_POW_8;
+
+        let points = packed % TWO_POW_32;
+        let packed = packed / TWO_POW_32;
+
+        let multi = packed % TWO_POW_32;
 
         let suit_u8: u8 = suit.try_into().unwrap();
         let value_u8: u8 = value.try_into().unwrap();

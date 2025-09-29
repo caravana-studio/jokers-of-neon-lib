@@ -23,10 +23,15 @@ impl PowerUpIntoFelt252 of Into<PowerUp, felt252> {
 
 impl Felt252IntoPowerUp of Into<felt252, PowerUp> {
     fn into(self: felt252) -> PowerUp {
-        let packed = self.into();
-        let (packed, id) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
-        let (packed, points) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
-        let (_, multi) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
+        let packed: u256 = self.into();
+
+        let id = packed % TWO_POW_32;
+        let packed = packed / TWO_POW_32;
+
+        let points = packed % TWO_POW_32;
+        let packed = packed / TWO_POW_32;
+
+        let multi = packed % TWO_POW_32;
 
         PowerUp { id: id.try_into().unwrap(), points: points.try_into().unwrap(), multi: multi.try_into().unwrap() }
     }

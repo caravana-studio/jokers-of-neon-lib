@@ -3,7 +3,7 @@ use jokers_of_neon_lib::configs::game::{
 };
 
 #[starknet::interface]
-trait IGameConfig<T> {
+pub trait IGameConfig<T> {
     fn get_game_config(self: @T) -> GameConfig;
     fn get_shop_prices_config(self: @T) -> ShopPricesConfig;
     fn get_round_reward_config(self: @T) -> RoundRewardConfig;

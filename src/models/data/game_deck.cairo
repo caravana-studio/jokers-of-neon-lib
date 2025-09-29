@@ -1,18 +1,18 @@
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct GameDeck {
+pub struct GameDeck {
     #[key]
-    game_id: u64,
-    len: u32,
-    round_len: u32,
+    pub game_id: u64,
+    pub len: u32,
+    pub round_len: u32,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
 #[dojo::model]
-struct DeckCard {
+pub struct DeckCard {
     #[key]
-    game_id: u64,
+    pub game_id: u64,
     #[key]
-    index: u32,
-    card_id: u32,
+    pub index: u32,
+    pub card_id: u32,
 }

@@ -1,14 +1,12 @@
-use jokers_of_neon_lib::models::data::poker_hand::{LevelPokerHand, PokerHand};
-
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
-struct EffectCard {
-    id: u32,
-    effect_id: u32,
-    type_effect_card: TypeEffectCard,
+pub struct EffectCard {
+    pub id: u32,
+    pub effect_id: u32,
+    pub type_effect_card: TypeEffectCard,
 }
 
 #[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
-enum TypeEffectCard {
+pub enum TypeEffectCard {
     Modifier,
     Special,
 }

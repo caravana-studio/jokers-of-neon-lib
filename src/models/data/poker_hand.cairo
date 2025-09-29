@@ -15,8 +15,9 @@ trait Enumerable<T> {
     fn all() -> Span<T>;
 }
 
-#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq)]
-enum PokerHand {
+#[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, DojoStore, Default)]
+pub enum PokerHand {
+    #[default]
     None,
     RoyalFlush,
     StraightFlush,
@@ -31,40 +32,32 @@ enum PokerHand {
     HighCard,
 }
 
-impl PokerHandImpl of Enumerable<PokerHand> {
+pub impl PokerHandImpl of Enumerable<PokerHand> {
     #[inline(always)]
     fn all() -> Span<PokerHand> {
         let mut items = array![
-            PokerHand::RoyalFlush,
-            PokerHand::StraightFlush,
-            PokerHand::FiveOfAKind,
-            PokerHand::FourOfAKind,
-            PokerHand::FullHouse,
-            PokerHand::Straight,
-            PokerHand::Flush,
-            PokerHand::ThreeOfAKind,
-            PokerHand::TwoPair,
-            PokerHand::OnePair,
-            PokerHand::HighCard,
+            PokerHand::RoyalFlush, PokerHand::StraightFlush, PokerHand::FiveOfAKind, PokerHand::FourOfAKind,
+            PokerHand::FullHouse, PokerHand::Straight, PokerHand::Flush, PokerHand::ThreeOfAKind, PokerHand::TwoPair,
+            PokerHand::OnePair, PokerHand::HighCard,
         ];
         items.span()
     }
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde, starknet::Event)]
-struct LevelPokerHand {
+pub struct LevelPokerHand {
     #[key]
-    poker_hand: PokerHand,
+    pub poker_hand: PokerHand,
     #[key]
-    level: u8,
-    multi: u32,
-    points: u32,
+    pub level: u8,
+    pub multi: u32,
+    pub points: u32,
 }
 
 impl PokerHandIntoFelt252 of Into<PokerHand, felt252> {
     fn into(self: PokerHand) -> felt252 {
         match self {
-            PokerHand::None => Zeroable::zero(),
+            PokerHand::None => 0,
             PokerHand::RoyalFlush => POKER_HAND_ROYAL_FLUSH.into(),
             PokerHand::StraightFlush => POKER_HAND_STRAIGHT_FLUSH.into(),
             PokerHand::FiveOfAKind => POKER_HAND_FIVE_OF_A_KIND.into(),
@@ -83,7 +76,7 @@ impl PokerHandIntoFelt252 of Into<PokerHand, felt252> {
 impl PokerHandIntou8 of Into<PokerHand, u8> {
     fn into(self: PokerHand) -> u8 {
         match self {
-            PokerHand::None => Zeroable::zero(),
+            PokerHand::None => 0,
             PokerHand::RoyalFlush => POKER_HAND_ROYAL_FLUSH.try_into().unwrap(),
             PokerHand::StraightFlush => POKER_HAND_STRAIGHT_FLUSH.try_into().unwrap(),
             PokerHand::FiveOfAKind => POKER_HAND_FIVE_OF_A_KIND.try_into().unwrap(),
@@ -102,7 +95,7 @@ impl PokerHandIntou8 of Into<PokerHand, u8> {
 impl PokerHandIntou32 of Into<PokerHand, u32> {
     fn into(self: PokerHand) -> u32 {
         match self {
-            PokerHand::None => Zeroable::zero(),
+            PokerHand::None => 0,
             PokerHand::RoyalFlush => POKER_HAND_ROYAL_FLUSH,
             PokerHand::StraightFlush => POKER_HAND_STRAIGHT_FLUSH,
             PokerHand::FiveOfAKind => POKER_HAND_FIVE_OF_A_KIND,
@@ -121,7 +114,7 @@ impl PokerHandIntou32 of Into<PokerHand, u32> {
 impl PokerHandTryIntoU32 of TryInto<u32, PokerHand> {
     #[inline(always)]
     fn try_into(self: u32) -> Option<PokerHand> {
-        if self == Zeroable::zero() {
+        if self == 0 {
             Option::Some(PokerHand::None)
         } else if self == POKER_HAND_ROYAL_FLUSH {
             Option::Some(PokerHand::RoyalFlush)

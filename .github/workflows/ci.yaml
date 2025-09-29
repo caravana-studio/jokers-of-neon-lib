@@ -9,8 +9,8 @@ on:
     workflow_dispatch:
 
 env:
-  DOJO_VERSION: v1.6.0-alpha.1
-  SCARB_VERSION: v2.10.1
+  DOJO_VERSION: v1.7.0
+  SCARB_VERSION: v2.12.2
 
 jobs:
   check:
@@ -28,11 +28,13 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    name: Build
+    name: Format
     if: github.event.pull_request.draft == false
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
-      - name: Build
-        run: sozo build
+      - uses: software-mansion/setup-scarb@v1
+        with:
+          scarb-version: ${{ env.SCARB_VERSION }}
+      - name: Format
+        run: scarb build
         shell: bash

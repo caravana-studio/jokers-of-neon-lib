@@ -1,8 +1,7 @@
-use jokers_of_neon_lib::models::data::card::Card;
 use jokers_of_neon_lib::models::tracker::GameContext;
 
 #[starknet::interface]
-trait ICardCondition<T> {
+pub trait ICardCondition<T> {
     /// Evaluates whether a given card meets a specific condition.
     ///
     /// # Parameters

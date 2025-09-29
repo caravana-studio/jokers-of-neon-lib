@@ -49,10 +49,10 @@ pub struct PlayerStats {
     pub burn_purchased: u32,
 }
 
-impl PlayerStatsDefault of Default<PlayerStats> {
+pub impl PlayerStatsDefault of Default<PlayerStats> {
     fn default() -> PlayerStats {
         PlayerStats {
-            address: Zeroable::zero(),
+            address: 0.try_into().unwrap(),
             games_played: 0,
             games_won: 0,
             high_card_played: 0,

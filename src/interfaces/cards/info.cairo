@@ -1,5 +1,5 @@
 #[starknet::interface]
-trait ICardInfo<T> {
+pub trait ICardInfo<T> {
     /// Retrieves game-related values, including points, multiplier, and cash.
     ///
     /// # Parameters

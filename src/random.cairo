@@ -1,8 +1,6 @@
 use core::num::traits::{WrappingAdd, WrappingMul};
-use core::{integer::{U256DivRem, u256_try_as_non_zero}};
 use jokers_of_neon_lib::interfaces::cartridge::vrf::{IVrfProviderDispatcher, IVrfProviderDispatcherTrait, Source};
-
-use starknet::{ContractAddress, contract_address_const, get_block_timestamp, get_caller_address, get_tx_info};
+use starknet::{ContractAddress, get_block_timestamp, get_caller_address, get_tx_info};
 
 const KATANA_CHAIN_ID: felt252 = 0x4b4154414e41;
 const SEPOLIA_CHAIN_ID: felt252 = 0x534e5f5345504f4c4941;
@@ -11,7 +9,7 @@ const U128_MAX: u128 = 340282366920938463463374607431768211455;
 const LCG_PRIME: u128 = 281474976710656;
 
 fn get_vrf_address() -> ContractAddress {
-    contract_address_const::<0x051fea4450da9d6aee758bdeba88b2f665bcbf549d2c61421aa724e9ac0ced8f>()
+    0x051fea4450da9d6aee758bdeba88b2f665bcbf549d2c61421aa724e9ac0ced8f.try_into().unwrap()
 }
 
 #[derive(Copy, Drop, Serde)]
@@ -24,14 +22,14 @@ pub struct Salt {
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
-struct Random {
+pub struct Random {
     #[key]
     pub key: felt252,
     pub seed: u128,
 }
 
 #[generate_trait]
-impl RandomImpl of RandomTrait {
+pub impl RandomImpl of RandomTrait {
     fn create_random_instance(key: felt252) -> Random {
         let random_hash = get_random_hash();
         let seed = get_entropy(random_hash);
@@ -64,7 +62,7 @@ impl RandomImpl of RandomTrait {
     fn between(ref self: Random, min: i32, max: i32) -> i32 {
         if min >= max {
             panic!("Random: min must be less than max");
-        };
+        }
 
         if min == max {
             return min;
@@ -110,7 +108,9 @@ fn get_random_hash() -> felt252 {
 }
 
 fn get_entropy(felt_to_split: felt252) -> u128 {
-    let (_d, r) = U256DivRem::div_rem(felt_to_split.into(), u256_try_as_non_zero(U128_MAX.into()).unwrap());
+    let felt_to_split_u256: u256 = felt_to_split.into();
+    let U128_MAX_u256: u256 = U128_MAX.into();
+    let r = felt_to_split_u256 % U128_MAX_u256;
     r.try_into().unwrap() % LCG_PRIME
 }
 

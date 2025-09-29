@@ -7,27 +7,28 @@
 // Node type: Reward -> Subtype: Any reward type (for the future)
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
-struct Node {
+pub struct Node {
     #[key]
-    game_id: u64,
+    pub game_id: u64,
     #[key]
-    id: u32,
-    node_type: NodeType,
-    data: felt252,
+    pub id: u32,
+    pub node_type: NodeType,
+    pub data: felt252,
 }
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
-struct NodeChilds {
+pub struct NodeChilds {
     #[key]
-    game_id: u64,
+    pub game_id: u64,
     #[key]
-    node_id: u32,
-    childs: Span<u32>,
+    pub node_id: u32,
+    pub childs: Span<u32>,
 }
 
-#[derive(Copy, Drop, Serde, PartialEq, IntrospectPacked)]
-enum NodeType {
+#[derive(Copy, Drop, Serde, PartialEq, IntrospectPacked, DojoStore, Default)]
+pub enum NodeType {
+    #[default]
     None,
     Round,
     Rage,
@@ -38,9 +39,9 @@ enum NodeType {
 // [ Node data]
 
 #[derive(Copy, Drop, Serde, PartialEq, IntrospectPacked)]
-struct RageNodeData {
-    power: u32,
-    round: u32,
+pub struct RageNodeData {
+    pub power: u32,
+    pub round: u32,
 }
 
 const TWO_POW_32: u256 = 0x100000000;
@@ -53,10 +54,10 @@ impl RageNodeDataIntoFelt252 of Into<RageNodeData, felt252> {
 
 impl Felt252IntoRageNodeData of Into<felt252, RageNodeData> {
     fn into(self: felt252) -> RageNodeData {
-        let packed = self.into();
-        let (packed, power) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
-        let (_, round) = integer::U256DivRem::div_rem(packed, TWO_POW_32.try_into().expect('0 bits'));
-
+        let packed: u256 = self.into();
+        let power = packed % TWO_POW_32;
+        let packed = packed / TWO_POW_32;
+        let round = packed % TWO_POW_32;
         RageNodeData { power: power.try_into().unwrap(), round: round.try_into().unwrap() }
     }
 }
@@ -79,39 +80,39 @@ pub impl NodeTypeDisplay of core::fmt::Display<NodeType> {
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
-struct LevelMap {
+pub struct LevelMap {
     #[key]
-    game_id: u64,
+    pub game_id: u64,
     #[key]
-    level: u32,
-    stages: Span<NodeType>,
-    level_nodes: Span<Span<u32>>,
-    latest_level_node_id: u32,
+    pub level: u32,
+    pub stages: Span<NodeType>,
+    pub level_nodes: Span<Span<u32>>,
+    pub latest_level_node_id: u32,
 }
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
-struct StageTracker {
+pub struct StageTracker {
     #[key]
-    game_id: u64,
-    store_stages: u32,
-    round_stages: u32,
-    rage_stages: u32,
-    total_nodes: u32,
+    pub game_id: u64,
+    pub store_stages: u32,
+    pub round_stages: u32,
+    pub rage_stages: u32,
+    pub total_nodes: u32,
 }
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
-struct TraveledNodes {
+pub struct TraveledNodes {
     #[key]
-    game_id: u64,
+    pub game_id: u64,
     #[key]
-    level: u32,
-    nodes: Span<u32>,
+    pub level: u32,
+    pub nodes: Span<u32>,
 }
 
 #[derive(Copy, Drop, Serde)]
-struct ParsedLevelMap {
-    level_nodes: Span<Span<(Node, NodeChilds)>>,
-    traveled_nodes: Span<u32>,
+pub struct ParsedLevelMap {
+    pub level_nodes: Span<Span<(Node, NodeChilds)>>,
+    pub traveled_nodes: Span<u32>,
 }
