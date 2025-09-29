@@ -188,33 +188,23 @@ const TWO_POW_8: u256 = 0x100; // 2^8
 impl Felt252IntoCard of Into<felt252, Card> {
     fn into(self: felt252) -> Card {
         let packed = self.into();
-        let packed = packed / TWO_POW_32;
+
         let id = packed % TWO_POW_32;
-
-        let packed = packed / TWO_POW_8;
-        let suit = packed % TWO_POW_8;
-
-        let packed = packed / TWO_POW_8;
-        let value = packed % TWO_POW_8;
-
         let packed = packed / TWO_POW_32;
+
+        let suit = packed % TWO_POW_8;
+        let packed = packed / TWO_POW_8;
+
+        let value = packed % TWO_POW_8;
+        let packed = packed / TWO_POW_8;
+
         let points = packed % TWO_POW_32;
+        let packed = packed / TWO_POW_32;
 
         let multi = packed % TWO_POW_32;
 
-        println!("id: {}", id);
-        println!("suit: {}", suit);
-        println!("value: {}", value);
-        println!("points: {}", points);
-        println!("multi: {}", multi);
-
         let suit_u8: u8 = suit.try_into().unwrap();
         let value_u8: u8 = value.try_into().unwrap();
-
-        println!("post");
-
-        println!("suit_u8: {}", suit_u8);
-        println!("value_u8: {}", value_u8);
 
         Card {
             id: id.try_into().unwrap(),

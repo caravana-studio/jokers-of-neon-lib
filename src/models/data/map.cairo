@@ -55,8 +55,8 @@ impl RageNodeDataIntoFelt252 of Into<RageNodeData, felt252> {
 impl Felt252IntoRageNodeData of Into<felt252, RageNodeData> {
     fn into(self: felt252) -> RageNodeData {
         let packed: u256 = self.into();
-        let packed = packed / TWO_POW_32;
         let power = packed % TWO_POW_32;
+        let packed = packed / TWO_POW_32;
         let round = packed % TWO_POW_32;
         RageNodeData { power: power.try_into().unwrap(), round: round.try_into().unwrap() }
     }

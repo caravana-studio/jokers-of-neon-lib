@@ -25,11 +25,11 @@ impl Felt252IntoPowerUp of Into<felt252, PowerUp> {
     fn into(self: felt252) -> PowerUp {
         let packed: u256 = self.into();
 
-        let packed = packed / TWO_POW_32;
         let id = packed % TWO_POW_32;
-
         let packed = packed / TWO_POW_32;
+
         let points = packed % TWO_POW_32;
+        let packed = packed / TWO_POW_32;
 
         let multi = packed % TWO_POW_32;
 
