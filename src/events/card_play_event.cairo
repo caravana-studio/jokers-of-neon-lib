@@ -29,3 +29,26 @@ pub struct CardPlayEvent {
     pub special: Span<(u32, i32)>,
     pub hand: Span<(u32, i32)>,
 }
+
+pub impl EventTypeDisplay of core::fmt::Display<EventType> {
+    fn fmt(self: @EventType, ref f: core::fmt::Formatter) -> Result<(), core::fmt::Error> {
+        let s = match self {
+            EventType::Cash => "Cash",
+            EventType::Club => "Club",
+            EventType::Diamond => "Diamond",
+            EventType::Point => "Point",
+            EventType::Multi => "Multi",
+            EventType::Neon => "Neon",
+            EventType::Spade => "Spade",
+            EventType::Heart => "Heart",
+            EventType::Joker => "Joker",
+            EventType::Wild => "Wild",
+            EventType::AcumCash => "AcumCash",
+            EventType::AcumPoint => "AcumPoint",
+            EventType::AcumMulti => "AcumMulti",
+            EventType::None => "None",
+        };
+        f.buffer.append(@s);
+        Result::Ok(())
+    }
+}
