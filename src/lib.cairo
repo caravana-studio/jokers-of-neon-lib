@@ -25,12 +25,12 @@ pub mod interfaces {
         pub mod silence;
     }
     pub mod cards {
+        pub mod burnable;
         pub mod condition;
         pub mod converter;
         pub mod equipable;
         pub mod executable;
         pub mod info;
-        pub mod burnable;
     }
     pub mod info {
         pub mod card_info;
