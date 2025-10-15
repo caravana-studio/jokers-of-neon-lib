@@ -20,6 +20,7 @@ pub enum CardType {
     Debuff,
     Silence,
     Info,
+    Burn,
     #[default]
     None,
 }
@@ -47,6 +48,7 @@ impl CardTypeIntoFelt252 of Into<CardType, felt252> {
             CardType::Debuff => 18,
             CardType::Silence => 19,
             CardType::Info => 20,
+            CardType::Burn => 21,
             CardType::None => 9999,
         }
     }
