@@ -53,3 +53,35 @@ impl CardTypeIntoFelt252 of Into<CardType, felt252> {
         }
     }
 }
+
+
+pub impl CardTypeDisplay of core::fmt::Display<CardType> {
+    fn fmt(self: @CardType, ref f: core::fmt::Formatter) -> Result<(), core::fmt::Error> {
+        let s = match self {
+            CardType::PreCalculateHand => "PreCalculateHand",
+            CardType::PostCalculateHand => "PostCalculateHand",
+            CardType::Hit => "Hit",
+            CardType::Miss => "Miss",
+            CardType::Hand => "Hand",
+            CardType::CurrentHand => "CurrentHand",
+            CardType::PowerUp => "PowerUp",
+            CardType::Win => "Win",
+            CardType::Lose => "Lose",
+            CardType::Discard => "Discard",
+            CardType::DiscardCondition => "DiscardCondition",
+            CardType::Round => "Round",
+            CardType::Game => "Game",
+            CardType::Shop => "Shop",
+            CardType::LevelUpPlay => "LevelUpPlay",
+            CardType::Play => "Play",
+            CardType::PlayRules => "PlayRules",
+            CardType::Debuff => "Debuff",
+            CardType::Silence => "Silence",
+            CardType::Info => "Info",
+            CardType::Burn => "Burn",
+            CardType::None => "None",
+        };
+        f.buffer.append(@s);
+        Result::Ok(())
+    }
+}
