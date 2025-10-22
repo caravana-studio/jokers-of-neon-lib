@@ -25,6 +25,7 @@ pub mod interfaces {
         pub mod silence;
     }
     pub mod cards {
+        pub mod burnable;
         pub mod condition;
         pub mod converter;
         pub mod equipable;
