@@ -31,6 +31,7 @@ pub mod interfaces {
         pub mod equipable;
         pub mod executable;
         pub mod info;
+        pub mod str_info;
     }
     pub mod info {
         pub mod card_info;
