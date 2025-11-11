@@ -111,6 +111,26 @@ impl PokerHandIntou32 of Into<PokerHand, u32> {
     }
 }
 
+impl PokerHandIntoByteArray of Into<PokerHand, ByteArray> {
+    fn into(self: PokerHand) -> ByteArray {
+        match self {
+            PokerHand::None => "None",
+            PokerHand::RoyalFlush => "Royal Flush",
+            PokerHand::StraightFlush => "Straight Flush",
+            PokerHand::FiveOfAKind => "Five of a Kind",
+            PokerHand::FourOfAKind => "Four of a Kind",
+            PokerHand::FullHouse => "Full House",
+            PokerHand::Straight => "Straight",
+            PokerHand::Flush => "Flush",
+            PokerHand::ThreeOfAKind => "Three of a Kind",
+            PokerHand::TwoPair => "Two Pair",
+            PokerHand::OnePair => "One Pair",
+            PokerHand::HighCard => "High Card",
+        }
+    }
+}
+
+
 impl PokerHandTryIntoU32 of TryInto<u32, PokerHand> {
     #[inline(always)]
     fn try_into(self: u32) -> Option<PokerHand> {
