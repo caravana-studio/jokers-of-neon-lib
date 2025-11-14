@@ -51,6 +51,7 @@ pub struct Game {
     pub cash: u32,
     pub available_rerolls: u32,
     pub seed: u128,
+    pub is_tournament: bool,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
