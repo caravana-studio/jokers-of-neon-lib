@@ -107,7 +107,7 @@ fn get_random_hash() -> felt252 {
     }
 }
 
-fn get_entropy(felt_to_split: felt252) -> u128 {
+pub fn get_entropy(felt_to_split: felt252) -> u128 {
     let felt_to_split_u256: u256 = felt_to_split.into();
     let U128_MAX_u256: u256 = U128_MAX.into();
     let r = felt_to_split_u256 % U128_MAX_u256;
