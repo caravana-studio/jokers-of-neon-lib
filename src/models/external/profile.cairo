@@ -15,6 +15,7 @@ pub struct Profile {
     pub banned: bool,
     pub badges_ids: Span<u32>,
     pub avatar_id: u16,
+    pub claimable_packs: Span<u32>,
 }
 
 #[derive(Copy, Drop, Serde, Debug)]
