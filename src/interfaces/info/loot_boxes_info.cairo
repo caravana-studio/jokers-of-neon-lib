@@ -1,4 +1,4 @@
-use jokers_of_neon_lib::models::data::loot_box::LootBox;
+use crate::models::data::loot_box::LootBox;
 
 #[starknet::interface]
 pub trait ILootBoxesInfo<T> {
