@@ -28,13 +28,13 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    name: Format
+    name: Build
     if: github.event.pull_request.draft == false
     steps:
       - uses: actions/checkout@v4
       - uses: software-mansion/setup-scarb@v1
         with:
           scarb-version: ${{ env.SCARB_VERSION }}
-      - name: Format
+      - name: Build
         run: scarb build
         shell: bash
