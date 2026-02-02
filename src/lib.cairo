@@ -49,6 +49,7 @@ pub mod events {
 pub mod models {
     pub mod card_type;
     pub mod tracker;
+    pub mod mission;
     pub mod data {
         pub mod card;
         pub mod effect_card;
