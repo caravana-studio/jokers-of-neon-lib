@@ -1,14 +1,14 @@
-use jokers_of_neon_lib::models::status::game::game::Game;
 use jokers_of_neon_lib::models::status::shop::shop::{
     BlisterPackItem, BurnItem, CardItem, PokerHandItem, PowerUpItem, SlotSpecialCardsItem, SpecialCardItem,
 };
+use jokers_of_neon_lib::models::tracker::GameContext;
 
 #[starknet::interface]
 pub trait IShopDiscount<T> {
     /// Applies discounts to shop items based on special card effects.
     ///
     /// # Parameters
-    /// - `game`: The current game state
+    /// - `context`: The current game context containing game state, round info, and played cards
     /// - `card_items`: Traditional and modifier card items in the shop
     /// - `special_card_items`: Special card items in the shop
     /// - `blister_pack_items`: Blister pack items in the shop
@@ -28,7 +28,7 @@ pub trait IShopDiscount<T> {
     /// - `BurnItem`: Burn item with applied discount
     fn apply_discount(
         ref self: T,
-        game: Game,
+        context: GameContext,
         card_items: Span<CardItem>,
         special_card_items: Span<SpecialCardItem>,
         blister_pack_items: Span<BlisterPackItem>,
