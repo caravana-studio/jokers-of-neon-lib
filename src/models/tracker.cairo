@@ -156,16 +156,25 @@ impl PokerHandTrackerDefault of Default<PokerHandTracker> {
 }
 
 #[derive(Copy, Drop, Serde)]
+pub struct PlayedCard {
+    pub hit: bool,
+    pub silenced: bool,
+    pub idx: u32,
+    pub card: Card,
+}
+
+#[derive(Copy, Drop, Serde)]
 pub struct GameContext {
     pub game: Game,
     pub round: Round,
     pub hand: (PokerHand, u32), // (Hand, Level)
     pub card_type: CardType,
-    pub cards_played: Span<(bool, u32, Card)>, // (hit, idx, Card)
+    pub cards_played: Span<PlayedCard>,
     pub cards_in_hand: Span<(u32, Card)>, // (idx, Card)
     pub cards_in_deck: Span<u32>,
     pub special_cards: Span<CurrentSpecialCards>,
     pub power_ups: Span<u32>,
+    pub power_ups_played: Span<u32>,
     pub purchase_tracker: PurchaseTracker,
     pub game_tracker: GameTracker,
     pub poker_hand_tracker: PokerHandTracker,
@@ -209,6 +218,7 @@ impl GameContextDefault of Default<GameContext> {
             cards_in_deck: array![].span(),
             special_cards: array![].span(),
             power_ups: array![].span(),
+            power_ups_played: array![].span(),
             purchase_tracker: Default::default(),
             game_tracker: Default::default(),
             poker_hand_tracker: Default::default(),
