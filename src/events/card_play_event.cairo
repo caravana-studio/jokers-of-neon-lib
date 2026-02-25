@@ -15,6 +15,7 @@ pub enum EventType {
     AcumCash,
     AcumPoint,
     AcumMulti,
+    Rank,
     None,
 }
 
@@ -46,6 +47,7 @@ pub impl EventTypeDisplay of core::fmt::Display<EventType> {
             EventType::AcumCash => "AcumCash",
             EventType::AcumPoint => "AcumPoint",
             EventType::AcumMulti => "AcumMulti",
+            EventType::Rank => "Rank",
             EventType::None => "None",
         };
         f.buffer.append(@s);

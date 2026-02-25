@@ -31,6 +31,8 @@ pub mod interfaces {
         pub mod equipable;
         pub mod executable;
         pub mod info;
+        pub mod level_up;
+        pub mod shop_discount;
     }
     pub mod info {
         pub mod card_info;
