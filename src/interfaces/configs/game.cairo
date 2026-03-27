@@ -4,7 +4,7 @@ use jokers_of_neon_lib::configs::game::{
 
 #[starknet::interface]
 pub trait IGameConfig<T> {
-    fn get_game_config(self: @T) -> GameConfig;
+    fn get_game_config_for_tier(self: @T, tier: u8) -> GameConfig;
     fn get_shop_prices_config(self: @T) -> ShopPricesConfig;
     fn get_round_reward_config(self: @T) -> RoundRewardConfig;
     fn get_rage_round_config(self: @T) -> RageRoundConfig;
