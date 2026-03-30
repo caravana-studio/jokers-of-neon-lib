@@ -25,6 +25,7 @@ pub enum CardType {
     ShopDiscount,
     PostDeal,
     EndRound,
+    FreeAction,
     #[default]
     None,
 }
@@ -57,6 +58,7 @@ impl CardTypeIntoFelt252 of Into<CardType, felt252> {
             CardType::ShopDiscount => 23,
             CardType::PostDeal => 24,
             CardType::EndRound => 25,
+            CardType::FreeAction => 26,
             CardType::None => 9999,
         }
     }
@@ -91,6 +93,7 @@ pub impl CardTypeDisplay of core::fmt::Display<CardType> {
             CardType::ShopDiscount => "ShopDiscount",
             CardType::PostDeal => "PostDeal",
             CardType::EndRound => "EndRound",
+            CardType::FreeAction => "FreeAction",
             CardType::None => "None",
         };
         f.buffer.append(@s);
