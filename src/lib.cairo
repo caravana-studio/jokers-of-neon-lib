@@ -28,6 +28,7 @@ pub mod interfaces {
         pub mod burnable;
         pub mod condition;
         pub mod converter;
+        pub mod end_round;
         pub mod equipable;
         pub mod executable;
         pub mod info;
