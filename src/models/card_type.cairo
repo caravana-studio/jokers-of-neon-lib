@@ -23,6 +23,7 @@ pub enum CardType {
     Burn,
     LevelUpDiscard,
     ShopDiscount,
+    PostDeal,
     #[default]
     None,
 }
@@ -53,6 +54,7 @@ impl CardTypeIntoFelt252 of Into<CardType, felt252> {
             CardType::Burn => 21,
             CardType::LevelUpDiscard => 22,
             CardType::ShopDiscount => 23,
+            CardType::PostDeal => 24,
             CardType::None => 9999,
         }
     }
@@ -85,6 +87,7 @@ pub impl CardTypeDisplay of core::fmt::Display<CardType> {
             CardType::Burn => "Burn",
             CardType::LevelUpDiscard => "LevelUpDiscard",
             CardType::ShopDiscount => "ShopDiscount",
+            CardType::PostDeal => "PostDeal",
             CardType::None => "None",
         };
         f.buffer.append(@s);
