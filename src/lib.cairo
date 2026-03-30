@@ -33,6 +33,7 @@ pub mod interfaces {
         pub mod info;
         pub mod level_up;
         pub mod shop_discount;
+        pub mod shop_modifier;
     }
     pub mod info {
         pub mod card_info;
