@@ -201,7 +201,7 @@ impl GameContextDefault of Default<GameContext> {
                 current_node_id: 0,
                 round: 0,
                 seed: 0,
-                is_tournament: false,
+                game_mode: 0,
             },
             round: Round {
                 game_id: 0,

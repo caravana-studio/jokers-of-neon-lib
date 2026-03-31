@@ -1,5 +1,9 @@
 use starknet::ContractAddress;
 
+pub const GAME_MODE_NORMAL: u8 = 0;
+pub const GAME_MODE_TOURNAMENT: u8 = 1;
+pub const GAME_MODE_PRACTICE: u8 = 2;
+
 #[derive(Serde, Copy, Drop, IntrospectPacked, PartialEq, DojoStore, Default)]
 pub enum GameState {
     #[default]
@@ -51,7 +55,7 @@ pub struct Game {
     pub cash: u32,
     pub available_rerolls: u32,
     pub seed: u128,
-    pub is_tournament: bool,
+    pub game_mode: u8,
 }
 
 #[derive(Copy, Drop, IntrospectPacked, Serde)]
