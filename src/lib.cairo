@@ -31,7 +31,6 @@ pub mod interfaces {
         pub mod end_round;
         pub mod equipable;
         pub mod executable;
-        pub mod free_action;
         pub mod info;
         pub mod level_up;
         pub mod shop_discount;
