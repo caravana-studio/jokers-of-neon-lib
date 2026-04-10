@@ -32,7 +32,9 @@ pub mod interfaces {
         pub mod equipable;
         pub mod executable;
         pub mod info;
+        pub mod info_instance;
         pub mod level_up;
+        pub mod pre_round;
         pub mod shop_discount;
         pub mod shop_modifier;
     }
