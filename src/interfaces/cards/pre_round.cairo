@@ -11,9 +11,6 @@ pub struct PreRoundResult {
 #[starknet::interface]
 pub trait IPreRound<T> {
     fn on_pre_round(
-        ref self: T,
-        context: GameContext,
-        source: CurrentSpecialCards,
-        candidates: Span<CurrentSpecialCards>,
+        ref self: T, context: GameContext, source: CurrentSpecialCards, candidates: Span<CurrentSpecialCards>,
     ) -> PreRoundResult;
 }
