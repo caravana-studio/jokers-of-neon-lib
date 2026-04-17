@@ -28,11 +28,15 @@ pub mod interfaces {
         pub mod burnable;
         pub mod condition;
         pub mod converter;
+        pub mod end_round;
         pub mod equipable;
         pub mod executable;
         pub mod info;
+        pub mod info_instance;
         pub mod level_up;
+        pub mod pre_round;
         pub mod shop_discount;
+        pub mod shop_modifier;
     }
     pub mod info {
         pub mod card_info;
