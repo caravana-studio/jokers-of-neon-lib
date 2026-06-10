@@ -27,6 +27,8 @@ pub enum CardType {
     EndRound,
     PostAction,
     PreRound,
+    HandReserve,
+    CurrentHandSetup,
     #[default]
     None,
 }
@@ -61,6 +63,8 @@ impl CardTypeIntoFelt252 of Into<CardType, felt252> {
             CardType::EndRound => 25,
             CardType::PostAction => 26,
             CardType::PreRound => 27,
+            CardType::HandReserve => 28,
+            CardType::CurrentHandSetup => 29,
             CardType::None => 9999,
         }
     }
@@ -97,6 +101,8 @@ pub impl CardTypeDisplay of core::fmt::Display<CardType> {
             CardType::EndRound => "EndRound",
             CardType::PostAction => "PostAction",
             CardType::PreRound => "PreRound",
+            CardType::HandReserve => "HandReserve",
+            CardType::CurrentHandSetup => "CurrentHandSetup",
             CardType::None => "None",
         };
         f.buffer.append(@s);
