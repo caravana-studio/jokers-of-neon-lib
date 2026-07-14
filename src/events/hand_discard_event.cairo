@@ -8,16 +8,6 @@ pub enum DiscardSource {
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::event]
-pub struct HandDiscardEvent {
-    #[key]
-    pub player: ContractAddress,
-    pub game_id: u64,
-    pub source: DiscardSource,
-    pub discarded_hand_indexes: Span<u32>,
-}
-
-#[derive(Copy, Drop, Serde)]
-#[dojo::event]
 pub struct ForcedHandDiscardEvent {
     #[key]
     pub player: ContractAddress,
