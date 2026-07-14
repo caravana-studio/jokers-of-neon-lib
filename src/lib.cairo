@@ -50,6 +50,7 @@ pub mod interfaces {
 pub mod events {
     pub mod card_activate_event;
     pub mod card_play_event;
+    pub mod hand_discard_event;
 }
 
 pub mod models {
